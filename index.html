@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxury Horizon — Agencia de Viajes & Tours</title>
+
+  <!-- Open Graph / WhatsApp preview -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://luxhorizon.netlify.app" />
+  <meta property="og:title"       content="Luxury Horizon — Agencia de Viajes & Tours" />
+  <meta property="og:description" content="Descubre tours y paquetes de viaje de lujo. Contáctanos por Instagram o WhatsApp." />
+  <meta property="og:image"       content="https://luxhorizon.netlify.app/assest/logo.jpeg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"      content="es_CO" />
+
+  <!-- Twitter / iMessage -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Luxury Horizon — Agencia de Viajes & Tours" />
+  <meta name="twitter:description" content="Descubre tours y paquetes de viaje de lujo. Contáctanos por Instagram o WhatsApp." />
+  <meta name="twitter:image"       content="https://luxhorizon.netlify.app/assest/logo.jpeg" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── MY PALETTE: Deep Space + Rose Gold + Platinum ─── */
+    :root {
+      --space:      #08071A;
+      --space-2:    #0F0D26;
+      --rose-gold:  #C9826A;
+      --rose-2:     #E8A890;
+      --platinum:   #D8D8E8;
+      --platinum-2: #AEAEC8;
+      --violet:     #2B1E5A;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100dvh;
+      background: var(--space);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Raleway', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ── Deep space nebula background ── */
+    .nebula {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .nebula::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      left: -20%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(43,30,90,0.55) 0%, transparent 65%);
+      animation: drift1 18s ease-in-out infinite alternate;
+    }
+    .nebula::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      right: -20%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(201,130,106,0.18) 0%, transparent 65%);
+      animation: drift2 22s ease-in-out infinite alternate;
+    }
+    @keyframes drift1 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(8%,5%) scale(1.08); } }
+    @keyframes drift2 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(-6%,-8%) scale(1.1); } }
+
+    /* ── Micro stars ── */
+    .stars-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ── Card ── */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      margin: 2rem auto;
+      padding: 2.5rem 1.8rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Logo with rose-gold glow ── */
+    .logo-outer {
+      position: relative;
+      width: 165px;
+      height: 165px;
+      margin-bottom: 1.6rem;
+    }
+    /* Soft outer glow */
+    .logo-outer::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,130,106,0.22) 0%, transparent 65%);
+    }
+    /* Rose gold ring */
+    .logo-outer::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,130,106,0.5);
+      box-shadow: 0 0 12px rgba(201,130,106,0.3);
+    }
+    .logo-img-wrap {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(201,130,106,0.7);
+    }
+    .logo-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── Animated rose-gold particles ── */
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--rose-gold);
+      animation: orbit var(--d) linear infinite;
+      width: var(--s);
+      height: var(--s);
+      top: 50%;
+      left: 50%;
+      transform-origin: 0 0;
+      opacity: 0;
+      animation-delay: var(--delay);
+    }
+    @keyframes orbit {
+      0%   { opacity: 0; transform: rotate(var(--start)) translateX(calc(82px + var(--offset))) scale(0); }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.6; }
+      100% { opacity: 0; transform: rotate(calc(var(--start) + 360deg)) translateX(calc(82px + var(--offset))) scale(1); }
+    }
+
+    /* ── Text ── */
+    .brand-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-align: center;
+      color: var(--platinum);
+      text-transform: uppercase;
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(201,130,106,0.3);
+    }
+    .brand-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      color: var(--rose-gold);
+      text-transform: uppercase;
+      margin: 0.4rem 0 1.6rem;
+      text-align: center;
+    }
+
+    /* ── Elegant rose-gold divider ── */
+    .divider {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,130,106,0.5), transparent);
+    }
+    .divider span {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--rose-gold);
+      box-shadow: 0 0 6px rgba(201,130,106,0.6);
+      flex-shrink: 0;
+    }
+
+    /* ── Buttons ── */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      width: 100%;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    /* Rose Gold gradient pill (Instagram DM) */
+    .btn-ig-dm {
+      background: linear-gradient(135deg, #9D5E4A 0%, #C9826A 40%, #E8A890 70%, #C9826A 100%);
+      background-size: 200% auto;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(201,130,106,0.4);
+      animation: btn-shimmer 5s linear infinite;
+    }
+    @keyframes btn-shimmer { to { background-position: 200% center; } }
+    .btn-ig-dm:hover {
+      box-shadow: 0 6px 28px rgba(201,130,106,0.55);
+      transform: translateY(-1px);
+    }
+
+    /* Platinum outline (Instagram Profile) */
+    .btn-ig-profile {
+      background: transparent;
+      color: var(--platinum);
+      border: 1px solid rgba(216,216,232,0.3);
+    }
+    .btn-ig-profile:hover {
+      background: rgba(216,216,232,0.06);
+      border-color: rgba(216,216,232,0.55);
+      box-shadow: 0 0 16px rgba(216,216,232,0.12);
+      transform: translateY(-1px);
+    }
+
+    /* Mint WhatsApp */
+    .btn-wa {
+      background: linear-gradient(135deg, #0D3320 0%, #155633 50%, #1a6b40 100%);
+      color: #9CF2C2;
+      border: 1px solid rgba(37,211,102,0.2);
+      box-shadow: 0 4px 18px rgba(37,211,102,0.18);
+    }
+    .btn-wa:hover {
+      box-shadow: 0 6px 24px rgba(37,211,102,0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      fill: currentColor;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.57rem;
+      letter-spacing: 0.2em;
+      color: rgba(201,130,106,0.2);
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* ── Toast ── */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: rgba(8,7,26,0.95);
+      border: 1px solid var(--rose-gold);
+      color: var(--rose-2);
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 999;
+      box-shadow: 0 0 18px rgba(201,130,106,0.25);
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- Nebula -->
+  <div class="nebula"></div>
+
+  <!-- Micro stars -->
+  <canvas id="starCanvas" class="stars-bg"></canvas>
+
+  <div class="card">
+
+    <div class="logo-outer" id="logoOuter">
+      <div class="logo-img-wrap">
+        <img src="assest/logo.jpeg" alt="Luxury Horizon" />
+      </div>
+    </div>
+
+    <h1 class="brand-name">Luxury Horizon</h1>
+    <p class="brand-sub">Agencia de Viajes &amp; Tours de Lujo</p>
+
+    <div class="divider">
+      <span></span>
+    </div>
+
+    <div class="btn-group">
+
+      <button class="btn btn-ig-dm" onclick="openIgDM()">
+        <svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Enviar Mensaje por Instagram
+      </button>
+
+      <a class="btn btn-ig-profile" href="https://www.instagram.com/agencialuxuryhorizon_" target="_blank" rel="noopener">
+        <svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Ver Perfil de Instagram
+      </a>
+
+      <a class="btn btn-wa" href="https://wa.me/573126322306?text=Hola%2C%20estoy%20interesado%20en%20información%20de%20los%20tours" target="_blank" rel="noopener">
+        <svg class="btn-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Contáctanos por WhatsApp
+      </a>
+
+    </div>
+
+    <p class="footer">© 2025 Luxury Horizon · Todos los derechos reservados</p>
+  </div>
+
+  <div class="toast" id="toast">💬 Mensaje copiado — pégalo en Instagram</div>
+
+  <script>
+    // ── Micro starfield on canvas ──
+    const canvas = document.getElementById('starCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', () => { resize(); initStars(); });
+
+    function initStars() {
+      stars = Array.from({ length: 160 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.2 + 0.3,
+        a: Math.random(),
+        da: (Math.random() * 0.006 + 0.002) * (Math.random() < 0.5 ? 1 : -1),
+        color: Math.random() < 0.3 ? '#C9826A' : '#D8D8E8',
+      }));
+    }
+    initStars();
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        s.a += s.da;
+        if (s.a > 1) { s.a = 1; s.da = -s.da; }
+        if (s.a < 0) { s.a = 0; s.da = -s.da; }
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = s.color;
+        ctx.globalAlpha = s.a * 0.6;
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
+
+    // ── Instagram DM ──
+    function openIgDM() {
+      const msg = 'Estoy interesado en información de los tours';
+      if (navigator.clipboard) navigator.clipboard.writeText(msg).catch(() => {});
+      showToast('💬 Mensaje copiado — pégalo en Instagram');
+      setTimeout(() => window.open('https://ig.me/m/agencialuxuryhorizon_', '_blank'), 350);
+    }
+
+    function showToast(text) {
+      const t = document.getElementById('toast');
+      t.textContent = text;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3200);
+    }
+  </script>
+</body>
+</html>
