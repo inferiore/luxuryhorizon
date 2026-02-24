@@ -406,7 +406,21 @@
       const msg = 'Estoy interesado en información de los tours';
       if (navigator.clipboard) navigator.clipboard.writeText(msg).catch(() => {});
       showToast('💬 Mensaje copiado — pégalo en Instagram');
-      setTimeout(() => window.open('https://ig.me/m/agencialuxuryhorizon_', '_blank'), 350);
+
+      // Intenta abrir la app nativa; si no está instalada, cae al sitio web
+      const appUrl = 'instagram://direct/new?username=agencialuxuryhorizon_';
+      const webUrl = 'https://ig.me/m/agencialuxuryhorizon_';
+
+      let appOpened = false;
+      const onHide = () => { if (document.hidden) appOpened = true; };
+      document.addEventListener('visibilitychange', onHide);
+
+      window.location.href = appUrl;
+
+      setTimeout(() => {
+        document.removeEventListener('visibilitychange', onHide);
+        if (!appOpened) window.open(webUrl, '_blank');
+      }, 1500);
     }
 
     function showToast(text) {
