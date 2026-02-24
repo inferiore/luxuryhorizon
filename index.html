@@ -233,20 +233,6 @@
     }
     .btn:active { transform: scale(0.97); }
 
-    /* Rose Gold gradient pill (Instagram DM) */
-    .btn-ig-dm {
-      background: linear-gradient(135deg, #9D5E4A 0%, #C9826A 40%, #E8A890 70%, #C9826A 100%);
-      background-size: 200% auto;
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(201,130,106,0.4);
-      animation: btn-shimmer 5s linear infinite;
-    }
-    @keyframes btn-shimmer { to { background-position: 200% center; } }
-    .btn-ig-dm:hover {
-      box-shadow: 0 6px 28px rgba(201,130,106,0.55);
-      transform: translateY(-1px);
-    }
-
     /* Platinum outline (Instagram Profile) */
     .btn-ig-profile {
       background: transparent;
@@ -337,11 +323,6 @@
 
     <div class="btn-group">
 
-      <button class="btn btn-ig-dm" onclick="openIgDM()">
-        <svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        Enviar Mensaje por Instagram
-      </button>
-
       <a class="btn btn-ig-profile" href="https://www.instagram.com/agencialuxuryhorizon_" target="_blank" rel="noopener">
         <svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         Ver Perfil de Instagram
@@ -356,8 +337,6 @@
 
     <p class="footer">© 2025 Luxury Horizon · Todos los derechos reservados</p>
   </div>
-
-  <div class="toast" id="toast">💬 Mensaje copiado — pégalo en Instagram</div>
 
   <script>
     // ── Micro starfield on canvas ──
@@ -401,34 +380,6 @@
     }
     drawStars();
 
-    // ── Instagram DM ──
-    function openIgDM() {
-      const msg = 'Estoy interesado en información de los tours';
-      if (navigator.clipboard) navigator.clipboard.writeText(msg).catch(() => {});
-      showToast('💬 Mensaje copiado — pégalo en Instagram');
-
-      // Intenta abrir la app nativa; si no está instalada, cae al sitio web
-      const appUrl = 'instagram://direct/new?username=agencialuxuryhorizon_';
-      const webUrl = 'https://ig.me/m/agencialuxuryhorizon_';
-
-      let appOpened = false;
-      const onHide = () => { if (document.hidden) appOpened = true; };
-      document.addEventListener('visibilitychange', onHide);
-
-      window.location.href = appUrl;
-
-      setTimeout(() => {
-        document.removeEventListener('visibilitychange', onHide);
-        if (!appOpened) window.open(webUrl, '_blank');
-      }, 1500);
-    }
-
-    function showToast(text) {
-      const t = document.getElementById('toast');
-      t.textContent = text;
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 3200);
-    }
   </script>
 </body>
 </html>
