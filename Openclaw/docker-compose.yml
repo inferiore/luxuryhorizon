@@ -1,0 +1,18 @@
+services:
+  app:
+    build: .
+    container_name: luxury-horizon-openclaw
+    restart: unless-stopped
+    ports:
+      - "3001:3000"
+      - "18789:18789"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - openclaw-state:/root/.openclaw
+      - ./Context:/app/Context
+    environment:
+      - NODE_ENV=development
+
+volumes:
+  openclaw-state:

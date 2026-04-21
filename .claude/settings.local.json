@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(which netlify && netlify --version 2>/dev/null || echo \"NOT_INSTALLED\")",
+      "Bash(which npm && npm --version)",
+      "Bash(npm install -g netlify-cli 2>&1 | t2)",
+      "Bash(netlify --version)",
+      "Bash(netlify login 2>&1)",
+      "Bash(netlify deploy --prod --dir . --message \"Luxury Horizon BioLink inicial\" 2>&1)",
+      "Bash(netlify deploy --create-site luxuryhorizon-biolink --prod --dir . --message \"Luxury Horizon BioLink inicial\" 2>&1)",
+      "Bash(git push -u origin main 2>&1)",
+      "Bash(netlify deploy --prod --dir . --message \"Eliminar botón de DM de Instagram\" 2>&1 | tail -12 && git add index.html && git commit -m \"$\\(cat <<'EOF'\nEliminar botón de enviar mensaje por Instagram\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\" && git push)"
+    ]
+  }
+}
