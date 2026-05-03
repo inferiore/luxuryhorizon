@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Horizon — Agencia de Viajes Colombia</title>
+  <meta name="description" content="Luxury Horizon — Tu agencia de viajes de lujo en Colombia. Tours exclusivos a Cartagena, Medellín y San Andrés.">
+  <meta property="og:title" content="Luxury Horizon — Travel Agency Colombia">
+  <meta property="og:description" content="Exclusive tours and travel experiences in Colombia's most stunning destinations.">
+  <meta property="og:image" content="https://luxhorizon.netlify.app/assest/logo.jpeg">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Variables ─────────────────────────────────────────── */
+    :root {
+      --midnight: #0A1A32;
+      --midnight-light: #112244;
+      --golden: #B79A49;
+      --golden-light: #d4b86a;
+      --smoke: #F0F0F0;
+      --teal: #44F0F7;
+      --bronze: #A56C30;
+      --white: #ffffff;
+      --transition: 0.35s ease;
+    }
+
+    /* ── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Jost', sans-serif; background: var(--midnight); color: var(--smoke); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ── Typography ────────────────────────────────────────── */
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 300; line-height: 1.15; }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+    h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+    p  { font-size: 1rem; line-height: 1.75; font-weight: 300; }
+
+    /* ── Utility ───────────────────────────────────────────── */
+    .gold      { color: var(--golden); }
+    .section   { padding: 6rem 2rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .divider   { width: 60px; height: 2px; background: var(--golden); margin: 1.5rem 0; }
+    .divider.center { margin: 1.5rem auto; }
+    .tag       { display: inline-block; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--golden); font-family: 'Jost', sans-serif; font-weight: 500; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 2.2rem; border-radius: 2px;
+      font-family: 'Jost', sans-serif; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
+      transition: var(--transition); cursor: pointer; border: none;
+    }
+    .btn-gold  { background: var(--golden); color: var(--midnight); }
+    .btn-gold:hover { background: var(--golden-light); transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--smoke); border: 1px solid var(--golden); }
+    .btn-outline:hover { background: var(--golden); color: var(--midnight); transform: translateY(-2px); }
+
+    /* ── Language Switcher ─────────────────────────────────── */
+    #lang-toggle {
+      background: transparent; border: 1px solid rgba(183,154,73,0.4);
+      color: var(--golden); font-family: 'Jost', sans-serif;
+      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; cursor: pointer; transition: var(--transition); border-radius: 2px;
+    }
+    #lang-toggle:hover { background: var(--golden); color: var(--midnight); }
+
+    /* ── Navigation ────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 3rem;
+      transition: background var(--transition), padding var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(10,26,50,0.97); backdrop-filter: blur(12px);
+      padding: 0.9rem 3rem;
+      border-bottom: 1px solid rgba(183,154,73,0.15);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+      font-weight: 400; letter-spacing: 0.05em; color: var(--smoke);
+    }
+    .nav-logo span { color: var(--golden); }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a {
+      font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(240,240,240,0.75); transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--golden); }
+    .nav-right { display: flex; gap: 1rem; align-items: center; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 1.5px; background: var(--smoke); transition: var(--transition); display: block; }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-color: var(--midnight);
+      background-position: center; background-size: cover; background-repeat: no-repeat;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-in-out infinite alternate;
+      transition: opacity 0.8s ease;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(10,26,50,0.82) 0%, rgba(10,26,50,0.38) 55%, rgba(165,108,48,0.18) 100%);
+    }
+    @keyframes heroZoom { from { transform: scale(1.05); } to { transform: scale(1.12); } }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center; padding: 2rem;
+      max-width: 900px;
+    }
+    .hero-content .tag { margin-bottom: 1.5rem; }
+    .hero-content h1 { color: var(--white); margin-bottom: 1.5rem; text-shadow: 0 2px 40px rgba(0,0,0,0.4); }
+    .hero-content h1 em { color: var(--golden); font-style: italic; }
+    .hero-content p { color: rgba(240,240,240,0.85); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2.5rem; }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(240,240,240,0.5); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; z-index: 2;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .hero-scroll svg { width: 20px; opacity: 0.5; }
+    @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+
+    /* ── Stats Bar ─────────────────────────────────────────── */
+    #stats {
+      background: var(--golden); padding: 2rem 3rem;
+      display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; color: var(--midnight); }
+    .stat-lbl { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(10,26,50,0.75); margin-top: 0.2rem; }
+
+    /* ── Destinations ──────────────────────────────────────── */
+    #destinations { background: var(--midnight); }
+    #destinations .section-header { text-align: center; margin-bottom: 4rem; }
+    .dest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .dest-card {
+      position: relative; border-radius: 3px; overflow: hidden;
+      aspect-ratio: 3/4; cursor: pointer; group: true;
+    }
+    .dest-card:first-child { aspect-ratio: 3/4; }
+    .dest-bg {
+      position: absolute; inset: 0; background-size: cover; background-position: center;
+      transition: transform 0.6s ease;
+    }
+    .dest-card:hover .dest-bg { transform: scale(1.06); }
+    .dest-card--link { cursor: pointer; }
+    .dest-cta {
+      display: inline-block; margin-top: 0.8rem;
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--golden); font-weight: 500;
+      transition: letter-spacing 0.2s;
+    }
+    .dest-card--link:hover .dest-cta { letter-spacing: 0.26em; }
+    /* ── Tour filter pills ── */
+    .tour-filters {
+      display: flex; gap: 0.6rem; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 2.5rem;
+    }
+    .filter-pill {
+      background: transparent; border: 1px solid rgba(183,154,73,0.3);
+      color: rgba(240,240,240,0.55); font-family: 'Jost', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.45rem 1.2rem; border-radius: 50px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-pill:hover { border-color: var(--golden); color: var(--golden); }
+    .filter-pill.active {
+      background: var(--golden); border-color: var(--golden);
+      color: var(--midnight); font-weight: 500;
+    }
+    .tour-card { transition: opacity 0.3s, transform 0.3s; }
+    .tour-card.hidden { display: none; }
+    .dest-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,26,50,0.9) 0%, rgba(10,26,50,0.1) 60%);
+    }
+    .dest-info {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem;
+    }
+    .dest-info .tag { margin-bottom: 0.5rem; }
+    .dest-info h3 { color: var(--white); margin-bottom: 0.4rem; }
+    .dest-info p { color: rgba(240,240,240,0.7); font-size: 0.9rem; }
+    .dest-soon {
+      position: absolute; top: 1.2rem; right: 1.2rem;
+      background: var(--bronze); color: var(--white);
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 2px;
+    }
+    .cartagena-bg  { background-image: linear-gradient(rgba(10,26,50,0.3),rgba(10,26,50,0.3)), url('images/dest-cartagena.jpg'); }
+    .medellin-bg   { background-image: linear-gradient(rgba(10,26,50,0.3),rgba(10,26,50,0.3)), url('images/dest-medellin.jpg'); }
+    .sanandres-bg  { background-image: linear-gradient(rgba(10,26,50,0.3),rgba(10,26,50,0.3)), url('images/dest-sanandres.jpg'); }
+
+    /* ── Tours ─────────────────────────────────────────────── */
+    #tours { background: #071220; }
+    #tours .section-header { text-align: center; margin-bottom: 4rem; }
+    .tours-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+    .tour-card {
+      background: var(--midnight-light); border-radius: 3px; overflow: hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+      border: 1px solid rgba(183,154,73,0.1);
+    }
+    .tour-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .tour-img {
+      height: 220px; position: relative; overflow: hidden;
+    }
+    .tour-img-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: opacity 0.8s ease;
+    }
+    .slide-dots {
+      position: absolute; bottom: 0.55rem; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 5px; z-index: 2;
+    }
+    .slide-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(255,255,255,0.35); transition: background 0.3s;
+    }
+    .slide-dot.active { background: #fff; }
+    .tour-badge {
+      position: absolute; top: 1rem; left: 1rem; z-index: 2;
+      background: var(--golden); color: var(--midnight);
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.3rem 0.8rem; border-radius: 2px; font-weight: 500;
+    }
+    .tour-body { padding: 1.8rem; }
+    .tour-body h3 { color: var(--smoke); font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .tour-body p { color: rgba(240,240,240,0.6); font-size: 0.88rem; margin-bottom: 1.2rem; }
+    .tour-meta { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(183,154,73,0.15); padding-top: 1.2rem; }
+    .tour-detail { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: rgba(240,240,240,0.55); }
+    .tour-detail svg { width: 14px; color: var(--golden); flex-shrink: 0; }
+    .tour-link { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--golden); transition: var(--transition); }
+    .tour-link:hover { color: var(--golden-light); }
+
+
+    /* ── Why Us ────────────────────────────────────────────── */
+    #why {
+      background: linear-gradient(135deg, var(--midnight) 60%, #0f2240 100%);
+      position: relative; overflow: hidden;
+    }
+    #why::before {
+      content: ''; position: absolute; right: -200px; top: -200px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(183,154,73,0.06) 0%, transparent 70%);
+    }
+    #why .inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    #why .left .tag { margin-bottom: 1rem; }
+    #why .left h2 { color: var(--smoke); margin-bottom: 1rem; }
+    #why .left p { color: rgba(240,240,240,0.65); margin-bottom: 2rem; }
+    .features { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+    .feature { display: flex; gap: 1rem; align-items: flex-start; }
+    .feature-icon {
+      width: 44px; height: 44px; border-radius: 2px;
+      background: rgba(183,154,73,0.1); border: 1px solid rgba(183,154,73,0.2);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      color: var(--golden); font-size: 1.2rem;
+    }
+    .feature-text h4 { color: var(--smoke); font-size: 0.95rem; margin-bottom: 0.3rem; font-family: 'Jost', sans-serif; font-weight: 500; }
+    .feature-text p  { color: rgba(240,240,240,0.55); font-size: 0.85rem; line-height: 1.6; }
+    .why-visual {
+      position: relative; border-radius: 3px; overflow: hidden; min-height: 500px;
+      background: url('https://images.unsplash.com/photo-1581889470536-467bdbe30cd0?w=900&q=85') center/cover;
+    }
+    .why-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(183,154,73,0.15) 0%, transparent 60%);
+    }
+    .why-badge {
+      position: absolute; bottom: 2rem; left: 2rem; z-index: 2;
+      background: rgba(10,26,50,0.92); backdrop-filter: blur(8px);
+      padding: 1.2rem 1.8rem; border-left: 3px solid var(--golden); border-radius: 2px;
+    }
+    .why-badge .num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--golden); }
+    .why-badge .lbl { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(240,240,240,0.7); }
+
+    /* ── Testimonials ──────────────────────────────────────── */
+    #testimonials { background: #071220; text-align: center; }
+    #testimonials .section-header { margin-bottom: 3.5rem; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .testi-card {
+      background: var(--midnight-light); border: 1px solid rgba(183,154,73,0.12);
+      border-radius: 3px; padding: 2rem; text-align: left; position: relative;
+    }
+    .testi-card::before {
+      content: '"'; font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem; color: rgba(183,154,73,0.15); position: absolute; top: -0.5rem; left: 1.5rem;
+      line-height: 1;
+    }
+    .testi-stars { color: var(--golden); font-size: 0.9rem; margin-bottom: 1rem; }
+    .testi-card p { color: rgba(240,240,240,0.7); font-size: 0.9rem; margin-bottom: 1.5rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+    .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--golden); display: flex; align-items: center; justify-content: center; color: var(--midnight); font-weight: 600; font-size: 0.9rem; flex-shrink: 0; }
+    .testi-name { font-size: 0.9rem; color: var(--smoke); font-weight: 500; }
+    .testi-loc  { font-size: 0.75rem; color: rgba(240,240,240,0.45); }
+
+    /* ── CTA Band ───────────────────────────────────────────── */
+    #cta {
+      position: relative; overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1614703765569-46ae8b5f0a65?w=1800&q=80') center/cover no-repeat;
+      padding: 8rem 2rem; text-align: center;
+    }
+    #cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(10,26,50,0.9) 0%, rgba(10,26,50,0.6) 100%);
+    }
+    #cta .inner { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+    #cta .tag { margin-bottom: 1rem; }
+    #cta h2 { color: var(--white); margin-bottom: 1rem; }
+    #cta p { color: rgba(240,240,240,0.75); margin-bottom: 2.5rem; }
+    .wa-btn {
+      display: inline-flex; align-items: center; gap: 0.8rem;
+      background: #25D366; color: white;
+      padding: 1rem 2.5rem; border-radius: 2px;
+      font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500; transition: var(--transition);
+    }
+    .wa-btn:hover { background: #1ebe59; transform: translateY(-3px); box-shadow: 0 12px 40px rgba(37,211,102,0.3); }
+    .wa-btn svg { width: 22px; }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      background: #060f1d; padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(183,154,73,0.1);
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand .nav-logo { font-size: 1.8rem; margin-bottom: 1rem; }
+    .footer-brand p { color: rgba(240,240,240,0.5); font-size: 0.88rem; max-width: 260px; }
+    .footer-social { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+    .social-icon {
+      width: 36px; height: 36px; border-radius: 2px;
+      border: 1px solid rgba(183,154,73,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(240,240,240,0.6); transition: var(--transition);
+    }
+    .social-icon:hover { border-color: var(--golden); color: var(--golden); background: rgba(183,154,73,0.08); }
+    .social-icon svg { width: 16px; }
+    .footer-col h4 { font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--golden); margin-bottom: 1.2rem; }
+    .footer-col li { margin-bottom: 0.7rem; }
+    .footer-col a { color: rgba(240,240,240,0.5); font-size: 0.88rem; transition: var(--transition); }
+    .footer-col a:hover { color: var(--golden); }
+    .footer-bottom {
+      border-top: 1px solid rgba(183,154,73,0.08); padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+      color: rgba(240,240,240,0.3); font-size: 0.78rem;
+    }
+
+    /* ── WhatsApp Float ─────────────────────────────────────── */
+    #wa-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: var(--transition); animation: pulse-wa 2.5s ease-in-out infinite;
+    }
+    #wa-float:hover { transform: scale(1.1); }
+    #wa-float svg { width: 28px; color: white; }
+    @keyframes pulse-wa {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 40px rgba(37,211,102,0.7); }
+    }
+
+    /* ── Mobile Menu ────────────────────────────────────────── */
+    #mobile-menu {
+      position: fixed; inset: 0; z-index: 1001;
+      background: rgba(6,15,29,0.98); backdrop-filter: blur(16px);
+      display: none; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--smoke); }
+    #mobile-menu a:hover { color: var(--golden); }
+    #close-menu { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; color: var(--smoke); font-size: 2rem; cursor: pointer; }
+
+    /* ── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      #why .inner { grid-template-columns: 1fr; }
+      .why-visual { min-height: 350px; }
+      .dest-grid { grid-template-columns: 1fr 1fr; }
+      .dest-card:first-child { aspect-ratio: 3/4; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      #navbar { padding: 1.2rem 1.5rem; }
+      #navbar.scrolled { padding: 0.8rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .dest-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .features { grid-template-columns: 1fr; }
+      #stats { gap: 2rem; padding: 2rem 1.5rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .section { padding: 4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── MOBILE MENU ──────────────────────────────────────────── -->
+<div id="mobile-menu">
+  <button id="close-menu" aria-label="Close menu">✕</button>
+  <a href="#destinations" data-i18n="nav.destinations">Destinos</a>
+  <a href="#tours" data-i18n="nav.tours">Tours</a>
+  <a href="#why" data-i18n="nav.about">Nosotros</a>
+  <a href="#cta" data-i18n="nav.contact">Contacto</a>
+  <a href="links/" data-i18n="nav.links">Links</a>
+  <button id="lang-toggle-mobile" style="margin-top:1rem;">ES | EN</button>
+</div>
+
+<!-- ── NAVBAR ───────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="nav-logo">Luxury <span>Horizon</span></div>
+  <div class="nav-links">
+    <a href="#destinations" data-i18n="nav.destinations">Destinos</a>
+    <a href="#tours" data-i18n="nav.tours">Tours</a>
+    <a href="#why" data-i18n="nav.about">Nosotros</a>
+    <a href="#cta" data-i18n="nav.contact">Contacto</a>
+    <a href="links/" data-i18n="nav.links">Links</a>
+  </div>
+  <div class="nav-right">
+    <button id="lang-toggle">ES | EN</button>
+    <button class="hamburger" id="open-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="tag" data-i18n="hero.tag">Colombia's Premier Travel Agency</span>
+    <h1 data-i18n="hero.title">Descubre Colombia <em>en Grande</em></h1>
+    <p data-i18n="hero.subtitle">Experiencias de lujo en los destinos más espectaculares de Colombia. Cada viaje, una historia inolvidable.</p>
+    <div class="hero-btns">
+      <a href="#tours" class="btn btn-gold" data-i18n="hero.cta1">Explorar Tours</a>
+      <a href="https://wa.me/573126322306" target="_blank" class="btn btn-outline" data-i18n="hero.cta2">Reservar Ahora</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 9l-7 7-7-7"/></svg>
+    <span data-i18n="hero.scroll">Scroll</span>
+  </div>
+</section>
+
+<!-- ── STATS ─────────────────────────────────────────────────── -->
+<div id="stats">
+  <div class="stat">
+    <div class="stat-num">500+</div>
+    <div class="stat-lbl" data-i18n="stats.travelers">Viajeros Felices</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">3</div>
+    <div class="stat-lbl" data-i18n="stats.destinations">Destinos Exclusivos</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">12+</div>
+    <div class="stat-lbl" data-i18n="stats.tours">Tours Disponibles</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5★</div>
+    <div class="stat-lbl" data-i18n="stats.rating">Calificación Promedio</div>
+  </div>
+</div>
+
+<!-- ── DESTINATIONS ──────────────────────────────────────────── -->
+<section id="destinations" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag" data-i18n="dest.tag">Nuestros Destinos</span>
+      <div class="divider center"></div>
+      <h2 data-i18n="dest.title">Colombia, <em style="color:var(--golden);font-style:italic">Tierra de Maravillas</em></h2>
+    </div>
+    <div class="dest-grid">
+
+      <div class="dest-card dest-card--link" onclick="filterTours('cartagena')" title="Ver tours de Cartagena">
+        <div class="dest-bg cartagena-bg"></div>
+        <div class="dest-overlay"></div>
+        <div class="dest-info">
+          <span class="tag" data-i18n="dest.carib">Costa Caribe</span>
+          <h3>Cartagena de Indias</h3>
+          <p data-i18n="dest.cartagena">Ciudad amurallada, islas paradisíacas y atardeceres de ensueño.</p>
+          <span class="dest-cta">Ver tours →</span>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-bg medellin-bg"></div>
+        <div class="dest-overlay"></div>
+        <span class="dest-soon" data-i18n="dest.soon">Muy Pronto</span>
+        <div class="dest-info">
+          <span class="tag">Andes</span>
+          <h3>Medellín</h3>
+          <p data-i18n="dest.medellin">La ciudad de la eterna primavera, innovación y cultura.</p>
+        </div>
+      </div>
+
+      <div class="dest-card">
+        <div class="dest-bg sanandres-bg"></div>
+        <div class="dest-overlay"></div>
+        <span class="dest-soon" data-i18n="dest.soon">Muy Pronto</span>
+        <div class="dest-info">
+          <span class="tag">Caribe Insular</span>
+          <h3>San Andrés</h3>
+          <p data-i18n="dest.sanandres">Mar de Siete Colores, arrecifes de coral y vida caribeña.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TOURS ─────────────────────────────────────────────────── -->
+<section id="tours" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag" data-i18n="tours.tag">Experiencias</span>
+      <div class="divider center"></div>
+      <h2 data-i18n="tours.title">Tours <em style="color:var(--golden);font-style:italic">Exclusivos</em></h2>
+      <p style="color:rgba(240,240,240,0.6);max-width:560px;margin:1rem auto 0;" data-i18n="tours.subtitle">Cada tour está diseñado para ofrecerte la mejor experiencia en Cartagena y sus alrededores.</p>
+    </div>
+    <div class="tour-filters">
+      <button class="filter-pill active" onclick="filterTours('all')">Todos</button>
+      <button class="filter-pill" onclick="filterTours('cartagena')">Cartagena</button>
+    </div>
+    <div class="tours-grid">
+
+      <div class="tour-card" data-city="cartagena">
+        <div class="tour-img" data-slides='["images/tour-islas-card.jpg","images/tour-islas-2-card.jpg","images/tour-islas-3-card.jpg","images/tour-islas-4-card.jpg"]'>
+          <div class="tour-img-bg"></div>
+          <span class="tour-badge" data-i18n="tours.popular">Más Popular</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tours.islas.title">Islas del Rosario</h3>
+          <p data-i18n="tours.islas.desc">Navega hacia el archipiélago y disfruta de snorkeling, playas vírgenes y almuerzo incluido.</p>
+          <div class="tour-meta">
+            <div style="display:flex;gap:1.2rem;">
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <span data-i18n="tours.fullday">Día completo</span>
+              </span>
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                2–20
+              </span>
+            </div>
+            <a href="https://wa.me/573126322306?text=Hola!%20Me%20interesa%20el%20tour%20Islas%20del%20Rosario" target="_blank" class="tour-link" data-i18n="tours.book">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card" data-city="cartagena">
+        <div class="tour-img" data-slides='["images/tour-baru-card.jpg","images/tour-baru-2-card.jpg"]'>
+          <div class="tour-img-bg"></div>
+          <span class="tour-badge" style="background:var(--bronze);" data-i18n="tours.exclusive">Exclusivo</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tours.baru.title">Playa Blanca, Barú</h3>
+          <p data-i18n="tours.baru.desc">La playa más famosa de Colombia. Arenas blancas, aguas turquesas y una experiencia única.</p>
+          <div class="tour-meta">
+            <div style="display:flex;gap:1.2rem;">
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <span data-i18n="tours.fullday">Día completo</span>
+              </span>
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                2–20
+              </span>
+            </div>
+            <a href="https://wa.me/573126322306?text=Hola!%20Me%20interesa%20el%20tour%20Playa%20Blanca%20Bar%C3%BA" target="_blank" class="tour-link" data-i18n="tours.book">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card" data-city="cartagena">
+        <div class="tour-img" data-slides='["images/tour-ciudad-card.jpg","images/tour-ciudad-2-card.jpg"]'>
+          <div class="tour-img-bg"></div>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tours.city.title">Tour Ciudad Amurallada</h3>
+          <p data-i18n="tours.city.desc">Descubre la historia, arquitectura colonial y los secretos de la Cartagena histórica.</p>
+          <div class="tour-meta">
+            <div style="display:flex;gap:1.2rem;">
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                4h
+              </span>
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                2–15
+              </span>
+            </div>
+            <a href="https://wa.me/573126322306?text=Hola!%20Me%20interesa%20el%20tour%20Ciudad%20Amurallada" target="_blank" class="tour-link" data-i18n="tours.book">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card" data-city="cartagena">
+        <div class="tour-img" data-slides='["images/tour-catamaran-card.jpg"]'>
+          <div class="tour-img-bg"></div>
+          <span class="tour-badge" style="background:var(--teal);color:var(--midnight);" data-i18n="tours.night">Nocturno</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tours.sunset.title">Luxury Atardecer Catamarán</h3>
+          <p data-i18n="tours.sunset.desc">Navega al atardecer con open bar premium, música en vivo y vistas espectaculares de la bahía.</p>
+          <div class="tour-meta">
+            <div style="display:flex;gap:1.2rem;">
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                3h
+              </span>
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                2–20
+              </span>
+            </div>
+            <a href="https://wa.me/573126322306?text=Hola!%20Me%20interesa%20el%20Luxury%20Atardecer%20Catamar%C3%A1n" target="_blank" class="tour-link" data-i18n="tours.book">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="https://wa.me/c/573126322306" target="_blank" class="btn btn-outline" data-i18n="tours.catalog">Ver Catálogo Completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ─────────────────────────────────────────────────── -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="inner">
+      <div class="left">
+        <span class="tag" data-i18n="why.tag">¿Por qué Luxury Horizon?</span>
+        <div class="divider"></div>
+        <h2 data-i18n="why.title">Tu Viaje, <em style="color:var(--golden);font-style:italic">Nuestra Pasión</em></h2>
+        <p data-i18n="why.desc">Somos una agencia boutique especializada en crear experiencias únicas en los destinos más hermosos de Colombia. Cada detalle es cuidado con precisión para que tu viaje sea perfecto.</p>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">✦</div>
+            <div class="feature-text">
+              <h4 data-i18n="why.f1.title">Atención Personalizada</h4>
+              <p data-i18n="why.f1.desc">Un asesor dedicado para ti durante todo el viaje.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">⚓</div>
+            <div class="feature-text">
+              <h4 data-i18n="why.f2.title">Operadores Confiables</h4>
+              <p data-i18n="why.f2.desc">Socios verificados con los más altos estándares de seguridad.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">◈</div>
+            <div class="feature-text">
+              <h4 data-i18n="why.f3.title">Precios Transparentes</h4>
+              <p data-i18n="why.f3.desc">Sin costos ocultos. Lo que ves es lo que pagas.</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">☀</div>
+            <div class="feature-text">
+              <h4 data-i18n="why.f4.title">Experiencias Únicas</h4>
+              <p data-i18n="why.f4.desc">Tours diseñados para crear recuerdos que duran toda la vida.</p>
+            </div>
+          </div>
+        </div>
+        <a href="https://wa.me/573126322306" target="_blank" class="btn btn-gold" style="margin-top:2.5rem;" data-i18n="why.cta">Hablar con un asesor</a>
+      </div>
+      <div class="why-visual">
+        <div class="why-badge">
+          <div class="num">100%</div>
+          <div class="lbl" data-i18n="why.badge">Satisfacción Garantizada</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ──────────────────────────────────────────── -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag" data-i18n="testi.tag">Testimonios</span>
+      <div class="divider center"></div>
+      <h2 data-i18n="testi.title">Lo que dicen <em style="color:var(--golden);font-style:italic">nuestros viajeros</em></h2>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p data-i18n="testi.1">"Una experiencia absolutamente increíble. El tour a las Islas del Rosario superó todas mis expectativas. El servicio fue impecable de principio a fin."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div>
+            <div class="testi-name">María López</div>
+            <div class="testi-loc">Bogotá, Colombia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p data-i18n="testi.2">"The sunset cruise was breathtaking. Luxury Horizon took care of every detail. I'll definitely be back for more adventures in Cartagena!"</p>
+        <div class="testi-author">
+          <div class="testi-avatar">J</div>
+          <div>
+            <div class="testi-name">James Wilson</div>
+            <div class="testi-loc">New York, USA</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p data-i18n="testi.3">"Playa Blanca fue mágica. El equipo de Luxury Horizon nos trató como reyes. Totalmente recomendados para cualquiera que visite Cartagena."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Ana Martínez</div>
+            <div class="testi-loc">Medellín, Colombia</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────── -->
+<section id="cta">
+  <div class="inner">
+    <span class="tag" data-i18n="cta.tag">¿Listo para Viajar?</span>
+    <h2 data-i18n="cta.title">Empieza a Planear tu Aventura en Colombia</h2>
+    <p data-i18n="cta.desc">Escríbenos por WhatsApp y uno de nuestros asesores te ayudará a crear el viaje perfecto, sin costo adicional.</p>
+    <a href="https://wa.me/573126322306?text=Hola!%20Me%20gustaría%20conocer%20más%20sobre%20los%20tours%20de%20Luxury%20Horizon." target="_blank" class="wa-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-i18n="cta.btn">Chatear por WhatsApp</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">Luxury <span>Horizon</span></div>
+        <p data-i18n="footer.desc">Tu agencia de viajes de lujo en Colombia. Experiencias únicas, recuerdos para siempre.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/agencialuxuryhorizon_" target="_blank" class="social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@luxury.horizon_" target="_blank" class="social-icon" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
+          </a>
+          <a href="https://wa.me/573126322306" target="_blank" class="social-icon" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.nav">Navegación</h4>
+        <ul>
+          <li><a href="#destinations" data-i18n="nav.destinations">Destinos</a></li>
+          <li><a href="#tours" data-i18n="nav.tours">Tours</a></li>
+          <li><a href="#why" data-i18n="nav.about">Nosotros</a></li>
+          <li><a href="#cta" data-i18n="nav.contact">Contacto</a></li>
+          <li><a href="links/" data-i18n="nav.links">Links</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.dest">Destinos</h4>
+        <ul>
+          <li><a href="#destinations">Cartagena</a></li>
+          <li><a href="#destinations">Medellín <span style="color:var(--bronze);font-size:0.7rem;" data-i18n="dest.soon">Muy Pronto</span></a></li>
+          <li><a href="#destinations">San Andrés <span style="color:var(--bronze);font-size:0.7rem;" data-i18n="dest.soon">Muy Pronto</span></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.contact">Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/573126322306" target="_blank">+57 312 6322306</a></li>
+          <li><a href="https://www.instagram.com/agencialuxuryhorizon_" target="_blank">@agencialuxuryhorizon_</a></li>
+          <li><a href="https://www.tiktok.com/@luxury.horizon_" target="_blank">@luxury.horizon_</a></li>
+          <li style="color:rgba(240,240,240,0.5);font-size:0.88rem;">Cartagena, Colombia</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Luxury Horizon. <span data-i18n="footer.rights">Todos los derechos reservados.</span></span>
+      <span data-i18n="footer.made">Hecho con ♥ en Cartagena, Colombia</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP FLOAT ─────────────────────────────────────────── -->
+<a id="wa-float" href="https://wa.me/573126322306?text=Hola!%20Me%20gustaría%20conocer%20más%20sobre%20los%20tours%20de%20Luxury%20Horizon." target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ── SCRIPTS ─────────────────────────────────────────────────── -->
+<script>
+  /* ── Hero slideshow ─────────────────────────────────────── */
+  const heroImages = [
+    'images/hero-1.jpg',
+    'images/hero-3.jpg',
+    'images/tour-islas.jpg'
+  ];
+  const heroBg = document.querySelector('.hero-bg');
+  let currentIdx = Math.floor(Math.random() * heroImages.length);
+
+  function preloadAll(imgs) {
+    imgs.forEach(src => { const i = new Image(); i.src = src; });
+  }
+
+  function showHeroImage(idx) {
+    heroBg.style.opacity = '0';
+    setTimeout(() => {
+      heroBg.style.backgroundImage = `url('${heroImages[idx]}')`;
+      heroBg.style.opacity = '1';
+    }, 500);
+  }
+
+  preloadAll(heroImages);
+  heroBg.style.transition = 'opacity 0.8s ease';
+  showHeroImage(currentIdx);
+  setInterval(() => {
+    currentIdx = (currentIdx + 1) % heroImages.length;
+    showHeroImage(currentIdx);
+  }, 5000);
+
+  /* ── Tour card slideshows ───────────────────────────────── */
+  document.querySelectorAll('.tour-img[data-slides]').forEach(el => {
+    const slides = JSON.parse(el.dataset.slides);
+    const bg = el.querySelector('.tour-img-bg');
+    slides.forEach(src => { const i = new Image(); i.src = src; });
+    bg.style.backgroundImage = `url('${slides[0]}')`;
+    if (slides.length < 2) return;
+
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'slide-dots';
+    slides.forEach((_, i) => {
+      const d = document.createElement('span');
+      d.className = 'slide-dot' + (i === 0 ? ' active' : '');
+      dotsWrap.appendChild(d);
+    });
+    el.appendChild(dotsWrap);
+    const dots = dotsWrap.querySelectorAll('.slide-dot');
+
+    let idx = 0;
+    setInterval(() => {
+      bg.style.opacity = '0';
+      setTimeout(() => {
+        idx = (idx + 1) % slides.length;
+        bg.style.backgroundImage = `url('${slides[idx]}')`;
+        bg.style.opacity = '1';
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }, 800);
+    }, 4000);
+  });
+
+  /* ── i18n ───────────────────────────────────────────────── */
+  const translations = {
+    es: {
+      'nav.destinations': 'Destinos', 'nav.tours': 'Tours', 'nav.about': 'Nosotros', 'nav.contact': 'Contacto', 'nav.links': 'Links',
+      'hero.tag': 'Agencia de Viajes Premium en Colombia',
+      'hero.title': 'Descubre Colombia <em>en Grande</em>',
+      'hero.subtitle': 'Experiencias de lujo en los destinos más espectaculares de Colombia. Cada viaje, una historia inolvidable.',
+      'hero.cta1': 'Explorar Tours', 'hero.cta2': 'Reservar Ahora', 'hero.scroll': 'Scroll',
+      'stats.travelers': 'Viajeros Felices', 'stats.destinations': 'Destinos Exclusivos', 'stats.tours': 'Tours Disponibles', 'stats.rating': 'Calificación Promedio',
+      'dest.tag': 'Nuestros Destinos', 'dest.title': "Colombia, <em style='color:var(--golden);font-style:italic'>Tierra de Maravillas</em>",
+      'dest.carib': 'Costa Caribe', 'dest.cartagena': 'Ciudad amurallada, islas paradisíacas y atardeceres de ensueño.',
+      'dest.medellin': 'La ciudad de la eterna primavera, innovación y cultura.',
+      'dest.sanandres': 'Mar de Siete Colores, arrecifes de coral y vida caribeña.',
+      'dest.soon': 'Muy Pronto',
+      'tours.tag': 'Experiencias', 'tours.title': "Tours <em style='color:var(--golden);font-style:italic'>Exclusivos</em>",
+      'tours.subtitle': 'Cada tour está diseñado para ofrecerte la mejor experiencia en Cartagena y sus alrededores.',
+      'tours.popular': 'Más Popular', 'tours.exclusive': 'Exclusivo', 'tours.night': 'Nocturno',
+      'tours.islas.title': 'Islas del Rosario', 'tours.islas.desc': 'Una experiencia VIP sin vendedores ambulantes. Navega al archipiélago, disfruta de Kayak y Paddle Board en playas vírgenes.',
+      'tours.baru.title': 'Playa Blanca, Barú', 'tours.baru.desc': 'La playa más famosa de Colombia. Alimenta mapaches, visita el aviario, haz snorkeling en aguas cristalinas y vive la mágica experiencia del plancton.',
+      'tours.city.title': 'Tour Ciudad Amurallada', 'tours.city.desc': 'Descubre la historia, arquitectura colonial y los secretos de la Cartagena histórica.',
+      'tours.sunset.title': 'Luxury Atardecer Catamarán', 'tours.sunset.desc': 'Navega al atardecer con open bar premium, música en vivo y vistas espectaculares de la bahía.',
+      'tours.fullday': 'Día completo', 'tours.book': 'Reservar →', 'tours.catalog': 'Ver Catálogo Completo',
+      'why.tag': '¿Por qué Luxury Horizon?', 'why.title': "Tu Viaje, <em style='color:var(--golden);font-style:italic'>Nuestra Pasión</em>",
+      'why.desc': 'Somos una agencia boutique especializada en crear experiencias únicas en los destinos más hermosos de Colombia. Cada detalle es cuidado con precisión para que tu viaje sea perfecto.',
+      'why.f1.title': 'Atención Personalizada', 'why.f1.desc': 'Un asesor dedicado para ti durante todo el viaje.',
+      'why.f2.title': 'Operadores Confiables', 'why.f2.desc': 'Socios verificados con los más altos estándares de seguridad.',
+      'why.f3.title': 'Precios Transparentes', 'why.f3.desc': 'Sin costos ocultos. Lo que ves es lo que pagas.',
+      'why.f4.title': 'Experiencias Únicas', 'why.f4.desc': 'Tours diseñados para crear recuerdos que duran toda la vida.',
+      'why.cta': 'Hablar con un asesor', 'why.badge': 'Satisfacción Garantizada',
+      'testi.tag': 'Testimonios', 'testi.title': "Lo que dicen <em style='color:var(--golden);font-style:italic'>nuestros viajeros</em>",
+      'testi.1': '"Una experiencia absolutamente increíble. El tour a las Islas del Rosario superó todas mis expectativas. El servicio fue impecable de principio a fin."',
+      'testi.2': '"El crucero al atardecer fue impresionante. Luxury Horizon cuidó cada detalle. ¡Definitivamente volveré para más aventuras en Cartagena!"',
+      'testi.3': '"Playa Blanca fue mágica. El equipo de Luxury Horizon nos trató como reyes. Totalmente recomendados para cualquiera que visite Cartagena."',
+      'cta.tag': '¿Listo para Viajar?', 'cta.title': 'Empieza a Planear tu Aventura en Colombia',
+      'cta.desc': 'Escríbenos por WhatsApp y uno de nuestros asesores te ayudará a crear el viaje perfecto, sin costo adicional.',
+      'cta.btn': 'Chatear por WhatsApp',
+      'footer.desc': 'Tu agencia de viajes de lujo en Colombia. Experiencias únicas, recuerdos para siempre.',
+      'footer.nav': 'Navegación', 'footer.dest': 'Destinos', 'footer.contact': 'Contacto',
+      'footer.rights': 'Todos los derechos reservados.', 'footer.made': 'Hecho con ♥ en Cartagena, Colombia',
+    },
+    en: {
+      'nav.destinations': 'Destinations', 'nav.tours': 'Tours', 'nav.about': 'About', 'nav.contact': 'Contact', 'nav.links': 'Links',
+      'hero.tag': "Colombia's Premium Travel Agency",
+      'hero.title': 'Discover Colombia <em>in Style</em>',
+      'hero.subtitle': 'Luxury experiences in Colombia\'s most spectacular destinations. Every journey, an unforgettable story.',
+      'hero.cta1': 'Explore Tours', 'hero.cta2': 'Book Now', 'hero.scroll': 'Scroll',
+      'stats.travelers': 'Happy Travelers', 'stats.destinations': 'Exclusive Destinations', 'stats.tours': 'Available Tours', 'stats.rating': 'Average Rating',
+      'dest.tag': 'Our Destinations', 'dest.title': "Colombia, <em style='color:var(--golden);font-style:italic'>Land of Wonders</em>",
+      'dest.carib': 'Caribbean Coast', 'dest.cartagena': 'Walled city, paradise islands and dreamy sunsets.',
+      'dest.medellin': 'The city of eternal spring, innovation and vibrant culture.',
+      'dest.sanandres': 'Sea of Seven Colors, coral reefs and Caribbean island life.',
+      'dest.soon': 'Coming Soon',
+      'tours.tag': 'Experiences', 'tours.title': "<em style='color:var(--golden);font-style:italic'>Exclusive</em> Tours",
+      'tours.subtitle': 'Each tour is crafted to deliver the best experience in Cartagena and its surroundings.',
+      'tours.popular': 'Most Popular', 'tours.exclusive': 'Exclusive', 'tours.night': 'Night Tour',
+      'tours.islas.title': 'Rosario Islands', 'tours.islas.desc': 'A VIP experience with no street vendors. Sail to the archipelago and enjoy Kayak and Paddle Board on pristine beaches.',
+      'tours.baru.title': 'Playa Blanca, Barú', 'tours.baru.desc': "Colombia's most famous beach. Feed raccoons, visit the aviary, snorkel in crystal-clear waters and experience the magical plankton tour.",
+      'tours.city.title': 'Walled City Tour', 'tours.city.desc': 'Discover the history, colonial architecture and secrets of historic Cartagena.',
+      'tours.sunset.title': 'Luxury Sunset Catamaran', 'tours.sunset.desc': 'Sail at sunset with premium open bar, live music and spectacular views of the bay.',
+      'tours.fullday': 'Full day', 'tours.book': 'Book Now →', 'tours.catalog': 'View Full Catalog',
+      'why.tag': 'Why Luxury Horizon?', 'why.title': "Your Journey, <em style='color:var(--golden);font-style:italic'>Our Passion</em>",
+      'why.desc': 'We are a boutique agency specialized in creating unique experiences in Colombia\'s most beautiful destinations. Every detail is carefully curated so your trip is perfect.',
+      'why.f1.title': 'Personalized Attention', 'why.f1.desc': 'A dedicated advisor for you throughout the entire journey.',
+      'why.f2.title': 'Trusted Operators', 'why.f2.desc': 'Verified partners with the highest safety standards.',
+      'why.f3.title': 'Transparent Pricing', 'why.f3.desc': 'No hidden costs. What you see is what you pay.',
+      'why.f4.title': 'Unique Experiences', 'why.f4.desc': 'Tours designed to create memories that last a lifetime.',
+      'why.cta': 'Talk to an advisor', 'why.badge': 'Satisfaction Guaranteed',
+      'testi.tag': 'Testimonials', 'testi.title': "What our <em style='color:var(--golden);font-style:italic'>travelers say</em>",
+      'testi.1': '"An absolutely incredible experience. The Rosario Islands tour exceeded all my expectations. The service was impeccable from start to finish."',
+      'testi.2': '"The sunset cruise was breathtaking. Luxury Horizon took care of every detail. I\'ll definitely be back for more adventures in Cartagena!"',
+      'testi.3': '"Playa Blanca was magical. The Luxury Horizon team treated us like royalty. Totally recommended for anyone visiting Cartagena."',
+      'cta.tag': 'Ready to Travel?', 'cta.title': 'Start Planning Your Colombian Adventure',
+      'cta.desc': 'Message us on WhatsApp and one of our advisors will help you create the perfect trip, at no extra cost.',
+      'cta.btn': 'Chat on WhatsApp',
+      'footer.desc': 'Your luxury travel agency in Colombia. Unique experiences, forever memories.',
+      'footer.nav': 'Navigation', 'footer.dest': 'Destinations', 'footer.contact': 'Contact',
+      'footer.rights': 'All rights reserved.', 'footer.made': 'Made with ♥ in Cartagena, Colombia',
+    }
+  };
+
+  const _saved = localStorage.getItem('lh-lang');
+  const _browser = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  let lang = _saved || (_browser.startsWith('es') ? 'es' : 'en');
+
+  function applyLang(l) {
+    lang = l;
+    localStorage.setItem('lh-lang', l);
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = translations[l][key];
+      if (val) el.innerHTML = val;
+    });
+    document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(btn => {
+      btn.textContent = l === 'es' ? 'ES | EN' : 'EN | ES';
+    });
+  }
+
+  document.getElementById('lang-toggle').addEventListener('click', () => applyLang(lang === 'es' ? 'en' : 'es'));
+  document.getElementById('lang-toggle-mobile').addEventListener('click', () => applyLang(lang === 'es' ? 'en' : 'es'));
+  applyLang(lang);
+
+  /* ── Navbar scroll ──────────────────────────────────────── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  /* ── Mobile menu ────────────────────────────────────────── */
+  const mobileMenu = document.getElementById('mobile-menu');
+  document.getElementById('open-menu').addEventListener('click', () => mobileMenu.classList.add('open'));
+  document.getElementById('close-menu').addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  /* ── Intersection Observer (fade-in) ────────────────────── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; } });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.tour-card, .dest-card, .testi-card, .feature').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+
+  function filterTours(city) {
+    document.querySelectorAll('.tour-card').forEach(card => {
+      card.classList.toggle('hidden', city !== 'all' && card.dataset.city !== city);
+    });
+    document.querySelectorAll('.filter-pill').forEach(pill => {
+      const isAll = city === 'all' && pill.textContent.trim() === 'Todos';
+      const isCity = city !== 'all' && pill.textContent.trim().toLowerCase() === city.toLowerCase();
+      pill.classList.toggle('active', isAll || isCity);
+    });
+    if (city !== 'all') {
+      document.getElementById('tours').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+</body>
+</html>

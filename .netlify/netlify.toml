@@ -1,13 +1,12 @@
 plugins = []
 headers = []
-redirects = []
 
 [functions]
 
 [functions."*"]
 
 [build]
-publish = "/Users/ederbarrios/Projects/LuxuryHorizon/BioLink/luxuryhorizon"
+publish = "/Users/ederbarrios/Projects/luxuryhorizon"
 publishOrigin = "default"
 
 [build.environment]
@@ -23,3 +22,15 @@ publishOrigin = "default"
 [build.processing.js]
 
 [build.services]
+
+[[redirects]]
+from = "/"
+to = "/website/links/"
+status = 301.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
