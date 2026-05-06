@@ -4,107 +4,142 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Luxury Horizon** is a luxury travel agency biolink landing page. The repository contains a single-page HTML application that serves as a social media hub, directing visitors to Instagram, TikTok, and WhatsApp contact channels.
+**Luxury Horizon** is a Colombian luxury travel agency with two distinct web properties:
 
-## Repository Structure
+1. **Main website** (`website/`) — Full marketing site with tour catalog, served via Docker/nginx on Google Cloud at `https://luxuryhorizon.lat`
+2. **Biolink** (`biolink/`) — Social media hub page, deployed separately to Netlify at `https://luxhorizon.netlify.app`
+3. **Influencer pages** (`website/influencers/`) — Personalized landing pages per influencer, each on its own subdomain (e.g. `ale.luxuryhorizon.lat`)
 
+## Local Development
+
+**Start dev server** (no SSL required):
+```bash
+docker compose -f docker-compose.dev.yml up -d --build
 ```
-luxuryhorizon/
-├── biolink/              # Main biolink application
-│   ├── index.html        # Self-contained single-page app (HTML + CSS + JS)
-│   └── assest/
-│       └── logo.jpeg     # Brand logo
-├── Openclaw/             # Separate AI agent project (unrelated to biolink)
-└── .netlify/             # Netlify deployment configuration
-    └── state.json        # Site ID: 4341fb93-74cf-44b1-a250-0771dca20584
+Accessible at `http://localhost:8080` (or LAN IP for mobile testing).
+
+**Hot reload**: `website/` and `biolink/` are volume-mounted in dev — changes are visible on browser refresh with no rebuild needed. Only run `--build` again if you change `nginx-dev.conf` or add a new top-level directory.
+
+**Stop dev server:**
+```bash
+docker compose -f docker-compose.dev.yml down
 ```
 
-## Deployment
+## Production Deployment (Google Cloud)
 
-The biolink is deployed to **Netlify**:
-- Production URL: `https://luxhorizon.netlify.app`
-- Deploy directory: `.` (root, but Netlify serves `biolink/index.html`)
-- Deployment command: `netlify deploy --prod --dir . --message "Your message"`
+Server IP: `34.44.81.102` — domain `luxuryhorizon.lat`
 
-### Deployment Workflow
+**Deploy changes** (run on the server):
+```bash
+git pull && docker compose up -d --build
+```
 
-When making changes to the biolink:
-1. Edit `biolink/index.html`
-2. Commit changes with descriptive message including co-author attribution
-3. Deploy: `netlify deploy --prod --dir . --message "Description of changes"`
-4. Push to git: `git push`
+**First-time SSL setup** (run once on the server):
+```bash
+./init-ssl.sh
+```
+
+**Add a new influencer subdomain** (run on the server after updating nginx.conf):
+```bash
+./add-influencer.sh <name>   # e.g. ./add-influencer.sh gabs
+```
+This stops nginx briefly, issues a Let's Encrypt cert for `<name>.luxuryhorizon.lat`, then restarts.
+
+**Biolink** (separate, deployed to Netlify):
+```bash
+netlify deploy --prod --dir . --message "Description"
+```
 
 ## Architecture
 
-### Single-File Application
+### Infrastructure
 
-`biolink/index.html` is completely self-contained with:
-- **HTML structure**: Logo, brand name, social media buttons
-- **Embedded CSS**: Custom design system with deep space + rose gold + platinum color palette
-- **Embedded JavaScript**: Canvas-based starfield animation
+- `Dockerfile` — copies `biolink/` and `website/` into nginx image
+- `nginx.conf` — production config: HTTP→HTTPS redirect, main site, per-influencer subdomains (each needs its own SSL cert block)
+- `nginx-dev.conf` — local config: HTTP only, no SSL, no certbot
+- `docker-compose.yml` — production (ports 80+443, certbot renewal sidecar)
+- `docker-compose.dev.yml` — local dev (port 8080, mounts nginx-dev.conf)
+- `certbot/conf/` — Let's Encrypt certificates (gitignored, lives only on server)
+
+### Main Website (`website/index.html`)
+
+Single self-contained HTML file with embedded CSS and JS:
+- **Language detection**: `navigator.language` → Spanish if `es-*`, otherwise English; user choice persisted in `localStorage('lh-lang')`
+- **Tour filtering**: `filterTours(city)` toggles `.hidden` on `.tour-card[data-city]` elements; filter pills have `.active` state
+- **Tour cards**: `data-slides='["img1.jpg","img2.jpg"]'` drives the image slideshow
+
+### Influencer Pages
+
+Each influencer lives at `website/influencers/{name}/`:
+- `index.html` — the live page (served at `{name}.luxuryhorizon.lat`)
+- `{name}-bg.jpg` — wide banner crop (800×420px)
+- `{name}-portrait.jpg` — portrait crop (500px wide) for designs that use it
+- Design variants (`v1.html`, `v2.html`, etc.) are kept for comparison until the client picks one, then the chosen file becomes `index.html`
+
+**WhatsApp URL pattern** — each influencer gets a unique pre-filled message:
+```
+https://wa.me/573126322306?text=Hola%2C%20vengo%20de%20parte%20de%20{Name}%2C%20estoy%20interesado%20en%20información%20de%20los%20tours
+```
+
+**Images from the main site** must use absolute URLs in influencer pages (relative paths break under the subdomain):
+```
+https://luxuryhorizon.lat/biolink/assest/logo.jpeg
+https://luxuryhorizon.lat/website/images/hero-1.jpg
+```
+
+**Adding a new influencer** — full checklist:
+1. Create `website/influencers/{name}/` with images and HTML
+2. Add server block to `nginx.conf` (copy the `ale.luxuryhorizon.lat` block)
+3. Add the new subdomain to the HTTP block's `server_name` line
+4. On server: `./add-influencer.sh {name}` then `git pull && docker compose up -d --build`
+5. Add DNS A record: `{name}.luxuryhorizon.lat → 34.44.81.102`
 
 ### Design System
 
-Color palette defined in CSS custom properties:
+**Corporate palette** (used across all pages):
 ```css
---space:      #08071A   /* Deep space background */
---space-2:    #0F0D26   /* Secondary space */
---rose-gold:  #C9826A   /* Primary accent */
---rose-2:     #E8A890   /* Light rose gold */
---platinum:   #D8D8E8   /* Text color */
---platinum-2: #AEAEC8   /* Secondary platinum */
---violet:     #2B1E5A   /* Nebula effect */
+--midnight:       #0A1A32   /* Primary background */
+--midnight-light: #112244   /* Secondary background */
+--golden:         #B79A49   /* Primary accent */
+--golden-light:   #d4b86a   /* Light gold */
+--bronze:         #A56C30   /* Warm accent */
+--teal:           #44F0F7   /* Electric accent */
+--smoke:          #F0F0F0   /* Body text */
 ```
 
-### Visual Effects
+**Fonts:**
+- Main site: `Cormorant Garamond` (headings) + `Jost` (body)
+- Influencer pages: `Cinzel` (display headings) + `Raleway` (body)
 
-1. **Nebula background**: Animated radial gradients (`.nebula::before`, `.nebula::after`)
-2. **Starfield**: Canvas-based micro stars with opacity animation (160 stars)
-3. **Logo particles**: Rose-gold particles orbiting the logo (animated via CSS `@keyframes orbit`)
-4. **Button shimmer**: Instagram button has animated gradient (`@keyframes btn-shimmer`)
+**WhatsApp CTA button pattern** — animated green gradient with breathing pulse:
+```css
+background: linear-gradient(135deg, #0A6630, #1A9E50, #25D366, #1A9E50, #0A6630);
+background-size: 260% auto;
+animation: wa-shimmer 5s linear infinite, wa-breathe 2.8s ease-in-out infinite;
+```
 
-### Button Styles
+**Canvas animation pattern** (stars + floating particles):
+- Stars: array of `{x, y, r, phase, spd}`, opacity animated via `Math.sin`
+- Particles: spawn at bottom, float upward, fade in/out via `Math.sin(progress * Math.PI)`, respawn on death
 
-- **Instagram Profile** (`.btn-ig-profile`): Rose gold gradient with shimmer animation
-- **TikTok** (`.btn-tiktok`): Dark gradient with subtle border
-- **WhatsApp** (`.btn-wa`): Mint green gradient
+### Image Processing
 
-## Important URLs
+Use Python Pillow to prepare influencer photos:
+```python
+from PIL import Image, ImageOps
+img = ImageOps.exif_transpose(Image.open(src))   # always fix EXIF rotation
+banner  = img.crop(...).resize((800, 420), Image.LANCZOS)   # wide crop
+portrait = img.crop(...).resize((500, 700), Image.LANCZOS)   # tall crop
+banner.save(dst, "JPEG", quality=82, optimize=True)          # target ≤120KB
+```
 
-- Instagram: `https://www.instagram.com/agencialuxuryhorizon_`
-- TikTok: `https://www.tiktok.com/@luxury.horizon_`
-- WhatsApp: `wa.me/573126322306` (pre-filled message in Spanish)
+## Key URLs
 
-## Social Media Preview
-
-Open Graph and Twitter Card metadata configured for WhatsApp/iMessage/social sharing:
-- Title: "Luxury Horizon — Agencia de Viajes & Tours"
-- Image: `https://luxhorizon.netlify.app/assest/logo.jpeg`
-- Locale: `es_CO` (Spanish - Colombia)
-
-## Development Notes
-
-- **No build process**: Direct HTML editing, no bundler or package manager
-- **Fonts**: Google Fonts (Cinzel for headings, Raleway for body)
-- **Typography**: Uppercase styling with wide letter-spacing for luxury aesthetic
-- **Responsive**: Mobile-first design with `max-width: 420px` card
-- **Animation performance**: Uses `requestAnimationFrame` for starfield, CSS animations for effects
-
-## Common Modifications
-
-### Updating Social Links
-Edit the `href` attributes in the button `<a>` tags (lines 341-354).
-
-### Changing Colors
-Modify CSS custom properties in `:root` (lines 29-37).
-
-### Adjusting Animations
-- Nebula drift: `@keyframes drift1`, `@keyframes drift2` (lines 82-83)
-- Button shimmer: `@keyframes btn-shimmer` (line 245)
-- Star count: Change `length: 160` in `initStars()` (line 375)
-
-### Adding New Buttons
-Follow the pattern of existing buttons in `.btn-group` (lines 339-356), ensuring:
-- Consistent spacing (`gap: 0.9rem`)
-- Icon SVG with `class="btn-icon"`
-- Appropriate color scheme matching brand
+| Resource | URL |
+|---|---|
+| Main site | `https://luxuryhorizon.lat/website/` |
+| Biolink | `https://luxhorizon.netlify.app` |
+| Alejandra | `https://ale.luxuryhorizon.lat` |
+| Instagram | `https://www.instagram.com/agencialuxuryhorizon_` |
+| TikTok | `https://www.tiktok.com/@luxury.horizon_` |
+| WhatsApp | `wa.me/573126322306` |
