@@ -29,6 +29,40 @@ docker run --rm \
   --no-eff-email \
   -d "$DOMAIN"
 
+echo "==> Actualizando nginx.conf..."
+# Agregar subdominio al bloque HTTP si no está ya
+if ! grep -q "$DOMAIN" nginx.conf; then
+  # Añadir al server_name del bloque HTTP
+  sed -i "s/server_name luxuryhorizon.lat\(.*\);/server_name luxuryhorizon.lat\1 $DOMAIN;/" nginx.conf
+
+  # Agregar bloque HTTPS al final del archivo
+  cat >> nginx.conf <<NGINX
+
+# ── HTTPS: Influencer — $NAME ────────────────────────────────────────────────
+server {
+    listen 443 ssl;
+    server_name $DOMAIN;
+
+    ssl_certificate     /etc/letsencrypt/live/$DOMAIN/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/$DOMAIN/privkey.pem;
+
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_ciphers         HIGH:!aNULL:!MD5;
+
+    root /usr/share/nginx/html/website/influencers/$NAME;
+    index index.html;
+
+    location / {
+        try_files \$uri /index.html;
+    }
+}
+NGINX
+
+  echo "    Bloque nginx agregado para $DOMAIN"
+else
+  echo "    $DOMAIN ya existe en nginx.conf, no se modifica"
+fi
+
 echo "==> Reiniciando nginx con el nuevo certificado..."
 docker compose up -d --build
 
