@@ -1,0 +1,23 @@
+{
+  "agents": {
+    "defaults": {
+      "model": { "primary": "anthropic/claude-haiku-4-5-20251001" },
+      "models": { "anthropic/claude-haiku-4-5-20251001": {} }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "anthropic": { "enabled": true },
+      "google": { "enabled": false },
+      "openrouter": { "enabled": false }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "anthropic:default": {
+        "provider": "anthropic",
+        "mode": "api_key"
+      }
+    }
+  }
+}

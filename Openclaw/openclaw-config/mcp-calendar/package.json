@@ -1,0 +1,10 @@
+{
+  "name": "mcp-calendar-lux",
+  "version": "1.0.0",
+  "description": "Minimal Google Calendar MCP: crear y listar eventos",
+  "main": "index.js",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "googleapis": "^144.0.0"
+  }
+}

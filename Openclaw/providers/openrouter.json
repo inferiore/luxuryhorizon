@@ -1,0 +1,23 @@
+{
+  "agents": {
+    "defaults": {
+      "model": { "primary": "openrouter/nvidia/nemotron-3-super-120b-a12b:free" },
+      "models": { "openrouter/nvidia/nemotron-3-super-120b-a12b:free": {} }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "openrouter": { "enabled": true },
+      "google": { "enabled": false },
+      "anthropic": { "enabled": false }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "openrouter:default": {
+        "provider": "openrouter",
+        "mode": "api_key"
+      }
+    }
+  }
+}

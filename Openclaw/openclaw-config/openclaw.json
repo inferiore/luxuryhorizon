@@ -1,0 +1,165 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "/home/node/.openclaw/workspace",
+      "model": {
+        "primary": "openrouter/google/gemini-2.0-flash-001"
+      },
+      "models": {
+        "openrouter/google/gemini-2.0-flash-001": {}
+      },
+      "compaction": {
+        "mode": "safeguard"
+      }
+    },
+    "list": [
+      {
+        "id": "luxury-horizon",
+        "agentDir": "/home/node/.openclaw/agents/luxury-horizon/agent",
+        "workspace": "/home/node/.openclaw/workspace-luxury-horizon"
+      },
+      {
+        "id": "lux-assistant",
+        "agentDir": "/home/node/.openclaw/agents/lux-assistant/agent",
+        "workspace": "/home/node/.openclaw/workspace-lux-assistant"
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "agentId": "lux-assistant",
+      "match": {
+        "channel": "whatsapp"
+      }
+    }
+  ],
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "600cb8bcd31f2dbf05f4a119517ccca99f16a7759f9b71c1"
+    },
+    "port": 18789,
+    "bind": "lan",
+    "controlUi": {
+      "allowedOrigins": [
+        "http://localhost:18789",
+        "http://127.0.0.1:18789"
+      ]
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "channels": {
+    "whatsapp": {
+      "dmPolicy": "allowlist",
+      "allowFrom": [
+        "+573126322306",
+        "+573153828958",
+        "+573044848791"
+      ],
+      "groupPolicy": "disabled",
+      "enabled": true
+    }
+  },
+  "tools": {
+    "profile": "coding"
+  },
+  "plugins": {
+    "entries": {
+      "google": {
+        "enabled": false
+      },
+      "openrouter": {
+        "enabled": true
+      },
+      "anthropic": {
+        "enabled": false
+      },
+      "whatsapp": {
+        "enabled": true
+      },
+      "groq": {
+        "enabled": true
+      }
+    },
+    "load": {
+      "paths": [
+        "/app/dist/extensions/whatsapp"
+      ]
+    },
+    "installs": {
+      "whatsapp": {
+        "source": "path",
+        "spec": "@openclaw/whatsapp",
+        "sourcePath": "/app/dist/extensions/whatsapp",
+        "installPath": "/app/dist/extensions/whatsapp",
+        "installedAt": "2026-04-24T17:13:06.636Z"
+      }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      },
+      "openrouter:default": {
+        "provider": "openrouter",
+        "mode": "api_key"
+      },
+      "groq:default": {
+        "provider": "groq",
+        "mode": "api_key"
+      }
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-04-24T01:16:20.130Z",
+    "lastRunVersion": "2026.4.22",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.4.22",
+    "lastTouchedAt": "2026-04-25T21:02:33.993Z"
+  },
+  "mcp": {
+    "servers": {
+      "google-calendar": {
+        "command": "node",
+        "args": [
+          "/home/node/.openclaw/mcp-calendar/index.js"
+        ],
+        "env": {
+          "GOOGLE_OAUTH_CREDENTIALS": "/home/node/.openclaw/credentials/gcp-oauth.keys.json",
+          "GOOGLE_CALENDAR_TOKEN_PATH": "/home/node/.openclaw/tokens/google-calendar-token.json"
+        }
+      },
+      "filesystem": {
+        "command": "npx",
+        "args": [
+          "-y",
+          "@modelcontextprotocol/server-filesystem",
+          "/app/Context"
+        ]
+      },
+      "whatsapp-notify": {
+        "command": "node",
+        "args": [
+          "/home/node/.openclaw/mcp-notify.js"
+        ]
+      }
+    }
+  }
+}

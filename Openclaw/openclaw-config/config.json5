@@ -1,0 +1,17 @@
+{
+  agents: {
+    defaults: {
+      model: { primary: "google/gemini-3.1-flash-lite-preview" },
+    },
+  },
+  gateway: {
+    mode: "local",
+    bind: "lan",
+    controlUi: {
+      allowedOrigins: [
+        "http://localhost:18789",
+        "http://127.0.0.1:18789",
+      ],
+    },
+  },
+}

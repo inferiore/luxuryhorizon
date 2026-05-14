@@ -1,0 +1,51 @@
+# Environment variables
+.env
+
+# Node modules
+node_modules/
+
+# WhatsApp authentication (keep this private!)
+auth_info_baileys/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Openclaw state
+.openclaw/
+
+# Sensitive credentials — never commit these
+Credencials/
+openclaw-config/tokens/
+openclaw-config/identity/
+openclaw-config/devices/
+openclaw-config/exec-approvals.json
+
+# Agent sessions (runtime state)
+openclaw-config/agents/*/sessions/
+
+# Workspaces (runtime state)
+openclaw-workspace/
+openclaw-workspace-luxury-horizon/
+openclaw-workspace-lux-assistant/
+
+# Logs and cache
+openclaw-config/logs/
+openclaw-config/cache/
+openclaw-config/update-check.json
+
+# Media (inbound files)
+openclaw-config/media/
+
+# Databases
+openclaw-config/memory/
+openclaw-config/tasks/
+
+# Cron run history
+openclaw-config/cron/runs/
+openclaw-config/cron/jobs-state.json
+
+# Config backups and clobbered files
+openclaw-config/openclaw.json.bak*
+openclaw-config/openclaw.json.clobbered*
+openclaw-config/openclaw.json.last-good

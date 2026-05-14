@@ -1,0 +1,23 @@
+{
+  "agents": {
+    "defaults": {
+      "model": { "primary": "google/gemini-2.0-flash-lite" },
+      "models": { "google/gemini-2.0-flash-lite": {} }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "google": { "enabled": true },
+      "openrouter": { "enabled": false },
+      "anthropic": { "enabled": false }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "provider": "google",
+        "mode": "api_key"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "agents": {
+    "defaults": {
+      "model": { "primary": "groq/llama-3.3-70b-versatile" },
+      "models": { "groq/llama-3.3-70b-versatile": {} }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "groq": { "enabled": true },
+      "openrouter": { "enabled": false },
+      "google": { "enabled": false },
+      "anthropic": { "enabled": false }
+    }
+  },
+  "auth": {
+    "profiles": {
+      "groq:default": {
+        "provider": "groq",
+        "mode": "api_key"
+      }
+    }
+  }
+}
