@@ -17,6 +17,10 @@ services:
       - "3100"
     volumes:
       - leads-data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      OPENCLAW_CONTAINER: ${OPENCLAW_CONTAINER:-openclaw-openclaw-gateway-1}
+      NOTIFY_PHONE: ${NOTIFY_PHONE:-+573126322306}
     restart: unless-stopped
 
   certbot:
