@@ -275,5 +275,69 @@
       </div>
     </div>
   </div>
+
+  <script>const INFLUENCER_SOURCE = 'fabian';</script>
+  <section id="contact" style="background:#0A1A32;padding:60px 20px;font-family:'Raleway',sans-serif;">
+    <div style="max-width:520px;margin:0 auto;">
+      <h2 style="font-family:'Cinzel',serif;color:#B79A49;text-align:center;font-size:1.6rem;margin-bottom:8px;letter-spacing:2px;">CONTÁCTANOS</h2>
+      <p style="color:#aaa;text-align:center;margin-bottom:32px;font-size:.95rem;">Te llamamos nosotros. Solo déjanos tu nombre y WhatsApp.</p>
+      <form id="lead-form" onsubmit="submitLead(event)">
+        <div style="margin-bottom:18px;">
+          <label style="color:#d4b86a;font-size:.82rem;letter-spacing:1px;display:block;margin-bottom:6px;">NOMBRE *</label>
+          <input id="lf-name" type="text" placeholder="Tu nombre completo" required style="width:100%;padding:13px 16px;border:1px solid #1e3a5f;background:#112244;color:#f0f0f0;border-radius:8px;font-family:'Raleway',sans-serif;font-size:1rem;box-sizing:border-box;outline:none;" onfocus="this.style.borderColor='#B79A49'" onblur="this.style.borderColor='#1e3a5f'">
+        </div>
+        <div style="margin-bottom:18px;">
+          <label style="color:#d4b86a;font-size:.82rem;letter-spacing:1px;display:block;margin-bottom:6px;">WHATSAPP *</label>
+          <div style="display:flex;gap:8px;align-items:stretch;">
+            <div id="lf-prefix-box" style="display:flex;align-items:center;gap:6px;background:#112244;border:1px solid #1e3a5f;border-radius:8px;padding:0 14px;white-space:nowrap;min-width:90px;color:#f0f0f0;font-size:1rem;">
+              <span id="lf-flag">🌎</span>
+              <span id="lf-prefix" style="color:#B79A49;font-weight:600;">+</span>
+            </div>
+            <input id="lf-phone" type="tel" placeholder="3001234567" required style="flex:1;padding:13px 16px;border:1px solid #1e3a5f;background:#112244;color:#f0f0f0;border-radius:8px;font-family:'Raleway',sans-serif;font-size:1rem;outline:none;" onfocus="this.style.borderColor='#B79A49'" onblur="this.style.borderColor='#1e3a5f'">
+          </div>
+          <p style="color:#555;font-size:.78rem;margin:5px 0 0 4px;">Número local sin código de país.</p>
+        </div>
+        <div style="margin-bottom:18px;">
+          <label style="color:#d4b86a;font-size:.82rem;letter-spacing:1px;display:block;margin-bottom:6px;">EMAIL <span style="color:#555;">(opcional)</span></label>
+          <input id="lf-email" type="email" placeholder="tu@correo.com" style="width:100%;padding:13px 16px;border:1px solid #1e3a5f;background:#112244;color:#f0f0f0;border-radius:8px;font-family:'Raleway',sans-serif;font-size:1rem;box-sizing:border-box;outline:none;" onfocus="this.style.borderColor='#B79A49'" onblur="this.style.borderColor='#1e3a5f'">
+        </div>
+        <div style="margin-bottom:24px;">
+          <label style="color:#d4b86a;font-size:.82rem;letter-spacing:1px;display:block;margin-bottom:6px;">¿QUÉ TOUR TE INTERESA? <span style="color:#555;">(opcional)</span></label>
+          <textarea id="lf-desc" rows="3" placeholder="Ej. Tour a Palmarito para 4 personas en junio" style="width:100%;padding:13px 16px;border:1px solid #1e3a5f;background:#112244;color:#f0f0f0;border-radius:8px;font-family:'Raleway',sans-serif;font-size:1rem;box-sizing:border-box;outline:none;resize:vertical;" onfocus="this.style.borderColor='#B79A49'" onblur="this.style.borderColor='#1e3a5f'"></textarea>
+        </div>
+        <input type="hidden" id="lf-influencer"><input type="hidden" id="lf-country-code"><input type="hidden" id="lf-country-name"><input type="hidden" id="lf-phone-prefix">
+        <button type="submit" id="lf-btn" style="width:100%;padding:15px;background:linear-gradient(135deg,#B79A49,#d4b86a,#B79A49);background-size:200% auto;color:#0A1A32;font-family:'Cinzel',serif;font-size:1rem;font-weight:700;letter-spacing:2px;border:none;border-radius:8px;cursor:pointer;">QUIERO QUE ME CONTACTEN</button>
+        <div id="lf-msg" style="display:none;text-align:center;margin-top:18px;font-size:1rem;padding:12px;border-radius:8px;"></div>
+      </form>
+    </div>
+  </section>
+  <script>
+  (function(){
+    document.getElementById('lf-influencer').value = typeof INFLUENCER_SOURCE!=='undefined'?INFLUENCER_SOURCE:'directo';
+    fetch('https://ipapi.co/json/').then(r=>r.json()).then(d=>{
+      const code=d.country_code||'',calling=(d.country_calling_code||'').replace('+','');
+      const flag=code?String.fromCodePoint(...[...code].map(c=>0x1F1E6+c.charCodeAt(0)-65)):'🌎';
+      document.getElementById('lf-flag').textContent=flag;
+      document.getElementById('lf-prefix').textContent='+'+calling;
+      document.getElementById('lf-country-code').value=code;
+      document.getElementById('lf-country-name').value=d.country_name||'';
+      document.getElementById('lf-phone-prefix').value=calling;
+    }).catch(()=>{});
+  })();
+  async function submitLead(e){
+    e.preventDefault();
+    const btn=document.getElementById('lf-btn'),msg=document.getElementById('lf-msg');
+    const prefix=document.getElementById('lf-phone-prefix').value;
+    const phone=document.getElementById('lf-phone').value.replace(/\D/g,'');
+    const full=prefix?'+'+prefix+phone:phone;
+    btn.disabled=true;btn.textContent='Enviando...';
+    try{
+      const res=await fetch('https://luxuryhorizon.lat/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('lf-name').value.trim(),whatsapp_number:full,email:document.getElementById('lf-email').value.trim()||null,description:document.getElementById('lf-desc').value.trim()||null,influencer:document.getElementById('lf-influencer').value,country_code:document.getElementById('lf-country-code').value,country_name:document.getElementById('lf-country-name').value,phone_prefix:document.getElementById('lf-phone-prefix').value})});
+      if(res.ok){msg.style.display='block';msg.style.background='#0d3320';msg.style.color='#4ade80';msg.textContent='✅ ¡Listo! Te contactamos pronto por WhatsApp.';document.getElementById('lead-form').reset();document.getElementById('lf-flag').textContent='🌎';document.getElementById('lf-prefix').textContent='+';}
+      else throw new Error();
+    }catch{msg.style.display='block';msg.style.background='#3a0d0d';msg.style.color='#f87171';msg.textContent='❌ Hubo un error. Escríbenos directamente por WhatsApp.';}
+    finally{btn.disabled=false;btn.textContent='QUIERO QUE ME CONTACTEN';}
+  }
+  </script>
 </body>
 </html>
