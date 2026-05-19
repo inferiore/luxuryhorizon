@@ -122,10 +122,15 @@ async function sendEmail(lead) {
 }
 
 async function sendNotification(lead) {
-  await Promise.all([
-    sendWhatsApp(lead),
-    sendEmail(lead),
-  ]);
+  try {
+    await sendWhatsApp(lead);
+  } catch (err) {
+    // WhatsApp falló — notificar por email como fallback
+    await sendEmail(lead).catch(mailErr =>
+      console.error('[email] Error al enviar fallback:', mailErr.message)
+    );
+    throw err; // re-lanzar para que markNotified registre el error
+  }
 }
 
 function markNotified(id, error = null) {
