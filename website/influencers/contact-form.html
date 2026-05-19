@@ -153,7 +153,7 @@ async function submitLead(e) {
   btn.textContent = 'Enviando...';
 
   try {
-    const res = await fetch('https://luxuryhorizon.lat/api/leads', {
+    const res = await fetch('(window.__LEADS_API_URL||'')+'/api/leads'', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

@@ -188,6 +188,13 @@ app.post('/api/leads/:id/retry', async (req, res) => {
   }
 });
 
+// ── GET /config.js — configuración pública inyectable desde cualquier página ──
+app.get('/config.js', (req, res) => {
+  const leadsApiUrl = process.env.LEADS_API_URL || '';
+  res.setHeader('Content-Type', 'application/javascript');
+  res.send(`window.__LEADS_API_URL = ${JSON.stringify(leadsApiUrl)};`);
+});
+
 // ── GET /api/leads ────────────────────────────────────────────────────────────
 app.get('/api/leads', (req, res) => {
   const leads = db.prepare('SELECT * FROM contact_leads ORDER BY created_at DESC').all();

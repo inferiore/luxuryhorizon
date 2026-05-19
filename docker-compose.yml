@@ -7,6 +7,8 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt:ro
       - ./certbot/www:/var/www/certbot
+    environment:
+      LEADS_API_URL: ${LEADS_API_URL:-https://luxuryhorizon.lat}
     depends_on:
       - leads-api
     restart: unless-stopped
@@ -19,6 +21,7 @@ services:
       - leads-data:/app/data
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
+      LEADS_API_URL: ${LEADS_API_URL:-https://luxuryhorizon.lat}
       OPENCLAW_CONTAINER: ${OPENCLAW_CONTAINER:-openclaw-openclaw-gateway-1}
       NOTIFY_PHONE: ${NOTIFY_PHONE:-+573126322306}
       NOTIFY_EMAIL: ${NOTIFY_EMAIL:-ederb1.1c@gmail.com}
