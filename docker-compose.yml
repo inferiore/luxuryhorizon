@@ -21,6 +21,9 @@ services:
     environment:
       OPENCLAW_CONTAINER: ${OPENCLAW_CONTAINER:-openclaw-openclaw-gateway-1}
       NOTIFY_PHONE: ${NOTIFY_PHONE:-+573126322306}
+      NOTIFY_EMAIL: ${NOTIFY_EMAIL:-ederb1.1c@gmail.com}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASS: ${SMTP_PASS:-}
     restart: unless-stopped
 
   certbot:

@@ -8,5 +8,8 @@ CREATE TABLE IF NOT EXISTS contact_leads (
   country_code    TEXT,
   country_name    TEXT,
   phone_prefix    TEXT,
+  notified        INTEGER DEFAULT 0,
+  notify_error    TEXT,
+  notify_attempts INTEGER DEFAULT 0,
   created_at      DATETIME DEFAULT CURRENT_TIMESTAMP
 );
