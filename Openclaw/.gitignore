@@ -21,6 +21,11 @@ openclaw-config/identity/
 openclaw-config/devices/
 openclaw-config/exec-approvals.json
 
+# Agent runtime state (contains API keys — never commit)
+openclaw-config/agents/*/agent/auth-profiles.json
+openclaw-config/agents/*/agent/auth-state.json
+openclaw-config/agents/*/agent/models.json
+
 # Agent sessions (runtime state)
 openclaw-config/agents/*/sessions/
 
