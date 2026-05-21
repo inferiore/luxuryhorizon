@@ -42,23 +42,37 @@
     .header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      border-bottom: 2px solid #B79A49;
-      padding-bottom: 24px;
-      margin-bottom: 28px;
+      align-items: center;
+      background: #0A1A32;
+      margin: -48px -52px 28px;
+      padding: 24px 36px;
+      border-bottom: 3px solid #B79A49;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 6px;
     }
 
     .brand h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
+      font-size: 1.7rem;
       font-weight: 700;
-      color: #0A1A32;
+      color: #B79A49;
       letter-spacing: 3px;
     }
 
     .brand p {
-      font-size: .78rem;
-      color: #666;
+      font-size: .75rem;
+      color: #aab;
       margin-top: 4px;
       line-height: 1.6;
     }
@@ -71,7 +85,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.35rem;
       font-weight: 700;
-      color: #0A1A32;
+      color: #fff;
       letter-spacing: 2px;
     }
 
@@ -84,7 +98,7 @@
 
     .doc-info .doc-fecha {
       font-size: .78rem;
-      color: #888;
+      color: #aab;
       margin-top: 6px;
     }
 
@@ -326,10 +340,14 @@
     @media print {
       body { background: #fff; padding: 0; }
       .page { box-shadow: none; padding: 32px 40px; }
+      .header { margin: -32px -40px 28px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .no-print { display: none !important; }
       [contenteditable] { border-bottom: none; background: transparent !important; }
       .btn-del-row, .btn-add-row { display: none; }
       .add-row { display: none; }
+      thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .total-row.main { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .method-pill.active { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 </head>
@@ -348,12 +366,15 @@
   <!-- Header -->
   <div class="header">
     <div class="brand">
-      <h1>LUXURY HORIZON</h1>
-      <p>
-        Agencia de Viajes &amp; Tours de Lujo · Cartagena, Colombia<br>
-        NIT: <span class="gold">12.490.717.511</span> &nbsp;·&nbsp; RNT: <span class="gold">277252</span><br>
-        luxurycolombia@gmail.com &nbsp;·&nbsp; +57 312 6322306
-      </p>
+      <img src="../biolink/assest/logo.jpeg" alt="Luxury Horizon">
+      <div>
+        <h1>LUXURY HORIZON</h1>
+        <p>
+          Agencia de Viajes &amp; Tours de Lujo · Cartagena, Colombia<br>
+          NIT: <span class="gold">12.490.717.511</span> &nbsp;·&nbsp; RNT: <span class="gold">277252</span><br>
+          luxurycolombia@gmail.com &nbsp;·&nbsp; +57 312 6322306
+        </p>
+      </div>
     </div>
     <div class="doc-info">
       <div class="doc-type">RECIBO DE PAGO</div>
