@@ -223,7 +223,7 @@ app.patch('/api/leads/:id', (req, res) => {
   const lead = db.prepare('SELECT * FROM contact_leads WHERE id = ?').get(req.params.id);
   if (!lead) return res.status(404).json({ error: 'Lead no encontrado' });
 
-  const allowed = ['name', 'whatsapp_number', 'email', 'description', 'influencer', 'country_code', 'country_name', 'phone_prefix'];
+  const allowed = ['name', 'whatsapp_number', 'email', 'description', 'influencer', 'country_code', 'country_name', 'phone_prefix', 'notified', 'notify_error', 'notify_attempts'];
   const fields  = Object.keys(req.body).filter(k => allowed.includes(k));
   if (fields.length === 0) return res.status(400).json({ error: 'No hay campos válidos para actualizar' });
 
