@@ -622,21 +622,16 @@
 
     try {
       const blob = await html2pdf().set(opt).from(document.querySelector('.page')).output('blob');
-      const file = new File([blob], opt.filename, { type: 'application/pdf' });
-      const texto = encodeURIComponent('Hola, te comparto tu recibo de pago de Luxury Horizon 🌴✨');
-      const waUrl = `https://wa.me/${numero}?text=${texto}`;
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = opt.filename;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
 
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'Recibo de Pago Luxury Horizon' });
-      } else {
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = opt.filename;
-        a.click();
-        setTimeout(() => window.open(waUrl, '_blank'), 800);
-      }
+      const texto = encodeURIComponent('Hola, te comparto tu recibo de pago de Luxury Horizon 🌴✨');
+      setTimeout(() => window.open(`https://wa.me/${numero}?text=${texto}`, '_blank'), 800);
     } catch (e) {
-      if (e.name !== 'AbortError') alert('No se pudo generar el PDF. Usa el botón de imprimir.');
+      alert('No se pudo generar el PDF. Usa el botón de imprimir.');
     }
 
     btn.disabled = false;
