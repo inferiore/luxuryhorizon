@@ -31,13 +31,9 @@
       min-height: 100dvh;
       font-family: 'Raleway', sans-serif;
       background: var(--midnight);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow-x: hidden;
       position: relative;
-      padding-top: max(1.5rem, env(safe-area-inset-top));
-      padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+      padding: max(1.5rem, env(safe-area-inset-top)) 0 max(1.5rem, env(safe-area-inset-bottom));
     }
 
     /* Warm glow orbs */
@@ -200,32 +196,32 @@
     }
     .btn:active { transform: scale(0.97); }
     .btn-wa {
-      background: rgba(7,94,84,0.15);
-      border: 1px solid rgba(37,211,102,0.25);
-      color: #25D366;
-      font-weight: 600;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.12);
-      animation: wa-glow 3s ease-in-out infinite;
+      background: linear-gradient(135deg, #0A6630, #1A9E50, #25D366, #1A9E50, #0A6630);
+      background-size: 260% auto;
+      color: #fff;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.42);
+      animation: wa-sh 5s linear infinite, wa-br 2.8s ease-in-out infinite;
     }
-    @keyframes wa-glow {
-      0%, 100% { color: #25D366; box-shadow: 0 4px 16px rgba(37,211,102,0.12); }
-      50%       { color: #7EEAAA; box-shadow: 0 4px 24px rgba(37,211,102,0.3); }
+    @keyframes wa-sh { to { background-position: 260% center; } }
+    @keyframes wa-br {
+      0%,100% { box-shadow: 0 6px 28px rgba(37,211,102,0.42); transform: scale(1); }
+      50%     { box-shadow: 0 10px 42px rgba(37,211,102,0.65); transform: scale(1.012); }
     }
-    .btn-wa:hover { background: rgba(7,94,84,0.25); border-color: rgba(37,211,102,0.5); transform: translateY(-1px); }
+    .btn-wa:active { transform: scale(0.97) !important; animation-play-state: paused; }
     .btn-ig {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.1);
       color: var(--smoke);
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.28);
       box-shadow: 0 4px 16px rgba(0,0,0,0.3);
     }
-    .btn-ig:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
+    .btn-ig:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.4); transform: translateY(-1px); }
     .btn-tiktok {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.1);
       color: var(--smoke);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.22);
       box-shadow: 0 4px 16px rgba(0,0,0,0.3);
     }
-    .btn-tiktok:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-1px); }
+    .btn-tiktok:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.35); transform: translateY(-1px); }
     .btn-icon { width: 22px; height: 22px; flex-shrink: 0; fill: currentColor; }
 
     .footer {
@@ -241,7 +237,7 @@
 <body>
   <div class="card">
     <div class="card-photo">
-      <img src="gabs-bg.jpg" alt="Gabs" />
+      <img src="gabs-avatar.jpg" alt="Gabs" />
     </div>
 
     <div class="logo-wrap">
@@ -266,7 +262,6 @@
       <a class="btn btn-tiktok" href="https://www.tiktok.com/@luxury.horizon_" target="_blank" rel="noopener">
         <svg class="btn-icon" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.16 8.16 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg></a>
     </div>
-    <p class="footer">© 2026 Luxury Horizon · Todos los derechos reservados</p>
   </div>
 
   <script src="/config.js"></script>
@@ -314,6 +309,7 @@
         <div id="lf-msg" style="display:none;text-align:center;margin-top:18px;font-size:1rem;padding:12px;border-radius:8px;"></div>
       </form>
     </div>
+  <p style="text-align:center;font-size:.48rem;letter-spacing:.2em;color:#aaa;text-transform:uppercase;padding:20px 0 32px;font-family:'Raleway',sans-serif;">© 2026 Luxury Horizon · Todos los derechos reservados</p>
   </section>
   <script>
   (function(){
@@ -336,7 +332,7 @@
     const full=prefix?'+'+prefix+phone:phone;
     btn.disabled=true;btn.textContent='Enviando...';
     try{
-      const res=await fetch('(window.__LEADS_API_URL||'')+'/api/leads'',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('lf-name').value.trim(),whatsapp_number:full,email:document.getElementById('lf-email').value.trim()||null,description:document.getElementById('lf-desc').value.trim()||null,influencer:document.getElementById('lf-influencer').value,country_code:document.getElementById('lf-country-code').value,country_name:document.getElementById('lf-country-name').value,phone_prefix:document.getElementById('lf-phone-prefix').value})});
+      const res=await fetch((window.__LEADS_API_URL||'')+'/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('lf-name').value.trim(),whatsapp_number:full,email:document.getElementById('lf-email').value.trim()||null,description:document.getElementById('lf-desc').value.trim()||null,influencer:document.getElementById('lf-influencer').value,country_code:document.getElementById('lf-country-code').value,country_name:document.getElementById('lf-country-name').value,phone_prefix:document.getElementById('lf-phone-prefix').value})});
       if(res.ok){msg.style.display='block';msg.style.background='#0d3320';msg.style.color='#4ade80';msg.textContent='✅ ¡Listo! Te contactamos pronto por WhatsApp.';document.getElementById('lead-form').reset();document.getElementById('lf-flag').textContent='🌎';document.getElementById('lf-prefix').textContent='+';}
       else throw new Error();
     }catch{msg.style.display='block';msg.style.background='#3a0d0d';msg.style.color='#f87171';msg.textContent='❌ Hubo un error. Escríbenos directamente por WhatsApp.';}

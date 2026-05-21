@@ -12,6 +12,9 @@ COPY website/     /usr/share/nginx/html/website/
 COPY robots.txt   /usr/share/nginx/html/robots.txt
 COPY sitemap.xml  /usr/share/nginx/html/sitemap.xml
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/entrypoint.sh"]
