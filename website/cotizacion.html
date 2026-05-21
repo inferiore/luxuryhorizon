@@ -335,7 +335,9 @@
 
   // ── Formateo numérico ──────────────────────────────────────────────────────
   function parseCOP(str) {
-    return parseFloat((str || '').replace(/[^0-9.]/g, '')) || 0;
+    // Formato colombiano: punto = miles, coma = decimal → "4.285" → 4285
+    const s = (str || '').replace(/[^0-9,.-]/g, '').replace(/\./g, '').replace(',', '.');
+    return parseFloat(s) || 0;
   }
   function formatCOP(n) {
     return 'COP ' + Math.round(n).toLocaleString('es-CO');
