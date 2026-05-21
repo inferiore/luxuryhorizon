@@ -292,13 +292,17 @@
 
   <!-- TRM -->
   <div class="trm-row">
-    TRM (COP → USD): &nbsp;
+    TRM actual: &nbsp;
     <span contenteditable spellcheck="false" id="trm" data-ph="4000">4000</span>
     <button class="no-print" onclick="cargarTRM()" id="btn-trm"
       style="background:none;border:1px solid #B79A49;color:#B79A49;font-family:'Jost',sans-serif;font-size:.72rem;padding:3px 10px;border-radius:12px;cursor:pointer;margin-left:6px;">
       ↻ Actualizar
     </button>
-    <span id="trm-source" style="font-size:.68rem;color:#bbb;margin-left:6px;"></span>
+    &nbsp;·&nbsp; Descuento cambio: &nbsp;
+    <span contenteditable spellcheck="false" id="trm-pct" data-ph="3">3</span> %
+    &nbsp;·&nbsp; TRM efectivo: &nbsp;
+    <strong id="trm-efectivo" style="color:#0A1A32;">—</strong>
+    <span id="trm-source" style="font-size:.68rem;color:#bbb;margin-left:8px;"></span>
   </div>
 
   <!-- Totales -->
@@ -359,8 +363,11 @@
     });
 
     const trm    = parseCOP(document.getElementById('trm').textContent) || 1;
-    const totalUSD = totalCOP / trm;
+    const pct    = parseCOP(document.getElementById('trm-pct').textContent) || 0;
+    const trmEfectivo = trm * (1 - pct / 100);
+    const totalUSD = totalCOP / trmEfectivo;
 
+    document.getElementById('trm-efectivo').textContent = Math.round(trmEfectivo).toLocaleString('es-CO');
     document.getElementById('total-cop').textContent = formatCOP(totalCOP);
     document.getElementById('total-usd').textContent = formatUSD(totalUSD);
   }
@@ -423,6 +430,8 @@
   // TRM
   document.getElementById('trm').addEventListener('input', recalcular);
   document.getElementById('trm').addEventListener('blur',  recalcular);
+  document.getElementById('trm-pct').addEventListener('input', recalcular);
+  document.getElementById('trm-pct').addEventListener('blur',  recalcular);
 
   // Cargar TRM al abrir
   cargarTRM();
