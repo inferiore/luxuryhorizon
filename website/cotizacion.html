@@ -302,7 +302,6 @@
     <span contenteditable spellcheck="false" id="trm-pct" data-ph="3">3</span> %
     &nbsp;·&nbsp; TRM efectivo: &nbsp;
     <strong id="trm-efectivo" style="color:#0A1A32;">—</strong>
-    <span id="trm-source" style="font-size:.68rem;color:#bbb;margin-left:8px;"></span>
   </div>
 
   <!-- Totales -->
@@ -408,7 +407,6 @@
   // ── TRM desde API ─────────────────────────────────────────────────────────
   async function cargarTRM() {
     const btn = document.getElementById('btn-trm');
-    const src = document.getElementById('trm-source');
     btn.textContent = '⏳';
     btn.disabled = true;
     try {
@@ -417,10 +415,10 @@
       if (!data.rates?.COP) throw new Error('Sin datos COP');
       const trm = Math.round(data.rates.COP);
       document.getElementById('trm').textContent = trm.toLocaleString('es-CO');
-      src.textContent = `Fuente: open.er-api.com · ${new Date().toLocaleTimeString('es-CO', {hour:'2-digit',minute:'2-digit'})}`;
+
       recalcular();
     } catch {
-      src.textContent = 'No se pudo obtener la TRM';
+      // silencioso
     } finally {
       btn.textContent = '↻ Actualizar';
       btn.disabled = false;
