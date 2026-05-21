@@ -350,15 +350,21 @@
       .method-pill.active { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
 <!-- Barra de acciones -->
-<div class="no-print" style="max-width:780px;margin:0 auto 16px;display:flex;justify-content:space-between;align-items:center;">
+<div class="no-print" style="max-width:780px;margin:0 auto 16px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
   <span style="font-family:'Jost',sans-serif;font-size:.78rem;color:#999;">Haz clic en cualquier campo para editar</span>
-  <button onclick="window.print()" style="background:#0A1A32;color:#B79A49;border:none;padding:10px 24px;font-family:'Jost',sans-serif;font-size:.85rem;letter-spacing:1px;cursor:pointer;border-radius:3px;">
-    🖨 IMPRIMIR / GUARDAR PDF
-  </button>
+  <div style="display:flex;gap:8px;">
+    <button id="btn-wa" onclick="compartirWhatsApp()" style="background:linear-gradient(135deg,#0A6630,#25D366);color:#fff;border:none;padding:10px 20px;font-family:'Jost',sans-serif;font-size:.85rem;letter-spacing:1px;cursor:pointer;border-radius:3px;display:flex;align-items:center;gap:6px;">
+      📤 ENVIAR POR WHATSAPP
+    </button>
+    <button onclick="window.print()" style="background:#0A1A32;color:#B79A49;border:none;padding:10px 24px;font-family:'Jost',sans-serif;font-size:.85rem;letter-spacing:1px;cursor:pointer;border-radius:3px;">
+      🖨 IMPRIMIR / GUARDAR PDF
+    </button>
+  </div>
 </div>
 
 <div class="page">
@@ -397,7 +403,7 @@
     </div>
     <div class="field">
       <label>Teléfono / WhatsApp</label>
-      <span contenteditable spellcheck="false" class="editable-val placeholder">+57 300 000 0000</span>
+      <span id="tel-cliente" contenteditable spellcheck="false" class="editable-val placeholder">+57 300 000 0000</span>
     </div>
     <div class="field">
       <label>Correo Electrónico</label>
@@ -595,6 +601,47 @@
   // ── Filas iniciales ───────────────────────────────────────────────────────
   addRow(); addRow(); addRow();
   recalcular();
+
+  // ── Compartir por WhatsApp ────────────────────────────────────────────────
+  async function compartirWhatsApp() {
+    const btn = document.getElementById('btn-wa');
+    btn.disabled = true;
+    btn.textContent = '⏳ Generando PDF...';
+
+    const telRaw = document.getElementById('tel-cliente').textContent.trim();
+    const tel = telRaw.replace(/[^+\d]/g, '').replace(/^\+/, '');
+    const numero = tel || '573126322306';
+
+    const opt = {
+      margin: 0,
+      filename: 'recibo-pago-luxury-horizon.pdf',
+      image: { type: 'jpeg', quality: 0.95 },
+      html2canvas: { scale: 2, useCORS: true, logging: false },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    try {
+      const blob = await html2pdf().set(opt).from(document.querySelector('.page')).output('blob');
+      const file = new File([blob], opt.filename, { type: 'application/pdf' });
+      const texto = encodeURIComponent('Hola, te comparto tu recibo de pago de Luxury Horizon 🌴✨');
+      const waUrl = `https://wa.me/${numero}?text=${texto}`;
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: 'Recibo de Pago Luxury Horizon' });
+      } else {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = opt.filename;
+        a.click();
+        setTimeout(() => window.open(waUrl, '_blank'), 800);
+      }
+    } catch (e) {
+      if (e.name !== 'AbortError') alert('No se pudo generar el PDF. Usa el botón de imprimir.');
+    }
+
+    btn.disabled = false;
+    btn.innerHTML = '📤 ENVIAR POR WHATSAPP';
+  }
 </script>
 
 </body>
