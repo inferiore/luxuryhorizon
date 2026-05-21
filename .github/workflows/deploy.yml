@@ -14,9 +14,8 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: 34.44.81.102
-          username: ederb1_1c
+          username: ederbarrios
           key: ${{ secrets.GCP_SSH_KEY }}
           script: |
-            cd /home/ederb1_1c/luxuryhorizon
-            git pull
-            sudo docker compose up -d --build
+            sudo git -C /home/ederb1_1c/luxuryhorizon pull
+            cd /home/ederb1_1c/luxuryhorizon && sudo docker compose up -d --build
