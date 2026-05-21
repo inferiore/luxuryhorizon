@@ -515,16 +515,26 @@
       const a = document.createElement('a');
       a.href = url; a.download = opt.filename;
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      setTimeout(() => URL.revokeObjectURL(url), 5000);
+      setTimeout(() => URL.revokeObjectURL(url), 10000);
 
       const texto = encodeURIComponent('Hola, te comparto tu cotización de Luxury Horizon 🌴✨');
-      setTimeout(() => window.open(`https://wa.me/${numero}?text=${texto}`, '_blank'), 800);
+      mostrarBannerWA(`https://wa.me/${numero}?text=${texto}`);
     } catch (e) {
       alert('No se pudo generar el PDF. Usa el botón de imprimir.');
     }
 
     btn.disabled = false;
     btn.innerHTML = '📤 ENVIAR POR WHATSAPP';
+  }
+
+  function mostrarBannerWA(waUrl) {
+    document.getElementById('banner-wa')?.remove();
+    const b = document.createElement('div');
+    b.id = 'banner-wa';
+    b.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1a7a3c;color:#fff;padding:14px 20px;border-radius:10px;font-family:Jost,sans-serif;font-size:.9rem;z-index:9999;display:flex;align-items:center;gap:14px;box-shadow:0 6px 24px rgba(0,0,0,.35);white-space:nowrap;';
+    b.innerHTML = `<span>✅ PDF descargado.</span><a href="${waUrl}" target="_blank" rel="noopener" style="color:#fff;font-weight:700;text-decoration:underline;cursor:pointer;">Abrir WhatsApp →</a><button onclick="this.parentNode.remove()" style="background:none;border:none;color:#ffffffaa;font-size:1.1rem;cursor:pointer;line-height:1;padding:0 2px;">✕</button>`;
+    document.body.appendChild(b);
+    setTimeout(() => b.remove(), 20000);
   }
 </script>
 
