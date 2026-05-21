@@ -55,15 +55,45 @@ function dockerExec(container, cmd) {
       let data = '';
       res.on('data', c => data += c);
       res.on('end', () => {
+        if (res.statusCode !== 201) {
+          let msg = data;
+          try { msg = JSON.parse(data).message || data; } catch {}
+          return reject(new Error(`docker exec create (${res.statusCode}): ${msg}`));
+        }
         let execId;
-        try { execId = JSON.parse(data).Id; } catch { return reject(new Error('docker exec create failed: ' + data)); }
-        const startBody = JSON.stringify({ Detach: true, Tty: false });
+        try { execId = JSON.parse(data).Id; } catch {
+          return reject(new Error('docker exec create: respuesta inválida: ' + data));
+        }
+        if (!execId) return reject(new Error('docker exec create: no devolvió exec ID'));
+
+        const startBody = JSON.stringify({ Detach: false, Tty: false });
         const startReq  = http.request({
           socketPath: DOCKER_SOCKET,
           path: `/exec/${execId}/start`,
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(startBody) }
-        }, res2 => { res2.resume(); res2.on('end', resolve); });
+        }, res2 => {
+          res2.resume();
+          res2.on('end', () => {
+            http.request({
+              socketPath: DOCKER_SOCKET,
+              path: `/exec/${execId}/json`,
+              method: 'GET'
+            }, res3 => {
+              let info = '';
+              res3.on('data', c => info += c);
+              res3.on('end', () => {
+                let exitCode;
+                try { exitCode = JSON.parse(info).ExitCode; } catch {
+                  return reject(new Error('docker exec inspect: respuesta inválida'));
+                }
+                if (exitCode == null) return reject(new Error('docker exec inspect: sin ExitCode'));
+                if (exitCode !== 0)   return reject(new Error(`docker exec falló (exit ${exitCode})`));
+                resolve();
+              });
+            }).on('error', reject).end();
+          });
+        });
         startReq.on('error', reject);
         startReq.write(startBody);
         startReq.end();
