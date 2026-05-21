@@ -291,9 +291,14 @@
   </table>
 
   <!-- TRM -->
-  <div class="trm-row no-print-hide">
+  <div class="trm-row">
     TRM (COP → USD): &nbsp;
     <span contenteditable spellcheck="false" id="trm" data-ph="4000">4000</span>
+    <button class="no-print" onclick="cargarTRM()" id="btn-trm"
+      style="background:none;border:1px solid #B79A49;color:#B79A49;font-family:'Jost',sans-serif;font-size:.72rem;padding:3px 10px;border-radius:12px;cursor:pointer;margin-left:6px;">
+      ↻ Actualizar
+    </button>
+    <span id="trm-source" style="font-size:.68rem;color:#bbb;margin-left:6px;"></span>
   </div>
 
   <!-- Totales -->
@@ -393,9 +398,34 @@
     tr.querySelector('[contenteditable]').focus();
   }
 
+  // ── TRM desde API ─────────────────────────────────────────────────────────
+  async function cargarTRM() {
+    const btn = document.getElementById('btn-trm');
+    const src = document.getElementById('trm-source');
+    btn.textContent = '⏳';
+    btn.disabled = true;
+    try {
+      const res  = await fetch('https://open.er-api.com/v6/latest/USD');
+      const data = await res.json();
+      if (!data.rates?.COP) throw new Error('Sin datos COP');
+      const trm = Math.round(data.rates.COP);
+      document.getElementById('trm').textContent = trm.toLocaleString('es-CO');
+      src.textContent = `Fuente: open.er-api.com · ${new Date().toLocaleTimeString('es-CO', {hour:'2-digit',minute:'2-digit'})}`;
+      recalcular();
+    } catch {
+      src.textContent = 'No se pudo obtener la TRM';
+    } finally {
+      btn.textContent = '↻ Actualizar';
+      btn.disabled = false;
+    }
+  }
+
   // TRM
   document.getElementById('trm').addEventListener('input', recalcular);
   document.getElementById('trm').addEventListener('blur',  recalcular);
+
+  // Cargar TRM al abrir
+  cargarTRM();
 
   // Placeholders globales
   activarPlaceholders(document);
