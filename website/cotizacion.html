@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cotización — Luxury Horizon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: #f5f5f0;
+      color: #1a1a1a;
+      padding: 40px 20px;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 52px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    }
+
+    /* ── Editable ── */
+    [contenteditable] {
+      outline: none;
+      border-bottom: 1.5px dashed #B79A49;
+      min-width: 60px;
+      display: inline-block;
+      transition: background .15s;
+      border-radius: 2px 2px 0 0;
+    }
+    [contenteditable]:focus { background: #fffbef; border-bottom-color: #0A1A32; }
+    [contenteditable].placeholder { color: #ccc; font-style: italic; font-weight: 400; }
+
+    /* ── Header ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0A1A32;
+      margin: -48px -52px 28px;
+      padding: 24px 36px;
+      border-bottom: 3px solid #B79A49;
+    }
+
+    .brand { display: flex; align-items: center; gap: 18px; }
+    .brand img { width: 90px; height: 90px; object-fit: cover; border-radius: 6px; }
+    .brand h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem; font-weight: 700;
+      color: #B79A49; letter-spacing: 3px;
+    }
+    .brand p { font-size: .75rem; color: #aab; margin-top: 4px; line-height: 1.6; }
+    .brand .gold { color: #B79A49; font-weight: 600; }
+
+    .doc-info { text-align: right; }
+    .doc-info .doc-type {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 700;
+      color: #fff; letter-spacing: 2px;
+    }
+    .doc-info .doc-num { font-size: .85rem; color: #B79A49; font-weight: 600; margin-top: 4px; }
+    .doc-info .doc-fecha { font-size: .78rem; color: #aab; margin-top: 6px; }
+
+    /* ── Vigencia badge ── */
+    .vigencia {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+    .vigencia-badge {
+      background: #fff8e6;
+      border: 1.5px solid #B79A49;
+      color: #8a6d0b;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 5px 16px;
+      border-radius: 20px;
+    }
+
+    /* ── Sección ── */
+    .section-title {
+      font-size: .68rem; font-weight: 600;
+      letter-spacing: 2px; color: #B79A49;
+      text-transform: uppercase;
+      margin-bottom: 10px; margin-top: 24px;
+    }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 24px;
+      background: #f9f8f5;
+      border: 1px solid #e8e2d4;
+      border-radius: 4px;
+      padding: 16px 20px;
+    }
+    .grid.three { grid-template-columns: 1fr 1fr 1fr; }
+
+    .field label {
+      font-size: .68rem; color: #999;
+      letter-spacing: 1px; text-transform: uppercase;
+      display: block; margin-bottom: 4px;
+    }
+    .field .editable-val {
+      font-size: .9rem; color: #1a1a1a;
+      font-weight: 500; min-width: 80px; display: block;
+    }
+
+    /* ── Tabla ── */
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: .875rem; }
+
+    thead th {
+      background: #0A1A32; color: #B79A49;
+      font-size: .68rem; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 10px 12px;
+      text-align: left; font-weight: 600;
+    }
+    thead th.center { text-align: center; }
+    thead th.right  { text-align: right; }
+
+    tbody td {
+      padding: 10px 12px; border-bottom: 1px solid #ede8dc;
+      vertical-align: middle; color: #333;
+    }
+    tbody td.center { text-align: center; }
+    tbody td.right  { text-align: right; font-weight: 500; }
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* ── Totales ── */
+    .totals {
+      display: flex; flex-direction: column;
+      align-items: flex-end; margin-top: 8px; gap: 4px;
+    }
+    .total-row { display: flex; gap: 32px; font-size: .875rem; color: #555; }
+    .total-row .lbl { text-align: right; min-width: 140px; }
+    .total-row .val { min-width: 140px; text-align: right; }
+    .total-row.main {
+      background: #0A1A32; color: #fff;
+      padding: 10px 16px; border-radius: 3px;
+      margin-top: 6px; font-size: 1rem; font-weight: 600;
+    }
+    .total-row.main .lbl { color: #B79A49; }
+    .total-row.usd {
+      background: #f9f8f5; border: 1px solid #e8e2d4;
+      padding: 8px 16px; border-radius: 3px;
+    }
+    .total-row.usd .lbl { color: #888; }
+
+    /* ── TRM ── */
+    .trm-row {
+      display: flex; justify-content: flex-end;
+      align-items: center; gap: 8px;
+      margin-top: 10px; font-size: .8rem; color: #888;
+    }
+    .trm-row span[contenteditable] { min-width: 70px; text-align: right; font-weight: 600; color: #444; }
+
+    /* ── Observaciones ── */
+    .obs-box {
+      background: #f9f8f5; border-left: 3px solid #B79A49;
+      border-radius: 0 4px 4px 0; padding: 14px 18px;
+      font-size: .875rem; color: #444; line-height: 1.65;
+      min-height: 80px; width: 100%; display: block;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      border-top: 1px solid #e8e2d4; margin-top: 36px;
+      padding-top: 14px; text-align: center;
+      font-size: .72rem; color: #aaa; line-height: 1.8;
+    }
+    .footer strong { color: #B79A49; }
+
+    /* ── Botones ── */
+    .btn-add-row {
+      background: none; border: 1px dashed #B79A49;
+      color: #B79A49; font-family: 'Jost', sans-serif;
+      font-size: .75rem; letter-spacing: 1px;
+      padding: 4px 14px; border-radius: 3px; cursor: pointer;
+    }
+    .btn-del-row {
+      background: none; border: none; color: #ccc;
+      cursor: pointer; font-size: 1rem; padding: 0 4px;
+    }
+    .btn-del-row:hover { color: #e57373; }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; padding: 32px 40px; }
+      .header { margin: -32px -40px 28px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+      [contenteditable] { border-bottom: none; background: transparent !important; }
+      .btn-del-row, .btn-add-row, .add-row { display: none; }
+      thead th, .total-row.main, .total-row.usd { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Barra de acciones -->
+<div class="no-print" style="max-width:780px;margin:0 auto 16px;display:flex;justify-content:space-between;align-items:center;">
+  <span style="font-family:'Jost',sans-serif;font-size:.78rem;color:#999;">Haz clic en cualquier campo para editar</span>
+  <button onclick="window.print()" style="background:#0A1A32;color:#B79A49;border:none;padding:10px 24px;font-family:'Jost',sans-serif;font-size:.85rem;letter-spacing:1px;cursor:pointer;border-radius:3px;">
+    🖨 IMPRIMIR / GUARDAR PDF
+  </button>
+</div>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand">
+      <img src="../biolink/assest/logo.jpeg" alt="Luxury Horizon">
+      <div>
+        <h1>LUXURY HORIZON</h1>
+        <p>
+          Agencia de Viajes &amp; Tours de Lujo · Cartagena, Colombia<br>
+          NIT: <span class="gold">12.490.717.511</span> &nbsp;·&nbsp; RNT: <span class="gold">277252</span><br>
+          luxurycolombia@gmail.com &nbsp;·&nbsp; +57 312 6322306
+        </p>
+      </div>
+    </div>
+    <div class="doc-info">
+      <div class="doc-type">COTIZACIÓN</div>
+      <div class="doc-num">N° <span contenteditable spellcheck="false" data-ph="001">001</span></div>
+      <div class="doc-fecha">Fecha: <span id="fecha-doc"></span></div>
+    </div>
+  </div>
+
+  <!-- Vigencia -->
+  <div class="vigencia">
+    <div class="vigencia-badge">⏱ Vigencia: 48 horas desde la fecha de emisión</div>
+  </div>
+
+  <!-- Cliente -->
+  <div class="section-title">Información del Cliente</div>
+  <div class="grid three">
+    <div class="field">
+      <label>Cliente / Nombre</label>
+      <span contenteditable spellcheck="false" class="editable-val placeholder" data-ph="Nombre del cliente">Nombre del cliente</span>
+    </div>
+    <div class="field">
+      <label>Teléfono / WhatsApp</label>
+      <span contenteditable spellcheck="false" class="editable-val placeholder" data-ph="+57 300 000 0000">+57 300 000 0000</span>
+    </div>
+    <div class="field">
+      <label>Correo Electrónico</label>
+      <span contenteditable spellcheck="false" class="editable-val placeholder" data-ph="correo@ejemplo.com">correo@ejemplo.com</span>
+    </div>
+    <div class="field">
+      <label>Ciudad</label>
+      <span contenteditable spellcheck="false" class="editable-val placeholder" data-ph="Ciudad">Ciudad</span>
+    </div>
+    <div class="field">
+      <label>Fecha de Viaje</label>
+      <span contenteditable spellcheck="false" class="editable-val placeholder" data-ph="dd de mes de yyyy">dd de mes de yyyy</span>
+    </div>
+    <div class="field">
+      <label>N° de Personas</label>
+      <span contenteditable spellcheck="false" class="editable-val placeholder" data-ph="0">0</span>
+    </div>
+  </div>
+
+  <!-- Tabla tours -->
+  <div class="section-title">Detalle de Tours</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Tour / Servicio</th>
+        <th>Fecha</th>
+        <th class="center">Personas</th>
+        <th class="center">Valor / Persona (COP)</th>
+        <th class="right">Total COP</th>
+        <th class="no-print" style="width:32px;background:#0A1A32;"></th>
+      </tr>
+    </thead>
+    <tbody id="tabla-tours"></tbody>
+    <tbody class="add-row no-print">
+      <tr>
+        <td colspan="6" style="padding:6px 12px;">
+          <button class="btn-add-row" onclick="addRow()">+ Agregar tour</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- TRM -->
+  <div class="trm-row no-print-hide">
+    TRM (COP → USD): &nbsp;
+    <span contenteditable spellcheck="false" id="trm" data-ph="4000">4000</span>
+  </div>
+
+  <!-- Totales -->
+  <div class="totals" style="margin-top:10px;">
+    <div class="total-row main">
+      <span class="lbl">TOTAL COP</span>
+      <span class="val" id="total-cop">COP 0</span>
+    </div>
+    <div class="total-row usd">
+      <span class="lbl">TOTAL USD</span>
+      <span class="val" id="total-usd">USD 0</span>
+    </div>
+  </div>
+
+  <!-- Observaciones -->
+  <div class="section-title">Observaciones</div>
+  <div contenteditable spellcheck="false" class="obs-box placeholder" data-ph="Escribe aquí las condiciones, peticiones especiales u observaciones de la cotización...">Escribe aquí las condiciones, peticiones especiales u observaciones de la cotización...</div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Esta cotización tiene vigencia de <strong>48 horas</strong> · Reserva confirmada únicamente con el pago del depósito<br>
+    <strong>Luxury Horizon</strong> · luxurycolombia@gmail.com · +57 312 6322306 · Cartagena, Colombia
+  </div>
+
+</div>
+
+<script>
+  // Fecha automática
+  document.getElementById('fecha-doc').textContent =
+    new Date().toLocaleDateString('es-CO', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  // ── Formateo numérico ──────────────────────────────────────────────────────
+  function parseCOP(str) {
+    return parseFloat((str || '').replace(/[^0-9.]/g, '')) || 0;
+  }
+  function formatCOP(n) {
+    return 'COP ' + Math.round(n).toLocaleString('es-CO');
+  }
+  function formatUSD(n) {
+    return 'USD ' + n.toLocaleString('es-CO', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  // ── Recalcular totales ─────────────────────────────────────────────────────
+  function recalcular() {
+    let totalCOP = 0;
+
+    document.querySelectorAll('#tabla-tours tr').forEach(tr => {
+      const cant    = parseCOP(tr.querySelector('[data-col="personas"]')?.textContent);
+      const precio  = parseCOP(tr.querySelector('[data-col="precio"]')?.textContent);
+      const totalEl = tr.querySelector('[data-col="total"]');
+      if (!totalEl) return;
+
+      const total = cant * precio;
+      totalCOP += total;
+
+      if (!totalEl.matches(':focus'))
+        totalEl.textContent = total > 0 ? formatCOP(total) : '—';
+    });
+
+    const trm    = parseCOP(document.getElementById('trm').textContent) || 1;
+    const totalUSD = totalCOP / trm;
+
+    document.getElementById('total-cop').textContent = formatCOP(totalCOP);
+    document.getElementById('total-usd').textContent = formatUSD(totalUSD);
+  }
+
+  // ── Placeholders ──────────────────────────────────────────────────────────
+  function activarPlaceholders(root) {
+    root.querySelectorAll('[contenteditable]').forEach(el => {
+      if (!el.dataset.ph) el.dataset.ph = el.textContent.trim();
+      el.addEventListener('focus', () => {
+        if (el.classList.contains('placeholder')) { el.textContent = ''; el.classList.remove('placeholder'); }
+      });
+      el.addEventListener('blur', () => {
+        if (!el.textContent.trim()) { el.textContent = el.dataset.ph || ''; el.classList.add('placeholder'); }
+        recalcular();
+      });
+      el.addEventListener('input', recalcular);
+    });
+  }
+
+  // ── Añadir / quitar filas ─────────────────────────────────────────────────
+  function addRow() {
+    const tbody = document.getElementById('tabla-tours');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><span contenteditable spellcheck="false" class="placeholder" data-ph="Tour / Servicio">Tour / Servicio</span></td>
+      <td><span contenteditable spellcheck="false" class="placeholder" data-ph="Fecha">Fecha</span></td>
+      <td class="center"><span contenteditable spellcheck="false" class="placeholder" data-col="personas" data-ph="0">0</span></td>
+      <td class="center"><span contenteditable spellcheck="false" class="placeholder" data-col="precio" data-ph="0">0</span></td>
+      <td class="right"><span data-col="total">—</span></td>
+      <td class="no-print" style="text-align:center;">
+        <button class="btn-del-row" onclick="this.closest('tr').remove();recalcular();" title="Eliminar">✕</button>
+      </td>`;
+    tbody.appendChild(tr);
+    activarPlaceholders(tr);
+    tr.querySelector('[contenteditable]').focus();
+  }
+
+  // TRM
+  document.getElementById('trm').addEventListener('input', recalcular);
+  document.getElementById('trm').addEventListener('blur',  recalcular);
+
+  // Placeholders globales
+  activarPlaceholders(document);
+
+  // Filas iniciales
+  addRow(); addRow(); addRow();
+  recalcular();
+</script>
+
+</body>
+</html>
