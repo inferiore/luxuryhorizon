@@ -1,0 +1,22 @@
+name: Deploy a producción
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Desplegar en servidor GCP
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 34.44.81.102
+          username: ederb1_1c
+          key: ${{ secrets.GCP_SSH_KEY }}
+          script: |
+            cd /home/ederb1_1c/luxuryhorizon
+            git pull
+            sudo docker compose up -d --build
