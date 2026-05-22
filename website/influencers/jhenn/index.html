@@ -114,8 +114,9 @@ async function submitLead(e){
   const full=prefix?'+'+prefix+phone:phone;
   btn.disabled=true;btn.textContent='Enviando...';
   try{
-    const res=await fetch((window.__LEADS_API_URL||'')+'/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('lf-name').value.trim(),whatsapp_number:full,email:document.getElementById('lf-email').value.trim()||null,description:document.getElementById('lf-desc').value.trim()||null,influencer:document.getElementById('lf-influencer').value,country_code:document.getElementById('lf-country-code').value,country_name:document.getElementById('lf-country-name').value,phone_prefix:document.getElementById('lf-phone-prefix').value})}});
-    if(res.ok){msg.style.display='block';msg.style.background='#f0fdf4';msg.style.color='#166534';msg.textContent='✅ ¡Listo! Te contactamos pronto por WhatsApp.';document.getElementById('lead-form').reset();document.getElementById('lf-flag').textContent='🌎';document.getElementById('lf-prefix').textContent='+';}
+    const res=await fetch((window.__LEADS_API_URL||'https://luxuryhorizon.lat')+'/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('lf-name').value.trim(),whatsapp_number:full,email:document.getElementById('lf-email').value.trim()||null,description:document.getElementById('lf-desc').value.trim()||null,influencer:document.getElementById('lf-influencer').value,country_code:document.getElementById('lf-country-code').value,country_name:document.getElementById('lf-country-name').value,phone_prefix:document.getElementById('lf-phone-prefix').value})}});
+    const data=await res.json();
+    if(res.ok&&data.success){msg.style.display='block';msg.style.background='#f0fdf4';msg.style.color='#166534';msg.textContent='✅ ¡Listo! Te contactamos pronto por WhatsApp.';document.getElementById('lead-form').reset();document.getElementById('lf-flag').textContent='🌎';document.getElementById('lf-prefix').textContent='+';}
     else throw new Error();
   }catch{msg.style.display='block';msg.style.background='#fef2f2';msg.style.color='#991b1b';msg.textContent='❌ Hubo un error. Escríbenos directamente por WhatsApp.';}
   finally{btn.disabled=false;btn.textContent='QUIERO QUE ME CONTACTEN';}
