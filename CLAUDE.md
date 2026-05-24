@@ -94,6 +94,36 @@ https://luxuryhorizon.lat/website/images/hero-1.jpg
 4. On server: `./add-influencer.sh {name}` then `git pull && docker compose up -d --build`
 5. Add DNS A record: `{name}.luxuryhorizon.lat → 34.44.81.102`
 
+### Quotation Page (`website/cotizacion.html`)
+
+Interactive quotation document — filled in the browser and exported to PDF. No backend; works as a standalone file or at `https://luxuryhorizon.lat/website/cotizacion.html`.
+
+**How it works:**
+- Every field with `[contenteditable]` is editable directly in the browser (client name, phone, email, city, travel date, pax count, quotation number, observations, signatures)
+- The service table supports adding/removing rows with `addRow()` / the ✕ button per row
+- `recalcular()` fires on every input and recomputes subtotal, discount, VAT, grand total in COP, and the USD equivalent
+- `cargarTRM()` fetches the live COP/USD exchange rate from an external API on page load; user can also click the TRM button or type a custom rate; an editable markup % adjusts the effective rate
+- Quotation number is editable (top-right, starts at `001`); date auto-populates with `new Date()`
+
+**Export flows:**
+- **Print / PDF**: `window.print()` — use browser's Save as PDF. The `@media print` block hides buttons and strips editable underlines
+- **WhatsApp**: generates the PDF blob with `html2pdf.js` (CDN), uploads it, then opens `wa.me/573126322306` with a pre-filled message; the `mostrarBannerWA()` function shows a clickable banner if the popup was blocked
+
+**Adding a new field or column to the services table:**
+- Add `<th>` in `<thead>` and a matching `<td contenteditable>` in `addRow()` template string
+- If the new column affects totals, update `recalcular()` to read and accumulate the new cells
+
+**Design** matches corporate palette (Cormorant Garamond + Jost, `--midnight` / `--golden`). Signature boxes at the bottom use a 2-col grid (`.firmas`).
+
+### Catalog (`website/catalogo.html`)
+
+PDF-ready club catalog — 6 pages (cover, Pao Pao, Mangata, Sabai, comparison grid, back cover). Open in browser and use **Cmd+P → Save as PDF** in Chrome/Safari.
+
+- Images live in `website/images/catalogo/` (downloaded from Google Drive — see Drive IDs in Claude memory)
+- Responsive: desktop shows A4 pages; mobile shows full-width with 1px golden separator between pages
+- To add a new club page: copy the Sabai page block. Use plain block stacking with explicit `height` on `<img>` tags — **do not use `height:297mm + flex:1 + overflow:hidden`** on the page div (causes images to render over text)
+- New images from Drive: use `mcp__claude_ai_Google_Drive__download_file_content` → decode with Python (see `catalogo_drive.md` memory) → save to `website/images/catalogo/`
+
 ### Design System
 
 **Corporate palette** (used across all pages):
