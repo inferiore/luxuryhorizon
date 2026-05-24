@@ -494,6 +494,74 @@ body {
   body { background: #fff; }
   .page { margin: 0; box-shadow: none; page-break-after: always; }
 }
+
+/* ─── CONTENT GRID (2-col inside club pages, inline-replaced) ─── */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 20px 32px 24px;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+  .page {
+    width: 100%;
+    min-height: unset;
+    margin: 0 auto 2px;
+    border-bottom: 2px solid var(--golden);
+  }
+
+  /* Cover */
+  .cover, .back-cover { min-height: unset; padding: 48px 20px 40px; }
+  .cover-content { padding: 0; }
+  .cover-title { font-size: 2.6rem; }
+  .cover-subtitle { font-size: 1.15rem; }
+  .cover-tagline { font-size: .9rem; }
+
+  /* Section header */
+  .section-header { padding: 14px 16px; }
+  .section-header .brand img { width: 40px; height: 40px; }
+  .section-header .brand-name { font-size: 1rem; letter-spacing: 2px; }
+  .section-header .page-label { font-size: .85rem; }
+
+  /* Hero overlay text */
+  .club-name { font-size: 2rem; }
+  .hero-overlay { padding: 18px 16px; }
+  .price-badge { top: 14px; right: 14px; padding: 8px 14px; }
+  .price-badge .precio { font-size: 1.3rem; }
+
+  /* Body grid → single column */
+  .club-body {
+    padding: 16px 16px 24px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Section labels & text */
+  .section-label { font-size: .7rem; }
+  .includes-list li { font-size: .9rem; }
+  .detail-tag { font-size: .78rem; padding: 5px 14px; }
+  .meeting-box-val { font-size: .9rem; }
+  .not-included p { font-size: .8rem; }
+
+  /* Content grid (Pao Pao, Sabai 2-col) */
+  .content-grid { grid-template-columns: 1fr; padding: 16px 16px 20px; gap: 14px; }
+
+  /* Multi-card page */
+  .multi-header { padding: 14px 16px 12px; }
+  .multi-title { font-size: 1.5rem; }
+  .multi-subtitle { font-size: .85rem; }
+  .cards-grid { padding: 16px 16px; grid-template-columns: 1fr; gap: 14px; }
+  .mini-card-body { padding: 14px 14px; }
+  .mini-card-name { font-size: 1.15rem; }
+  .mini-card-includes li { font-size: .82rem; }
+
+  /* Back cover */
+  .back-cover-title { font-size: 1.6rem; }
+  .back-cover-tagline { font-size: .85rem; }
+  .contact-list li { font-size: .9rem; }
+}
 </style>
 </head>
 <body>
@@ -535,7 +603,7 @@ body {
   <!-- Hero full-width -->
   <div style="position:relative; height:270px; overflow:hidden;">
     <img src="images/catalogo/pao-pao-3.jpg" alt="Pao Pao hero" style="width:100%; height:100%; object-fit:cover; display:block;">
-    <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(10,26,50,.82) 0%, rgba(10,26,50,.35) 55%, transparent 100%); display:flex; align-items:flex-end; padding:24px 32px;">
+    <div class="hero-overlay">
       <div>
         <div class="club-badge">Club de Playa · Islas del Rosario</div>
         <div class="club-name">Pao Pao</div>
@@ -556,7 +624,7 @@ body {
     <img src="images/catalogo/pao-pao-5.jpg" alt="Pao Pao 5" style="width:100%; height:110px; object-fit:cover; display:block;">
   </div>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:20px 32px 24px;">
+  <div class="content-grid">
     <div>
       <div class="section-label">Qué incluye tu experiencia</div>
       <ul class="includes-list">
@@ -761,7 +829,7 @@ body {
   <!-- Hero full-width -->
   <div style="position:relative; height:270px; overflow:hidden;">
     <img src="images/catalogo/sabai-2.jpg" alt="Sabai hero" style="width:100%; height:100%; object-fit:cover; display:block;">
-    <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(10,26,50,.82) 0%, rgba(10,26,50,.35) 55%, transparent 100%); display:flex; align-items:flex-end; padding:24px 32px;">
+    <div class="hero-overlay">
       <div>
         <div class="club-badge">Club de Playa · Marina Todomar</div>
         <div class="club-name">Sabai Marítimo</div>
@@ -784,7 +852,7 @@ body {
   </div>
 
   <!-- Contenido en 2 columnas -->
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:20px 32px 24px;">
+  <div class="content-grid">
     <!-- Columna izquierda -->
     <div>
       <div class="section-label">Qué incluye tu experiencia</div>
