@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Catálogo de Experiencias — Luxury Horizon</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  --midnight:       #0A1A32;
+  --midnight-light: #112244;
+  --golden:         #B79A49;
+  --golden-light:   #d4b86a;
+  --bronze:         #A56C30;
+  --teal:           #44F0F7;
+  --smoke:          #F0F0F0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: #e8e4dc;
+  color: #1a1a1a;
+}
+
+/* ─── PAGE WRAPPER ─── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 16px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+/* ─── COVER ─── */
+.cover {
+  background: var(--midnight);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 297mm;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 30%, #112244 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(183,154,73,.18) 0%, transparent 60%),
+    var(--midnight);
+}
+
+.cover-stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 15% 12%, rgba(183,154,73,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 8%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 40% 25%, rgba(183,154,73,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 18%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 45%, rgba(255,255,255,.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 42%, rgba(183,154,73,.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 55% 60%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 70%, rgba(183,154,73,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 75%, rgba(255,255,255,.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 85%, rgba(183,154,73,.4) 0%, transparent 100%);
+}
+
+.cover-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 60px 48px;
+  text-align: center;
+}
+
+.cover-logo {
+  width: 100px; height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--golden);
+  margin-bottom: 28px;
+}
+
+.cover-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: .65rem;
+  letter-spacing: 5px;
+  color: var(--golden-light);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.cover-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--golden);
+  margin-bottom: 36px;
+}
+
+.cover-divider {
+  width: 80px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--golden), transparent);
+  margin: 0 auto 36px;
+}
+
+.cover-tagline {
+  font-size: .85rem;
+  font-weight: 300;
+  color: rgba(240,240,240,.7);
+  letter-spacing: 2px;
+  line-height: 1.9;
+  max-width: 320px;
+}
+
+.cover-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--midnight), var(--golden), var(--midnight));
+}
+
+.cover-year {
+  position: absolute;
+  bottom: 24px;
+  font-size: .7rem;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,.35);
+  text-transform: uppercase;
+}
+
+/* ─── SECTION HEADER ─── */
+.section-header {
+  background: var(--midnight);
+  padding: 18px 36px;
+  border-bottom: 3px solid var(--golden);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-header .brand {
+  display: flex; align-items: center; gap: 14px;
+}
+.section-header .brand img {
+  width: 52px; height: 52px; object-fit: cover; border-radius: 4px;
+}
+.section-header .brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--golden); letter-spacing: 3px;
+}
+.section-header .brand-sub {
+  font-size: .65rem; color: rgba(170,170,187,.8);
+  letter-spacing: 1.5px; margin-top: 3px;
+}
+.section-header .page-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; color: rgba(255,255,255,.5);
+  letter-spacing: 2px; font-style: italic;
+}
+
+/* ─── HERO IMAGE ─── */
+.hero {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+}
+
+.hero-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.hero-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(10,26,50,.82) 0%, rgba(10,26,50,.45) 55%, transparent 100%);
+  display: flex; align-items: flex-end;
+  padding: 24px 32px;
+}
+
+.hero-text {}
+.club-badge {
+  font-size: .6rem; letter-spacing: 4px;
+  color: var(--golden-light); text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.club-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem; font-weight: 700;
+  color: #fff; line-height: 1;
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
+}
+.club-location {
+  font-size: .75rem; color: rgba(240,240,240,.8);
+  margin-top: 6px; letter-spacing: 1px;
+}
+
+.price-badge {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: var(--golden);
+  color: var(--midnight);
+  padding: 10px 18px;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
+}
+.price-badge .desde { font-size: .55rem; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; display: block; }
+.price-badge .precio { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; line-height: 1; }
+.price-badge .cop { font-size: .6rem; font-weight: 600; letter-spacing: 1px; }
+
+/* ─── BODY CONTENT ─── */
+.club-body {
+  padding: 24px 32px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.col-left {}
+.col-right {}
+
+.section-label {
+  font-size: .6rem; font-weight: 600;
+  letter-spacing: 3px; color: var(--golden);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e8e2d4;
+}
+
+/* ─── INCLUDES LIST ─── */
+.includes-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.includes-list li {
+  font-size: .78rem; color: #2a2a2a;
+  display: flex; align-items: flex-start; gap: 8px;
+  line-height: 1.4;
+}
+.includes-list li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--golden);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* ─── DETAIL TAGS ─── */
+.detail-row {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 14px;
+}
+.detail-tag {
+  background: #f5f2ea;
+  border: 1px solid #ddd8c8;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: .68rem;
+  color: #555; letter-spacing: .5px;
+  display: flex; align-items: center; gap: 5px;
+}
+.detail-tag .tag-icon { font-size: .75rem; }
+.detail-tag strong { color: var(--midnight); font-weight: 600; }
+
+/* ─── PHOTO GRID ─── */
+.photo-grid {
+  display: grid;
+  gap: 6px;
+}
+.photo-grid.grid-2 { grid-template-columns: 1fr 1fr; }
+.photo-grid.grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+.photo-grid.grid-2-1 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+.photo-grid img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+  aspect-ratio: 4/3;
+}
+.photo-grid .span-2 { grid-column: span 2; aspect-ratio: 16/7; }
+.photo-grid .tall { aspect-ratio: 3/4; }
+
+/* ─── NOT INCLUDED ─── */
+.not-included {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #fdf8f0;
+  border-left: 3px solid var(--bronze);
+  border-radius: 0 3px 3px 0;
+}
+.not-included p {
+  font-size: .68rem; color: #8a6020;
+  line-height: 1.5;
+}
+.not-included strong { font-weight: 600; }
+
+/* ─── MEETING POINT ─── */
+.meeting-box {
+  margin-top: 14px;
+  background: var(--midnight);
+  border-radius: 4px;
+  padding: 12px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.meeting-box .icon { font-size: 1.2rem; }
+.meeting-box-text {}
+.meeting-box-label { font-size: .58rem; letter-spacing: 2px; color: var(--golden); text-transform: uppercase; }
+.meeting-box-val { font-size: .8rem; color: #fff; font-weight: 500; margin-top: 2px; }
+
+/* ─── FOOTER ─── */
+.club-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--midnight), var(--golden), var(--midnight));
+}
+
+/* ─── MULTI-CARD PAGE ─── */
+.multi-header {
+  background: var(--midnight);
+  padding: 18px 36px 14px;
+  border-bottom: 3px solid var(--golden);
+}
+.multi-header-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.multi-header-brand img { width: 48px; height: 48px; object-fit: cover; border-radius: 4px; }
+.multi-header-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--golden); letter-spacing: 3px;
+}
+.multi-header-brand-sub { font-size: .62rem; color: rgba(170,170,187,.8); letter-spacing: 1.5px; margin-top: 2px; }
+.multi-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem; font-weight: 600;
+  color: #fff; letter-spacing: 1px;
+}
+.multi-subtitle { font-size: .75rem; color: var(--golden-light); letter-spacing: 1px; margin-top: 2px; }
+
+.cards-grid {
+  padding: 20px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.mini-card {
+  border: 1px solid #e0d9c8;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #fff;
+}
+.mini-card-placeholder {
+  height: 100px;
+  background: linear-gradient(135deg, var(--midnight-light) 0%, var(--midnight) 100%);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+.mini-card-placeholder .ph-icon { font-size: 2rem; opacity: .5; }
+.mini-card-placeholder .ph-label {
+  font-size: .6rem; letter-spacing: 3px;
+  color: var(--golden-light); text-transform: uppercase; opacity: .7;
+}
+.mini-card-body { padding: 14px 16px; }
+.mini-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 700;
+  color: var(--midnight); margin-bottom: 6px;
+}
+.mini-card-price {
+  display: inline-block;
+  background: var(--golden);
+  color: var(--midnight);
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+.mini-card-includes {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.mini-card-includes li {
+  font-size: .72rem; color: #3a3a3a;
+  display: flex; align-items: flex-start; gap: 6px;
+  line-height: 1.35;
+}
+.mini-card-includes li::before {
+  content: '·';
+  color: var(--golden);
+  font-weight: 700; font-size: 1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.mini-card-muelle {
+  margin-top: 10px;
+  font-size: .65rem; color: #888;
+  display: flex; align-items: center; gap: 4px;
+}
+
+/* ─── BACK COVER ─── */
+.back-cover {
+  background: var(--midnight);
+  min-height: 297mm;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 60px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.back-cover-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, #112244 0%, var(--midnight) 70%);
+}
+.back-cover-content { position: relative; z-index: 2; }
+.back-cover-logo { width: 90px; height: 90px; object-fit: cover; border-radius: 8px; border: 2px solid var(--golden); margin-bottom: 24px; }
+.back-cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 700; color: var(--golden);
+  letter-spacing: 3px; margin-bottom: 6px;
+}
+.back-cover-tagline {
+  font-size: .8rem; color: rgba(240,240,240,.6);
+  letter-spacing: 2px; margin-bottom: 36px;
+}
+.back-cover-divider {
+  width: 60px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--golden), transparent);
+  margin: 0 auto 36px;
+}
+.contact-list {
+  list-style: none; display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 40px;
+}
+.contact-list li {
+  font-size: .8rem; color: rgba(240,240,240,.75);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.contact-list li .c-icon { font-size: 1rem; }
+.contact-list li strong { color: var(--golden-light); }
+.back-cover-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--midnight), var(--golden), var(--midnight));
+}
+.wa-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #0A6630, #1A9E50, #25D366, #1A9E50, #0A6630);
+  background-size: 260% auto;
+  color: #fff;
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-bottom: 32px;
+}
+
+/* ─── PRINT ─── */
+@media print {
+  body { background: #fff; }
+  .page { margin: 0; box-shadow: none; page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     PORTADA
+════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-bg"></div>
+  <div class="cover-stars"></div>
+  <div class="cover-content">
+    <img class="cover-logo" src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="Luxury Horizon">
+    <div class="cover-eyebrow">Cartagena de Indias · Colombia</div>
+    <h1 class="cover-title">Catálogo de<br>Experiencias</h1>
+    <div class="cover-subtitle">Clubes de Playa &amp; Tours</div>
+    <div class="cover-divider"></div>
+    <p class="cover-tagline">Descubre los destinos más exclusivos del Caribe colombiano. Playas cristalinas, atardeceres únicos y experiencias diseñadas para crear recuerdos inolvidables.</p>
+  </div>
+  <div class="cover-year">Temporada 2026</div>
+  <div class="cover-bottom"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PAO PAO
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
+      </div>
+    </div>
+    <div class="page-label">Experiencia Premium</div>
+  </div>
+
+  <!-- Hero full-width -->
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img src="images/catalogo/pao-pao-3.jpg" alt="Pao Pao hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(10,26,50,.82) 0%, rgba(10,26,50,.35) 55%, transparent 100%); display:flex; align-items:flex-end; padding:24px 32px;">
+      <div>
+        <div class="club-badge">Club de Playa · Islas del Rosario</div>
+        <div class="club-name">Pao Pao</div>
+        <div class="club-location">📍 Muelle La Bodeguita — Puerta #3</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde">desde</span>
+      <span class="precio">$390.000</span>
+      <span class="cop">COP / persona</span>
+    </div>
+  </div>
+
+  <!-- Strip de 3 fotos -->
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
+    <img src="images/catalogo/pao-pao-1.jpg" alt="Pao Pao 1" style="width:100%; height:110px; object-fit:cover; display:block;">
+    <img src="images/catalogo/pao-pao-4.jpg" alt="Pao Pao 4" style="width:100%; height:110px; object-fit:cover; display:block;">
+    <img src="images/catalogo/pao-pao-5.jpg" alt="Pao Pao 5" style="width:100%; height:110px; object-fit:cover; display:block;">
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:20px 32px 24px;">
+    <div>
+      <div class="section-label">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li>Transporte en lancha rápida — ida y vuelta</li>
+        <li>Cóctel de bienvenida</li>
+        <li>5 opciones de almuerzo a la carta</li>
+        <li>Asoleadora en playa privada</li>
+        <li>Tour de fragatas panorámico</li>
+        <li>Snorkel guiado incluido</li>
+        <li>Piscina de agua dulce</li>
+        <li>Wellness diario y clases de yoga</li>
+        <li>Campeonato de cornhole</li>
+        <li>Traslado al Oceanario (opcional)</li>
+      </ul>
+
+      <div class="detail-row" style="margin-top:14px;">
+        <div class="detail-tag"><span class="tag-icon">🕐</span> <span>Llegada <strong>7:30 am</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">👤</span> <span>Desde <strong>12 años</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">⚓</span> <span>Puerta <strong>#3</strong></span></div>
+      </div>
+
+      <div class="not-included" style="margin-top:14px;">
+        <p><strong>No incluye:</strong> tasa portuaria $40.000 COP (efectivo) · entrada al Oceanario</p>
+      </div>
+
+      <div class="meeting-box" style="margin-top:14px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label">Punto de encuentro</div>
+          <div class="meeting-box-val">Muelle La Bodeguita — Puerta #3 · 7:30 a.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Destacados</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🤿</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Snorkel Guiado</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Explora los arrecifes de coral en las Islas del Rosario</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🏊</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Piscina de Agua Dulce</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Área exclusiva para refrescarte con vista al mar</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍹</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Cóctel de Bienvenida</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Bienvenida tropical desde el momento en que llegas</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🦅</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Tour de Fragatas</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Recorrido panorámico por las Islas del Rosario</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🧘</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Wellness Diario</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Yoga, cornhole y actividades de bienestar incluidas</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌊</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Islas del Rosario</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;">Paraíso natural a 45 minutos de Cartagena</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     MANGATA
+════════════════════════════════════════ -->
+<div class="page" style="height:297mm; position:relative; display:flex; flex-direction:column;">
+  <div class="section-header" style="flex-shrink:0;">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
+      </div>
+    </div>
+    <div class="page-label">Open Bar</div>
+  </div>
+
+  <div class="hero-wrap" style="height:265px; flex-shrink:0;">
+    <img src="images/catalogo/mangata-4.jpg" alt="Mangata">
+    <div class="hero-overlay">
+      <div class="hero-text">
+        <div class="club-badge">Club de Playa · Marina Todomar</div>
+        <div class="club-name">Mangata</div>
+        <div class="club-location">📍 Marina Privada Todomar — Bocagrande</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde">desde</span>
+      <span class="precio">$399.000</span>
+      <span class="cop">COP / persona</span>
+    </div>
+  </div>
+
+  <div class="club-body" style="flex:1; min-height:0; align-items:stretch;">
+    <div class="col-left" style="display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <div class="section-label">Qué incluye tu experiencia</div>
+        <ul class="includes-list">
+          <li>Transporte en lanchas deportivas — ida y vuelta</li>
+          <li>Copa de champaña o jugo natural de bienvenida</li>
+          <li>Cama, sala o silla asoleadora</li>
+          <li>Tour panorámico por las islas</li>
+          <li>Snorkel — ver la <em>avioneta hundida de Pablo Escobar</em></li>
+          <li><strong>2x1 todo el día</strong> en cócteles: Cuba Libre, Margarita, Mojito, Caipiroska</li>
+          <li><strong>Cubetazo de cerveza todo el día</strong> — pagan 5, la 6ta es gratis</li>
+          <li>Almuerzo a la carta — 8 opciones (pescado, pollo, mariscos, pasta, pizza…)</li>
+          <li>Ducha de agua dulce · Toallas · DJ diario</li>
+          <li>Kayaks y Paddleboards · Bicicleta por la isla</li>
+        </ul>
+
+        <div class="detail-row" style="margin-top:16px;">
+          <div class="detail-tag"><span class="tag-icon">🕐</span> <span>Llegada <strong>7:30 am</strong></span></div>
+          <div class="detail-tag"><span class="tag-icon">🔄</span> <span>Regreso <strong>3:00 pm</strong></span></div>
+          <div class="detail-tag"><span class="tag-icon">🍺</span> <span><strong>Open Bar</strong></span></div>
+        </div>
+
+        <div class="not-included" style="margin-top:16px;">
+          <p><strong>No incluye:</strong> Impuesto Parques Nacionales $13.500 COP (efectivo) · Actividades adicionales</p>
+        </div>
+      </div>
+
+      <div class="meeting-box">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label">Punto de encuentro</div>
+          <div class="meeting-box-val">Marina Todomar Bocagrande · 7:30 a.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-right" style="display:flex; flex-direction:column;">
+      <div class="section-label">Galería</div>
+      <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:6px; min-height:0;">
+        <img src="images/catalogo/mangata-1.jpg" alt="Mangata 1" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
+        <img src="images/catalogo/mangata-2.jpg" alt="Mangata 2" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
+        <img src="images/catalogo/mangata-3.jpg" alt="Mangata 3" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
+        <img src="images/catalogo/mangata-4.jpg" alt="Mangata 4" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
+      </div>
+
+      <div style="margin-top:12px; background:var(--midnight); border-radius:4px; padding:16px 18px; flex-shrink:0;">
+        <div style="font-size:.6rem; letter-spacing:2px; color:var(--golden); text-transform:uppercase; margin-bottom:10px;">Lo más popular</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:1.1rem;">🍺</span>
+            <span style="font-size:.78rem; color:#fff; line-height:1.4;"><strong style="color:var(--golden-light);">6 x 5 en cerveza</strong> — ¡pagan 5 y la 6ta es gratis!</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:1.1rem;">🍹</span>
+            <span style="font-size:.78rem; color:#fff; line-height:1.4;"><strong style="color:var(--golden-light);">2x1 todo el día</strong> en cócteles seleccionados</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:1.1rem;">✈️</span>
+            <span style="font-size:.78rem; color:#fff; line-height:1.4;">Snorkel junto a la <strong style="color:var(--golden-light);">avioneta de Pablo Escobar</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="club-footer" style="flex-shrink:0;"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     SABAI
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
+      </div>
+    </div>
+    <div class="page-label">Premium</div>
+  </div>
+
+  <!-- Hero full-width -->
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img src="images/catalogo/sabai-2.jpg" alt="Sabai hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(10,26,50,.82) 0%, rgba(10,26,50,.35) 55%, transparent 100%); display:flex; align-items:flex-end; padding:24px 32px;">
+      <div>
+        <div class="club-badge">Club de Playa · Marina Todomar</div>
+        <div class="club-name">Sabai Marítimo</div>
+        <div class="club-location">📍 Marina Todomar — Bocagrande</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde">desde</span>
+      <span class="precio">$470.000</span>
+      <span class="cop">COP / persona</span>
+    </div>
+  </div>
+
+  <!-- Strip de 4 fotos -->
+  <div style="display:grid; grid-template-columns:repeat(4,1fr); height:110px; gap:2px;">
+    <img src="images/catalogo/sabai-1.jpg" alt="Sabai 1" style="width:100%; height:110px; object-fit:cover; display:block;">
+    <img src="images/catalogo/sabai-3.jpg" alt="Sabai 3" style="width:100%; height:110px; object-fit:cover; display:block;">
+    <img src="images/catalogo/sabai-4.jpg" alt="Sabai 4" style="width:100%; height:110px; object-fit:cover; display:block;">
+    <img src="images/catalogo/sabai-6.jpg" alt="Sabai 6" style="width:100%; height:110px; object-fit:cover; display:block;">
+  </div>
+
+  <!-- Contenido en 2 columnas -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:20px 32px 24px;">
+    <!-- Columna izquierda -->
+    <div>
+      <div class="section-label">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li>Impuesto de salida <strong>incluido</strong></li>
+        <li>Transporte en lancha compartida — ida y vuelta</li>
+        <li>Botella de agua a bordo</li>
+        <li>Panorámico al Fuerte de Bocachica</li>
+        <li>Panorámico por la Península de Barú y Cholón</li>
+        <li>Paleta de frutas de bienvenida</li>
+        <li>Cama de playa privada</li>
+        <li>Baño opcional en Isla del Rosario (30 min)</li>
+        <li>Almuerzo a la carta — <strong>14 opciones</strong></li>
+        <li>Kayaks y Paddleboards · Vóley · Raquetas</li>
+        <li>Café ilimitado · WiFi · DJ en vivo (sáb y dom)</li>
+        <li>Piscina · Ducha agua dulce · Toalla</li>
+      </ul>
+
+      <div class="meeting-box" style="margin-top:18px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label">Punto de encuentro</div>
+          <div class="meeting-box-val">Marina Todomar · 7:20 a.m. — Regreso: 3:00 p.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna derecha: highlights -->
+    <div>
+      <div class="section-label">Por qué elegir Sabai</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">✅</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Impuesto Incluido</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Sin cobros adicionales sorpresa al llegar</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍽️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">14 Opciones de Almuerzo</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">El menú más variado de todos los clubes</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">☕</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Café Ilimitado + WiFi</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Comodidades únicas todo el día</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🏖️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Recorrido Panorámico</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Fuerte de Bocachica + Bahía de Barú</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🎵</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">DJ en Vivo</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Ambiente musical sábados y domingos</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🏊</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Piscina + Kayaks</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;">Paddle board, vóley y raquetas incluidos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     CAPRI + MANTAS (página comparativa)
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative;">
+  <div class="multi-header">
+    <div class="multi-header-brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="multi-header-brand-name">LUXURY HORIZON</div>
+        <div class="multi-header-brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
+      </div>
+    </div>
+    <div class="multi-title">Más Experiencias</div>
+    <div class="multi-subtitle">Cada club, una experiencia diferente</div>
+  </div>
+
+  <div class="cards-grid">
+    <!-- CAPRI -->
+    <div class="mini-card">
+      <div class="mini-card-placeholder">
+        <div class="ph-icon">⚜️</div>
+        <div class="ph-label">Capri Beach Club</div>
+      </div>
+      <div class="mini-card-body">
+        <div class="mini-card-name">Capri Beach Club</div>
+        <div class="mini-card-price">$460.000 COP</div>
+        <ul class="mini-card-includes">
+          <li>Bote deportivo ida y vuelta</li>
+          <li>Host bilingüe a bordo (español e inglés)</li>
+          <li>Tour panorámico 45 min por el archipiélago</li>
+          <li><strong>Open Bar 11am–1pm</strong> (margarita, cerveza, cóctel de la casa)</li>
+          <li>Almuerzo + bebida (5 opciones)</li>
+          <li>Paddle board · Snorkel</li>
+          <li>DJ en vivo fines de semana</li>
+          <li>Camas y asoleadoras · Toallas · Ducha</li>
+        </ul>
+        <div class="mini-card-muelle">📍 Muelle La Bodeguita — Puerta #3 · 7:30 a.m.</div>
+      </div>
+    </div>
+
+    <!-- MANTAS -->
+    <div class="mini-card">
+      <div class="mini-card-placeholder">
+        <div class="ph-icon">🌊</div>
+        <div class="ph-label">Mantas Beach</div>
+      </div>
+      <div class="mini-card-body">
+        <div class="mini-card-name">Mantas Beach</div>
+        <div class="mini-card-price">$390.000 COP</div>
+        <ul class="mini-card-includes">
+          <li>Lancha rápida ida y vuelta</li>
+          <li>Bebida de bienvenida (champaña o limonada)</li>
+          <li>Almuerzo a la carta — 8 opciones</li>
+          <li><strong>2x1 en cócteles</strong> seleccionados todo el día</li>
+          <li><strong>6x5 en cervezas</strong> — ¡la 6ta es gratis!</li>
+          <li>Paddleboard y kayaks</li>
+          <li>DJ en vivo todos los días</li>
+          <li>Ducha · Toallas · Muelle privado · Beach Bar</li>
+        </ul>
+        <div class="mini-card-muelle">📍 Marina Todomar · 7:30 a.m. — Regreso: 4:00 p.m.</div>
+      </div>
+    </div>
+
+    <!-- ISLABELA -->
+    <div class="mini-card">
+      <div class="mini-card-placeholder">
+        <div class="ph-icon">🏝️</div>
+        <div class="ph-label">Islabela</div>
+      </div>
+      <div class="mini-card-body">
+        <div class="mini-card-name">Islabela</div>
+        <div class="mini-card-price">$390.000 COP</div>
+        <ul class="mini-card-includes">
+          <li>Lancha deportiva ida y vuelta (50 min)</li>
+          <li>Bebida de bienvenida</li>
+          <li>Almuerzo (pescado, pollo o vegetariano)</li>
+          <li>Acceso libre a todas las instalaciones</li>
+          <li>Traslado al Oceanario (opcional)</li>
+          <li>Kayak sujeto a disponibilidad</li>
+          <li>Clases de Yoga (sáb, dom y festivos)</li>
+        </ul>
+        <div class="mini-card-muelle">📍 Muelle La Bodeguita — Puerta #4</div>
+      </div>
+    </div>
+
+    <!-- LUXURY BEACH -->
+    <div class="mini-card">
+      <div class="mini-card-placeholder" style="background:linear-gradient(135deg,#1a3a60,#0A1A32);">
+        <div class="ph-icon" style="font-size:2rem;">✨</div>
+        <div class="ph-label">Luxury Open Bar</div>
+      </div>
+      <div class="mini-card-body">
+        <div class="mini-card-name">Luxury Open Bar</div>
+        <div class="mini-card-price">$420.000 COP</div>
+        <ul class="mini-card-includes">
+          <li>Lancha tipo Tritón ida y vuelta</li>
+          <li><strong>Barra abierta nacional ilimitada</strong>: mojito, piña colada, gin tonic, daiquiri, margarita y más</li>
+          <li>4 opciones de almuerzo</li>
+          <li>Parasol + asoleadora playera</li>
+          <li>Recorrido panorámico con parada en Oceanario (opcional)</li>
+          <li>Ducha en la playa</li>
+        </ul>
+        <div class="mini-card-muelle">📍 Muelle La Bodeguita — Puerta #4 · 7:30 a.m.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla comparativa de precios -->
+  <div style="padding: 0 28px 20px;">
+    <div style="font-size:.62rem; font-weight:600; letter-spacing:3px; color:var(--golden); text-transform:uppercase; margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid #e0d9c8;">Comparativo de precios</div>
+    <table style="width:100%; border-collapse:collapse; font-size:.75rem;">
+      <thead>
+        <tr style="background:var(--midnight);">
+          <th style="text-align:left; padding:8px 12px; color:var(--golden); font-size:.62rem; letter-spacing:1.5px; font-weight:600;">Club de Playa</th>
+          <th style="text-align:center; padding:8px 12px; color:var(--golden); font-size:.62rem; letter-spacing:1.5px; font-weight:600;">Precio Público</th>
+          <th style="text-align:center; padding:8px 12px; color:var(--golden); font-size:.62rem; letter-spacing:1.5px; font-weight:600;">Tasa de Muelle</th>
+          <th style="text-align:left; padding:8px 12px; color:var(--golden); font-size:.62rem; letter-spacing:1.5px; font-weight:600;">Muelle / Salida</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;">
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Pao Pao</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$390.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$40.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Bodeguita Puerta #3 · 7:30am</td>
+        </tr>
+        <tr style="background:#faf9f7;">
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Mangata</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$399.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$13.500*</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Marina Todomar · 7:30am</td>
+        </tr>
+        <tr style="background:#fff;">
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Sabai Marítimo</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$470.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--golden); font-weight:600;">Incluido ✓</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Marina Todomar · 7:20am</td>
+        </tr>
+        <tr style="background:#faf9f7;">
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Capri Beach</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$460.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$40.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Bodeguita Puerta #3 · 7:30am</td>
+        </tr>
+        <tr style="background:#fff;">
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Mantas Beach</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$390.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$29.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Marina Todomar · 7:30am</td>
+        </tr>
+        <tr style="background:#faf9f7;">
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Luxury Open Bar</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$420.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$40.000</td>
+          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Bodeguita Puerta #4 · 7:30am</td>
+        </tr>
+        <tr style="background:#fff;">
+          <td style="padding:7px 12px; font-weight:500;">Islabela</td>
+          <td style="padding:7px 12px; text-align:center; color:var(--midnight); font-weight:600;">$390.000</td>
+          <td style="padding:7px 12px; text-align:center; color:#888;">$40.000</td>
+          <td style="padding:7px 12px; color:#555;">Bodeguita Puerta #4</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:.6rem; color:#aaa; margin-top:6px;">* Parques Nacionales Naturales · Precios sujetos a cambios sin previo aviso · Vigencia 2026</p>
+  </div>
+
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     CONTRAPORTADA
+════════════════════════════════════════ -->
+<div class="page back-cover">
+  <div class="back-cover-bg"></div>
+  <div class="back-cover-content">
+    <img class="back-cover-logo" src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="Luxury Horizon">
+    <div class="back-cover-title">LUXURY HORIZON</div>
+    <div class="back-cover-tagline">Agencia de Viajes de Lujo · Cartagena de Indias</div>
+    <div class="back-cover-divider"></div>
+
+    <ul class="contact-list">
+      <li>
+        <span class="c-icon">💬</span>
+        <span>WhatsApp: <strong>+57 312 632 2306</strong></span>
+      </li>
+      <li>
+        <span class="c-icon">📸</span>
+        <span>Instagram: <strong>@agencialuxuryhorizon_</strong></span>
+      </li>
+      <li>
+        <span class="c-icon">🎵</span>
+        <span>TikTok: <strong>@luxury.horizon_</strong></span>
+      </li>
+    </ul>
+
+    <a class="wa-button" href="https://wa.me/573126322306?text=Hola%2C%20estoy%20interesado%20en%20conocer%20sus%20planes%20y%20experiencias">
+      Reservar por WhatsApp
+    </a>
+
+    <div style="font-size:.68rem; color:rgba(240,240,240,.35); letter-spacing:2px; line-height:2;">
+      CARTAGENA DE INDIAS · COLOMBIA<br>
+      TEMPORADA 2026
+    </div>
+  </div>
+  <div class="back-cover-bottom"></div>
+</div>
+
+</body>
+</html>
