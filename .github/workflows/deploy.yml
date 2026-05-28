@@ -13,7 +13,7 @@ jobs:
       - name: Desplegar en servidor GCP
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 34.44.81.102
+          host: 34.31.201.58
           username: ederbarrios
           key: ${{ secrets.GCP_SSH_KEY }}
           script: |
