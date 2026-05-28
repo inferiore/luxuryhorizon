@@ -501,6 +501,12 @@ body {
   .page { margin: 0; box-shadow: none; page-break-after: always; }
 }
 
+/* ─── PHOTO STRIP ─── */
+.photo-strip      { display: grid; gap: 2px; overflow: hidden; }
+.photo-strip-3    { grid-template-columns: repeat(3, 1fr); }
+.photo-strip-4    { grid-template-columns: repeat(4, 1fr); }
+.photo-strip img  { height: 110px; width: 100%; object-fit: cover; display: block; }
+
 /* ─── CONTENT GRID (2-col inside club pages, inline-replaced) ─── */
 .content-grid {
   display: grid;
@@ -563,8 +569,16 @@ body {
   .meeting-box-val { font-size: .9rem; }
   .not-included p { font-size: .8rem; }
 
-  /* Content grid (Pao Pao, Sabai 2-col) */
+  /* Content grid → single column, same padding as club-body */
   .content-grid { grid-template-columns: 1fr; padding: 16px 16px 20px; gap: 14px; }
+  .content-grid > div { min-width: 0; overflow: hidden; }
+
+  /* Photo strips → 2 columnas grandes en móvil */
+  .photo-strip { grid-template-columns: repeat(2, 1fr); }
+  .photo-strip img { height: 180px !important; }
+  /* Ocultar 3ra y 4ta foto para que encaje en 2 columnas */
+  .photo-strip > *:nth-child(3),
+  .photo-strip > *:nth-child(4) { display: none; }
 
   /* Multi-card page */
   .multi-header { padding: 14px 16px 12px; }
@@ -620,7 +634,7 @@ body {
 
   <!-- Hero full-width -->
   <div style="position:relative; height:270px; overflow:hidden;">
-    <img src="images/catalogo/pao-pao-3.jpg" alt="Pao Pao hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <img src="images/catalogo/pao-pao-3.webp" alt="Pao Pao hero" style="width:100%; height:100%; object-fit:cover; display:block;">
     <div class="hero-overlay">
       <div>
         <div class="club-badge">Club de Playa · Islas del Rosario</div>
@@ -636,10 +650,10 @@ body {
   </div>
 
   <!-- Strip de 3 fotos -->
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
-    <img src="images/catalogo/pao-pao-1.jpg" alt="Pao Pao 1" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/pao-pao-4.jpg" alt="Pao Pao 4" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/pao-pao-5.jpg" alt="Pao Pao 5" style="width:100%; height:110px; object-fit:cover; display:block;">
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/pao-pao-1.webp" alt="Pao Pao 1" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/pao-pao-4.webp" alt="Pao Pao 4" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/pao-pao-5.webp" alt="Pao Pao 5" style="width:100%; object-fit:cover; display:block;">
   </div>
 
   <div class="content-grid">
@@ -745,7 +759,7 @@ body {
   </div>
 
   <div class="hero-wrap" style="height:265px; flex-shrink:0;">
-    <img src="images/catalogo/mangata-4.jpg" alt="Mangata">
+    <img loading="lazy" src="images/catalogo/mangata-4.webp" alt="Mangata">
     <div class="hero-overlay">
       <div class="hero-text">
         <div class="club-badge">Club de Playa · Marina Todomar</div>
@@ -800,10 +814,10 @@ body {
     <div class="col-right" style="display:flex; flex-direction:column;">
       <div class="section-label">Galería</div>
       <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:6px; min-height:0;">
-        <img src="images/catalogo/mangata-1.jpg" alt="Mangata 1" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
-        <img src="images/catalogo/mangata-2.jpg" alt="Mangata 2" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
-        <img src="images/catalogo/mangata-3.jpg" alt="Mangata 3" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
-        <img src="images/catalogo/mangata-4.jpg" alt="Mangata 4" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/mangata-1.webp" alt="Mangata 1" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/mangata-2.webp" alt="Mangata 2" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/mangata-3.webp" alt="Mangata 3" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/mangata-4.webp" alt="Mangata 4" style="width:100%; height:100%; object-fit:cover; border-radius:3px;">
       </div>
 
       <div style="margin-top:12px; background:var(--midnight); border-radius:4px; padding:16px 18px; flex-shrink:0;">
@@ -846,7 +860,7 @@ body {
 
   <!-- Hero full-width -->
   <div style="position:relative; height:270px; overflow:hidden;">
-    <img src="images/catalogo/sabai-2.jpg" alt="Sabai hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/sabai-2.webp" alt="Sabai hero" style="width:100%; height:100%; object-fit:cover; display:block;">
     <div class="hero-overlay">
       <div>
         <div class="club-badge">Club de Playa · Marina Todomar</div>
@@ -862,11 +876,11 @@ body {
   </div>
 
   <!-- Strip de 4 fotos -->
-  <div style="display:grid; grid-template-columns:repeat(4,1fr); height:110px; gap:2px;">
-    <img src="images/catalogo/sabai-1.jpg" alt="Sabai 1" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/sabai-3.jpg" alt="Sabai 3" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/sabai-4.jpg" alt="Sabai 4" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/sabai-6.jpg" alt="Sabai 6" style="width:100%; height:110px; object-fit:cover; display:block;">
+  <div class="photo-strip photo-strip-4" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/sabai-1.webp" alt="Sabai 1" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/sabai-3.webp" alt="Sabai 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/sabai-4.webp" alt="Sabai 4" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/sabai-6.webp" alt="Sabai 6" style="width:100%; object-fit:cover; display:block;">
   </div>
 
   <!-- Contenido en 2 columnas -->
@@ -969,7 +983,7 @@ body {
 
   <!-- Hero full-width -->
   <div style="position:relative; height:270px; overflow:hidden;">
-    <img src="images/catalogo/capri-beach-2.jpg" alt="Capri Beach hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/capri-beach-2.webp" alt="Capri Beach hero" style="width:100%; height:100%; object-fit:cover; display:block;">
     <div class="hero-overlay">
       <div>
         <div class="club-badge">Club de Playa · Islas del Rosario</div>
@@ -985,10 +999,10 @@ body {
   </div>
 
   <!-- Strip de 3 fotos -->
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
-    <img src="images/catalogo/capri-beach-1.jpg" alt="Capri Beach 1" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/capri-beach-3.jpg" alt="Capri Beach 3" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/capri-beach-4.jpg" alt="Capri Beach 4" style="width:100%; height:110px; object-fit:cover; display:block;">
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/capri-beach-1.webp" alt="Capri Beach 1" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/capri-beach-3.webp" alt="Capri Beach 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/capri-beach-4.webp" alt="Capri Beach 4" style="width:100%; object-fit:cover; display:block;">
   </div>
 
   <div class="content-grid">
@@ -1093,7 +1107,7 @@ body {
   </div>
 
   <div style="position:relative; height:270px; overflow:hidden;">
-    <img src="images/catalogo/ibbiza-1.jpg" alt="IBBIZA hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/ibbiza-1.webp" alt="IBBIZA hero" style="width:100%; height:100%; object-fit:cover; display:block;">
     <div class="hero-overlay">
       <div>
         <div class="club-badge">Club de Playa · Marina Todomar</div>
@@ -1108,10 +1122,10 @@ body {
     </div>
   </div>
 
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
-    <img src="images/catalogo/ibbiza-1.jpg" alt="IBBIZA 1" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/ibbiza-2.jpg" alt="IBBIZA 2" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/ibbiza-3.jpg" alt="IBBIZA 3" style="width:100%; height:110px; object-fit:cover; display:block;">
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/ibbiza-1.webp" alt="IBBIZA 1" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/ibbiza-2.webp" alt="IBBIZA 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/ibbiza-3.webp" alt="IBBIZA 3" style="width:100%; object-fit:cover; display:block;">
   </div>
 
   <div class="content-grid">
@@ -1221,7 +1235,7 @@ body {
   </div>
 
   <div style="position:relative; height:270px; overflow:hidden;">
-    <img src="images/catalogo/palmarito-1.jpg" alt="Palmarito hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/palmarito-1.webp" alt="Palmarito hero" style="width:100%; height:100%; object-fit:cover; display:block;">
     <div class="hero-overlay">
       <div>
         <div class="club-badge">Pasadía · Tierra Bomba</div>
@@ -1236,10 +1250,10 @@ body {
     </div>
   </div>
 
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
-    <img src="images/catalogo/palmarito-1.jpg" alt="Palmarito 1" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/palmarito-2.jpg" alt="Palmarito 2" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/palmarito-3.jpg" alt="Palmarito 3" style="width:100%; height:110px; object-fit:cover; display:block;">
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/palmarito-1.webp" alt="Palmarito 1" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/palmarito-2.webp" alt="Palmarito 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/palmarito-3.webp" alt="Palmarito 3" style="width:100%; object-fit:cover; display:block;">
   </div>
 
   <div class="content-grid">
@@ -1344,7 +1358,7 @@ body {
   </div>
 
   <div class="hero-wrap" style="height:265px; flex-shrink:0;">
-    <img src="images/catalogo/borabora-5.jpg" alt="Bora Bora Club">
+    <img loading="lazy" src="images/catalogo/borabora-5.webp" alt="Bora Bora Club">
     <div class="hero-overlay">
       <div class="hero-text">
         <div class="club-badge">Club de Playa · Islas del Rosario</div>
@@ -1399,10 +1413,10 @@ body {
     <div class="col-right" style="display:flex; flex-direction:column;">
       <div class="section-label">Galería</div>
       <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:6px; min-height:0;">
-        <img src="images/catalogo/borabora-5.jpg" alt="Bora Bora Club 1" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
-        <img src="images/catalogo/borabora-6.jpg" alt="Bora Bora Club 2" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
-        <img src="images/catalogo/borabora-1.jpg" alt="Bora Bora Club 3" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
-        <img src="images/catalogo/borabora-6.jpg" alt="Bora Bora Club 4" style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/borabora-5.webp" alt="Bora Bora Club 1" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/borabora-6.webp" alt="Bora Bora Club 2" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/borabora-1.webp" alt="Bora Bora Club 3" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/borabora-6.webp" alt="Bora Bora Club 4" style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:3px;">
       </div>
 
       <div style="margin-top:12px; background:var(--midnight); border-radius:4px; padding:16px 18px; flex-shrink:0;">
@@ -1440,7 +1454,7 @@ body {
   </div>
 
   <div class="hero-wrap" style="height:265px; flex-shrink:0;">
-    <img src="images/catalogo/borabora-2.jpg" alt="Bora Bora VIP">
+    <img loading="lazy" src="images/catalogo/borabora-2.webp" alt="Bora Bora VIP">
     <div class="hero-overlay">
       <div class="hero-text">
         <div class="club-badge">Club de Playa · Islas del Rosario</div>
@@ -1491,10 +1505,10 @@ body {
     <div class="col-right" style="display:flex; flex-direction:column;">
       <div class="section-label">Galería</div>
       <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:6px; min-height:0;">
-        <img src="images/catalogo/borabora-2.jpg" alt="Bora Bora VIP 1" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
-        <img src="images/catalogo/borabora-3.jpg" alt="Bora Bora VIP 2" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
-        <img src="images/catalogo/borabora-4.jpg" alt="Bora Bora VIP 3" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
-        <img src="images/catalogo/borabora-3.jpg" alt="Bora Bora VIP 4" style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/borabora-2.webp" alt="Bora Bora VIP 1" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/borabora-3.webp" alt="Bora Bora VIP 2" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/borabora-4.webp" alt="Bora Bora VIP 3" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img loading="lazy" src="images/catalogo/borabora-3.webp" alt="Bora Bora VIP 4" style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:3px;">
       </div>
 
       <div style="margin-top:12px; background:var(--golden); border-radius:4px; padding:16px 18px; flex-shrink:0;">
@@ -1536,7 +1550,7 @@ body {
   </div>
 
   <div style="position:relative; height:270px; overflow:hidden;">
-    <img src="images/catalogo/paue-1.jpg" alt="Paue hero" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/paue-1.webp" alt="Paue hero" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
     <div class="hero-overlay">
       <div>
         <div class="club-badge">Club de Playa · Islas del Rosario</div>
@@ -1551,10 +1565,10 @@ body {
     </div>
   </div>
 
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
-    <img src="images/catalogo/paue-2.jpg" alt="Paue 1" style="width:100%; height:110px; object-fit:cover; object-position:center center; display:block;">
-    <img src="images/catalogo/paue-3.jpg" alt="Paue 2" style="width:100%; height:110px; object-fit:cover; object-position:center center; display:block;">
-    <img src="images/catalogo/paue-1.jpg" alt="Paue 3" style="width:100%; height:110px; object-fit:cover; object-position:center top; display:block;">
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/paue-2.webp" alt="Paue 1" style="width:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/paue-3.webp" alt="Paue 2" style="width:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/paue-1.webp" alt="Paue 3" style="width:100%; object-fit:cover; object-position:center top; display:block;">
   </div>
 
   <div class="content-grid">
@@ -1664,7 +1678,7 @@ body {
   </div>
 
   <div style="position:relative; height:270px; overflow:hidden;">
-    <img src="images/catalogo/tour-bahia-1.jpg" alt="Tour Bahía hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/tour-bahia-1.webp" alt="Tour Bahía hero" style="width:100%; height:100%; object-fit:cover; display:block;">
     <div class="hero-overlay" style="background:linear-gradient(to right, rgba(10,26,50,.88) 0%, rgba(10,26,50,.5) 55%, transparent 100%);">
       <div>
         <div class="club-badge">Tour Nocturno · Bahía de Cartagena</div>
@@ -1679,10 +1693,10 @@ body {
     </div>
   </div>
 
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
-    <img src="images/catalogo/tour-bahia-1.jpg" alt="Tour Bahía 1" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <img src="images/catalogo/tour-bahia-2.jpg" alt="Tour Bahía 2" style="width:100%; height:110px; object-fit:cover; display:block;">
-    <div style="height:110px; background:linear-gradient(135deg, var(--midnight-light), var(--midnight)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px;">
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/tour-bahia-1.webp" alt="Tour Bahía 1" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/tour-bahia-2.webp" alt="Tour Bahía 2" style="width:100%; object-fit:cover; display:block;">
+    <div style="background:linear-gradient(135deg, var(--midnight-light), var(--midnight)); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:4px;">
       <span style="font-size:1.8rem;">🌅</span>
       <span style="font-size:.58rem; color:var(--golden-light); letter-spacing:2px; text-transform:uppercase;">Atardecer</span>
     </div>
@@ -1790,7 +1804,7 @@ body {
   </div>
 
   <div style="position:relative; height:270px; overflow:hidden;">
-    <img src="images/catalogo/islabela-1.jpg" alt="Isla Bela" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/islabela-1.webp" alt="Isla Bela" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
     <div class="hero-overlay">
       <div>
         <div class="club-badge">Club de Playa · Islas del Rosario</div>
@@ -1805,10 +1819,10 @@ body {
     </div>
   </div>
 
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
-    <img src="images/catalogo/islabela-2.jpg" alt="Isla Bela 1" style="width:100%; height:110px; object-fit:cover; object-position:center center; display:block;">
-    <img src="images/catalogo/islabela-1.jpg" alt="Isla Bela 2" style="width:100%; height:110px; object-fit:cover; object-position:center top; display:block;">
-    <img src="images/catalogo/islabela-2.jpg" alt="Isla Bela 3" style="width:100%; height:110px; object-fit:cover; object-position:center bottom; display:block;">
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/islabela-2.webp" alt="Isla Bela 1" style="width:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/islabela-1.webp" alt="Isla Bela 2" style="width:100%; object-fit:cover; object-position:center top; display:block;">
+    <img loading="lazy" src="images/catalogo/islabela-2.webp" alt="Isla Bela 3" style="width:100%; object-fit:cover; object-position:center bottom; display:block;">
   </div>
 
   <div class="content-grid">
