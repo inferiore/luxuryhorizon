@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>TikTok — Mito vs Realidad Colombia</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Jost', sans-serif;
+}
+
+.card {
+  width: 1080px;
+  height: 1920px;
+  background: #0A1A32;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 72px;
+}
+
+/* Fondo decorativo */
+.bg-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 10%, #112244 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, rgba(183,154,73,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 10% 50%, rgba(68,240,247,.06) 0%, transparent 60%);
+}
+
+.stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 8%  9%,  rgba(183,154,73,.7) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 92% 7%,  rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 35% 18%, rgba(68,240,247,.5)  0%, transparent 100%),
+    radial-gradient(1px   1px   at 70% 14%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 20% 30%, rgba(255,255,255,.2) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 88% 35%, rgba(183,154,73,.5) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 55% 85%, rgba(255,255,255,.25) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 12% 78%, rgba(183,154,73,.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 78% 72%, rgba(68,240,247,.4)  0%, transparent 100%),
+    radial-gradient(1px   1px   at 40% 92%, rgba(183,154,73,.3) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 95% 60%, rgba(255,255,255,.2) 0%, transparent 100%),
+    radial-gradient(1px   1px   at 25% 55%, rgba(68,240,247,.3)  0%, transparent 100%);
+}
+
+/* Línea superior */
+.top-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #0A1A32, #B79A49, #44F0F7, #B79A49, #0A1A32);
+}
+.bottom-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #0A1A32, #B79A49, #44F0F7, #B79A49, #0A1A32);
+}
+
+/* Contenido */
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Logo + marca */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 60px;
+}
+.brand img {
+  width: 72px; height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #B79A49;
+}
+.brand-text {}
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 700;
+  color: #B79A49; letter-spacing: 4px;
+  line-height: 1;
+}
+.brand-sub {
+  font-size: 16px; color: rgba(170,170,187,.7);
+  letter-spacing: 2px; margin-top: 4px;
+}
+
+/* Eyebrow */
+.eyebrow {
+  font-size: 18px; font-weight: 500;
+  letter-spacing: 5px; color: #44F0F7;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Título principal */
+.title-block {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.title-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px; font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.title-vs {
+  font-size: 22px; font-weight: 300;
+  color: rgba(240,240,240,.5);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin: 14px 0;
+}
+.title-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 600;
+  font-style: italic;
+  color: #B79A49;
+  line-height: 1.1;
+}
+
+/* Divider */
+.divider {
+  width: 120px; height: 2px;
+  background: linear-gradient(90deg, transparent, #B79A49, transparent);
+  margin: 40px auto;
+}
+
+/* Tabla */
+.table {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(183,154,73,.3);
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.col-header {
+  padding: 24px 32px;
+  font-size: 18px; font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.col-header.myth {
+  background: rgba(200,50,50,.15);
+  color: #ff7070;
+  border-right: 1px solid rgba(183,154,73,.2);
+}
+.col-header.reality {
+  background: rgba(37,211,102,.12);
+  color: #4ade80;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(183,154,73,.15);
+}
+.table-row:nth-child(odd) .cell {
+  background: rgba(255,255,255,.02);
+}
+.cell {
+  padding: 28px 32px;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #F0F0F0;
+}
+.cell.myth-cell {
+  color: rgba(240,240,240,.6);
+  border-right: 1px solid rgba(183,154,73,.15);
+  text-decoration: line-through;
+  text-decoration-color: rgba(255,100,100,.4);
+}
+.cell.reality-cell {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* CTA */
+.cta-block {
+  margin-top: 56px;
+  text-align: center;
+}
+.cta-line1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-style: italic;
+  color: rgba(240,240,240,.8);
+  margin-bottom: 16px;
+}
+.cta-line2 {
+  font-size: 32px; font-weight: 600;
+  color: #44F0F7;
+  letter-spacing: 1px;
+}
+
+/* Hashtags */
+.hashtags {
+  margin-top: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.hashtag {
+  font-size: 18px; color: rgba(183,154,73,.7);
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="bg-glow"></div>
+  <div class="stars"></div>
+  <div class="top-bar"></div>
+  <div class="bottom-bar"></div>
+
+  <div class="content">
+
+    <!-- Marca -->
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="Luxury Horizon">
+      <div class="brand-text">
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">Cartagena · Colombia</div>
+      </div>
+    </div>
+
+    <!-- Título -->
+    <div class="eyebrow">Colombia · Mitos & Realidades</div>
+    <div class="title-block">
+      <div class="title-main">Lo que creen</div>
+      <div class="title-vs">— vs —</div>
+      <div class="title-sub">Lo que Colombia realmente es</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Tabla -->
+    <div class="table">
+      <div class="table-header">
+        <div class="col-header myth">❌ &nbsp;Mito</div>
+        <div class="col-header reality">✅ &nbsp;Realidad</div>
+      </div>
+      <div class="table-row">
+        <div class="cell myth-cell">Peligrosa</div>
+        <div class="cell reality-cell">Más segura de lo que crees</div>
+      </div>
+      <div class="table-row">
+        <div class="cell myth-cell">Malas playas</div>
+        <div class="cell reality-cell">Islas del Rosario 🏝️</div>
+      </div>
+      <div class="table-row">
+        <div class="cell myth-cell">Sin buena comida</div>
+        <div class="cell reality-cell">8 cocinas regionales</div>
+      </div>
+      <div class="table-row">
+        <div class="cell myth-cell">Muy lejos</div>
+        <div class="cell reality-cell">2.5h desde Miami ✈️</div>
+      </div>
+      <div class="table-row">
+        <div class="cell myth-cell">Muy costosa</div>
+        <div class="cell reality-cell">$1 = $4,000 COP 💰</div>
+      </div>
+      <div class="table-row">
+        <div class="cell myth-cell">Nada que hacer</div>
+        <div class="cell reality-cell">3 sitios UNESCO 🏛️</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-line1">¿Sigues creyendo que no vale la pena?</div>
+      <div class="cta-line2">👇 Escribe tu excusa abajo</div>
+    </div>
+
+    <!-- Hashtags -->
+    <div class="hashtags">
+      <span class="hashtag">#Colombia</span>
+      <span class="hashtag">#Cartagena</span>
+      <span class="hashtag">#LuxuryTravel</span>
+      <span class="hashtag">#ColombiaTourism</span>
+      <span class="hashtag">#TravelTok</span>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

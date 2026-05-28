@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Catálogo de Experiencias — Luxury Horizon</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap');
@@ -491,6 +492,11 @@ body {
 
 /* ─── PRINT ─── */
 @media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
   body { background: #fff; }
   .page { margin: 0; box-shadow: none; page-break-after: always; }
 }
@@ -531,12 +537,24 @@ body {
   .price-badge { top: 14px; right: 14px; padding: 8px 14px; }
   .price-badge .precio { font-size: 1.3rem; }
 
+  /* Override fixed A4 height set via inline style */
+  .page { height: auto !important; }
+
   /* Body grid → single column */
   .club-body {
     padding: 16px 16px 24px;
     grid-template-columns: 1fr;
     gap: 16px;
   }
+
+  /* Prevent grid children from overflowing */
+  .col-left, .col-right { min-width: 0; overflow: hidden; }
+
+  /* Gallery images: let height be natural instead of filling collapsed parent */
+  .col-right img { height: 160px !important; width: 100% !important; object-fit: cover; }
+
+  /* Inner gallery grid: fixed rows instead of flex:1 */
+  .col-right > div[style*="grid"] { height: auto !important; }
 
   /* Section labels & text */
   .section-label { font-size: .7rem; }
@@ -1311,7 +1329,7 @@ body {
 
 
 <!-- ════════════════════════════════════════
-     BORA BORA
+     BORA BORA CLUB
 ════════════════════════════════════════ -->
 <div class="page" style="height:297mm; position:relative; display:flex; flex-direction:column;">
   <div class="section-header" style="flex-shrink:0;">
@@ -1322,15 +1340,15 @@ body {
         <div class="brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
       </div>
     </div>
-    <div class="page-label">+18 · Club &amp; VIP</div>
+    <div class="page-label">+18 · Área Club</div>
   </div>
 
   <div class="hero-wrap" style="height:265px; flex-shrink:0;">
-    <img src="images/catalogo/borabora-1.jpg" alt="Bora Bora">
+    <img src="images/catalogo/borabora-5.jpg" alt="Bora Bora Club">
     <div class="hero-overlay">
       <div class="hero-text">
         <div class="club-badge">Club de Playa · Islas del Rosario</div>
-        <div class="club-name">Bora Bora</div>
+        <div class="club-name">Bora Bora Club</div>
         <div class="club-location">📍 Muelle La Bodeguita — Puerta #3</div>
       </div>
     </div>
@@ -1344,35 +1362,113 @@ body {
   <div class="club-body" style="flex:1; min-height:0; align-items:stretch;">
     <div class="col-left" style="display:flex; flex-direction:column; justify-content:space-between;">
       <div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:14px;">
-          <div style="background:var(--midnight); border-radius:4px; padding:14px; text-align:center;">
-            <div style="font-size:.58rem; color:var(--golden); letter-spacing:2px; text-transform:uppercase; margin-bottom:4px;">Área Club</div>
-            <div style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:#fff;">$390.000</div>
-            <div style="font-size:.58rem; color:rgba(240,240,240,.5);">COP / persona</div>
-          </div>
-          <div style="background:var(--golden); border-radius:4px; padding:14px; text-align:center;">
-            <div style="font-size:.58rem; color:var(--midnight); letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; font-weight:700;">Área VIP ✨</div>
-            <div style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--midnight);">$490.000</div>
-            <div style="font-size:.58rem; color:var(--midnight); opacity:.7;">COP / persona</div>
-          </div>
-        </div>
-
-        <div class="section-label">Área Club — Incluye</div>
+        <div class="section-label">Incluye</div>
         <ul class="includes-list">
           <li>Transporte en lancha rápida — ida y vuelta</li>
           <li>Cóctel de bienvenida</li>
           <li>5 opciones de almuerzo a elegir</li>
           <li>Cama de playa o asoleadora</li>
+          <li>Acceso completo al Área Club</li>
         </ul>
 
-        <div class="section-label" style="margin-top:12px;">Área VIP — Además incluye</div>
+        <div class="detail-row" style="margin-top:14px;">
+          <div class="detail-tag"><span class="tag-icon">🔞</span> <span>Solo <strong>+18</strong></span></div>
+          <div class="detail-tag"><span class="tag-icon">🕐</span> <span>Salida <strong>7:30am</strong></span></div>
+          <div class="detail-tag"><span class="tag-icon">⚓</span> <span>Puerta <strong>#3</strong></span></div>
+        </div>
+
+        <div class="not-included" style="margin-top:12px;">
+          <p><strong>No incluye:</strong> tasa portuaria $40.000 COP (efectivo)</p>
+        </div>
+
+        <div style="margin-top:14px; background:var(--midnight); border-radius:4px; padding:14px 16px;">
+          <div style="font-size:.6rem; letter-spacing:2px; color:var(--golden); text-transform:uppercase; margin-bottom:8px;">¿Quieres más?</div>
+          <div style="font-size:.78rem; color:#fff; line-height:1.5;">Haz upgrade al <strong style="color:var(--golden-light);">Área VIP</strong> y accede a 10 opciones de almuerzo, cóctel especial y zona VIP exclusiva por <strong style="color:var(--golden-light);">$490.000</strong>.</div>
+        </div>
+      </div>
+
+      <div class="meeting-box">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label">Punto de encuentro</div>
+          <div class="meeting-box-val">Muelle La Bodeguita — Puerta #3 · 7:30 a.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-right" style="display:flex; flex-direction:column;">
+      <div class="section-label">Galería</div>
+      <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:6px; min-height:0;">
+        <img src="images/catalogo/borabora-5.jpg" alt="Bora Bora Club 1" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img src="images/catalogo/borabora-6.jpg" alt="Bora Bora Club 2" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img src="images/catalogo/borabora-1.jpg" alt="Bora Bora Club 3" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img src="images/catalogo/borabora-6.jpg" alt="Bora Bora Club 4" style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:3px;">
+      </div>
+
+      <div style="margin-top:12px; background:var(--midnight); border-radius:4px; padding:16px 18px; flex-shrink:0;">
+        <div style="font-size:.6rem; letter-spacing:2px; color:var(--golden); text-transform:uppercase; margin-bottom:10px;">Ambiente exclusivo</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:1.1rem;">🔞</span>
+            <span style="font-size:.78rem; color:#fff; line-height:1.4;"><strong style="color:var(--golden-light);">Solo mayores de 18</strong> — ambiente adulto premium</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:1.1rem;">🏖️</span>
+            <span style="font-size:.78rem; color:#fff; line-height:1.4;"><strong style="color:var(--golden-light);">Islas del Rosario</strong> — paraíso a 45 min de Cartagena</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="club-footer" style="flex-shrink:0;"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     BORA BORA VIP
+════════════════════════════════════════ -->
+<div class="page" style="height:297mm; position:relative; display:flex; flex-direction:column;">
+  <div class="section-header" style="flex-shrink:0;">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
+      </div>
+    </div>
+    <div class="page-label">+18 · Área VIP ✨</div>
+  </div>
+
+  <div class="hero-wrap" style="height:265px; flex-shrink:0;">
+    <img src="images/catalogo/borabora-2.jpg" alt="Bora Bora VIP">
+    <div class="hero-overlay">
+      <div class="hero-text">
+        <div class="club-badge">Club de Playa · Islas del Rosario</div>
+        <div class="club-name">Bora Bora VIP</div>
+        <div class="club-location">📍 Muelle La Bodeguita — Puerta #3</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde">desde</span>
+      <span class="precio">$490.000</span>
+      <span class="cop">COP / persona</span>
+    </div>
+  </div>
+
+  <div class="club-body" style="flex:1; min-height:0; align-items:stretch;">
+    <div class="col-left" style="display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <div class="section-label">Incluye</div>
         <ul class="includes-list">
+          <li>Transporte en lancha rápida — ida y vuelta</li>
           <li>Cóctel de bienvenida especial</li>
-          <li><strong>10 opciones de almuerzo</strong></li>
+          <li><strong>10 opciones de almuerzo</strong> a elegir</li>
           <li>Acceso completo Área VIP + Área Club</li>
+          <li>Cama de playa o asoleadora</li>
+          <li>Zona VIP exclusiva con servicio diferenciado</li>
         </ul>
 
-        <div class="detail-row" style="margin-top:12px;">
+        <div class="detail-row" style="margin-top:14px;">
           <div class="detail-tag"><span class="tag-icon">🔞</span> <span>Solo <strong>+18</strong></span></div>
           <div class="detail-tag"><span class="tag-icon">🕐</span> <span>Salida <strong>7:30am</strong></span></div>
           <div class="detail-tag"><span class="tag-icon">⚓</span> <span>Puerta <strong>#3</strong></span></div>
@@ -1395,26 +1491,26 @@ body {
     <div class="col-right" style="display:flex; flex-direction:column;">
       <div class="section-label">Galería</div>
       <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:6px; min-height:0;">
-        <img src="images/catalogo/borabora-1.jpg" alt="Bora Bora 1" style="width:100%; height:100%; object-fit:cover; object-position:left top; border-radius:3px;">
-        <img src="images/catalogo/borabora-1.jpg" alt="Bora Bora 2" style="width:100%; height:100%; object-fit:cover; object-position:right top; border-radius:3px;">
-        <img src="images/catalogo/borabora-1.jpg" alt="Bora Bora 3" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
-        <img src="images/catalogo/borabora-1.jpg" alt="Bora Bora 4" style="width:100%; height:100%; object-fit:cover; object-position:right bottom; border-radius:3px;">
+        <img src="images/catalogo/borabora-2.jpg" alt="Bora Bora VIP 1" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img src="images/catalogo/borabora-3.jpg" alt="Bora Bora VIP 2" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img src="images/catalogo/borabora-4.jpg" alt="Bora Bora VIP 3" style="width:100%; height:100%; object-fit:cover; object-position:center center; border-radius:3px;">
+        <img src="images/catalogo/borabora-3.jpg" alt="Bora Bora VIP 4" style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:3px;">
       </div>
 
-      <div style="margin-top:12px; background:var(--midnight); border-radius:4px; padding:16px 18px; flex-shrink:0;">
-        <div style="font-size:.6rem; letter-spacing:2px; color:var(--golden); text-transform:uppercase; margin-bottom:10px;">Ambiente exclusivo</div>
+      <div style="margin-top:12px; background:var(--golden); border-radius:4px; padding:16px 18px; flex-shrink:0;">
+        <div style="font-size:.6rem; letter-spacing:2px; color:var(--midnight); text-transform:uppercase; margin-bottom:10px; font-weight:700;">Experiencia VIP</div>
         <div style="display:flex; flex-direction:column; gap:8px;">
           <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:1.1rem;">✨</span>
+            <span style="font-size:.78rem; color:var(--midnight); line-height:1.4;"><strong>Zona exclusiva VIP</strong> — servicio y atención diferenciada</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-size:1.1rem;">🍽️</span>
+            <span style="font-size:.78rem; color:var(--midnight); line-height:1.4;"><strong>10 opciones de almuerzo</strong> — la carta más amplia del club</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
             <span style="font-size:1.1rem;">🔞</span>
-            <span style="font-size:.78rem; color:#fff; line-height:1.4;"><strong style="color:var(--golden-light);">Solo mayores de 18</strong> — ambiente adulto premium</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span style="font-size:1.1rem;">⭐</span>
-            <span style="font-size:.78rem; color:#fff; line-height:1.4;"><strong style="color:var(--golden-light);">Upgrade VIP disponible</strong> — +$100.000 por persona</span>
-          </div>
-          <div style="display:flex; align-items:center; gap:10px;">
-            <span style="font-size:1.1rem;">🏖️</span>
-            <span style="font-size:.78rem; color:#fff; line-height:1.4;"><strong style="color:var(--golden-light);">Islas del Rosario</strong> — paraíso a 45 min de Cartagena</span>
+            <span style="font-size:.78rem; color:var(--midnight); line-height:1.4;"><strong>Solo mayores de 18</strong> — ambiente adulto premium</span>
           </div>
         </div>
       </div>
@@ -1440,7 +1536,7 @@ body {
   </div>
 
   <div style="position:relative; height:270px; overflow:hidden;">
-    <img src="images/catalogo/paue-3.jpg" alt="Paue hero" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
+    <img src="images/catalogo/paue-1.jpg" alt="Paue hero" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
     <div class="hero-overlay">
       <div>
         <div class="club-badge">Club de Playa · Islas del Rosario</div>
@@ -1456,9 +1552,9 @@ body {
   </div>
 
   <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
-    <img src="images/catalogo/paue-3.jpg" alt="Paue 1" style="width:100%; height:110px; object-fit:cover; object-position:left center; display:block;">
+    <img src="images/catalogo/paue-2.jpg" alt="Paue 1" style="width:100%; height:110px; object-fit:cover; object-position:center center; display:block;">
     <img src="images/catalogo/paue-3.jpg" alt="Paue 2" style="width:100%; height:110px; object-fit:cover; object-position:center center; display:block;">
-    <img src="images/catalogo/paue-3.jpg" alt="Paue 3" style="width:100%; height:110px; object-fit:cover; object-position:right center; display:block;">
+    <img src="images/catalogo/paue-1.jpg" alt="Paue 3" style="width:100%; height:110px; object-fit:cover; object-position:center top; display:block;">
   </div>
 
   <div class="content-grid">
@@ -1693,19 +1789,13 @@ body {
     <div class="page-label">Yoga · Kayak · Oceanario</div>
   </div>
 
-  <!-- Hero con gradiente (imágenes profesionales próximamente) -->
-  <div style="position:relative; height:270px; overflow:hidden; background:linear-gradient(160deg, #0d2a4a 0%, #0A1A32 40%, #112244 70%, #0A1A32 100%);">
-    <div style="position:absolute; inset:0; background-image: radial-gradient(1.5px 1.5px at 20% 25%, rgba(183,154,73,.5) 0%, transparent 100%), radial-gradient(1px 1px at 75% 15%, rgba(255,255,255,.35) 0%, transparent 100%), radial-gradient(1px 1px at 45% 60%, rgba(183,154,73,.4) 0%, transparent 100%), radial-gradient(1.5px 1.5px at 85% 70%, rgba(255,255,255,.25) 0%, transparent 100%);"></div>
-    <div class="hero-overlay" style="background:transparent; align-items:center; justify-content:center; text-align:center;">
-      <div style="width:100%;">
-        <div class="club-badge" style="text-align:center; font-size:.65rem; letter-spacing:4px;">Club de Playa · Islas del Rosario</div>
-        <div style="font-family:'Cormorant Garamond',serif; font-size:3.2rem; font-weight:700; color:#fff; line-height:1; text-shadow:0 2px 20px rgba(0,0,0,.4); margin:8px 0 4px;">Isla Bela</div>
-        <div style="font-size:.75rem; color:var(--golden-light); letter-spacing:2px; margin-bottom:16px;">📍 Muelle La Bodeguita — Puerta #3</div>
-        <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-          <span style="background:rgba(183,154,73,.2); border:1px solid rgba(183,154,73,.4); border-radius:20px; padding:4px 14px; font-size:.65rem; color:var(--golden-light); letter-spacing:1px;">🧘 Clases de Yoga</span>
-          <span style="background:rgba(183,154,73,.2); border:1px solid rgba(183,154,73,.4); border-radius:20px; padding:4px 14px; font-size:.65rem; color:var(--golden-light); letter-spacing:1px;">🚣 Kayak</span>
-          <span style="background:rgba(183,154,73,.2); border:1px solid rgba(183,154,73,.4); border-radius:20px; padding:4px 14px; font-size:.65rem; color:var(--golden-light); letter-spacing:1px;">🐬 Oceanario</span>
-        </div>
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img src="images/catalogo/islabela-1.jpg" alt="Isla Bela" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge">Club de Playa · Islas del Rosario</div>
+        <div class="club-name">Isla Bela</div>
+        <div class="club-location">📍 Muelle La Bodeguita — Puerta #3</div>
       </div>
     </div>
     <div class="price-badge">
@@ -1715,20 +1805,10 @@ body {
     </div>
   </div>
 
-  <!-- Strip de gradientes temáticos -->
   <div style="display:grid; grid-template-columns:repeat(3,1fr); height:110px; gap:2px;">
-    <div style="height:110px; background:linear-gradient(135deg, #0d2a4a, #1a4a6a); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;">
-      <span style="font-size:2rem;">🧘</span>
-      <span style="font-size:.6rem; color:var(--golden-light); letter-spacing:2px; text-transform:uppercase;">Yoga</span>
-    </div>
-    <div style="height:110px; background:linear-gradient(135deg, #0a3a2a, #1a5a3a); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;">
-      <span style="font-size:2rem;">🚣</span>
-      <span style="font-size:.6rem; color:#7dd4a8; letter-spacing:2px; text-transform:uppercase;">Kayak</span>
-    </div>
-    <div style="height:110px; background:linear-gradient(135deg, #1a2a4a, #0a1a32); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;">
-      <span style="font-size:2rem;">🐬</span>
-      <span style="font-size:.6rem; color:var(--teal); letter-spacing:2px; text-transform:uppercase;">Oceanario</span>
-    </div>
+    <img src="images/catalogo/islabela-2.jpg" alt="Isla Bela 1" style="width:100%; height:110px; object-fit:cover; object-position:center center; display:block;">
+    <img src="images/catalogo/islabela-1.jpg" alt="Isla Bela 2" style="width:100%; height:110px; object-fit:cover; object-position:center top; display:block;">
+    <img src="images/catalogo/islabela-2.jpg" alt="Isla Bela 3" style="width:100%; height:110px; object-fit:cover; object-position:center bottom; display:block;">
   </div>
 
   <div class="content-grid">
@@ -1823,235 +1903,6 @@ body {
 </div>
 
 
-<!-- ════════════════════════════════════════
-     MÁS EXPERIENCIAS (página comparativa)
-════════════════════════════════════════ -->
-<div class="page" style="min-height:297mm; position:relative;">
-  <div class="multi-header">
-    <div class="multi-header-brand">
-      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
-      <div>
-        <div class="multi-header-brand-name">LUXURY HORIZON</div>
-        <div class="multi-header-brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
-      </div>
-    </div>
-    <div class="multi-title">Más Experiencias</div>
-    <div class="multi-subtitle">Cada club, una experiencia diferente</div>
-  </div>
-
-  <div class="cards-grid">
-    <!-- PAUE -->
-    <div class="mini-card">
-      <div class="mini-card-placeholder" style="background:linear-gradient(135deg,#0d2a4a,#0A1A32);">
-        <div class="ph-icon">✨</div>
-        <div class="ph-label">Paue</div>
-      </div>
-      <div class="mini-card-body">
-        <div class="mini-card-name">Paue</div>
-        <div class="mini-card-price">$460.000 COP</div>
-        <ul class="mini-card-includes">
-          <li>Bote deportivo de lujo — ida y vuelta</li>
-          <li>Botella de agua + música a bordo</li>
-          <li>Copa de champaña de bienvenida</li>
-          <li>Tour panorámico Islas del Rosario (opcional)</li>
-          <li>Almuerzo 4 opciones + bebida</li>
-          <li>Sillas asoleadoras, hamacas y camas de playa</li>
-          <li>Paddle board incluido</li>
-        </ul>
-        <div class="mini-card-muelle">📍 Muelle La Bodeguita — Puerta #4 · 7:15 a.m.</div>
-      </div>
-    </div>
-
-    <!-- MANTAS -->
-    <div class="mini-card">
-      <div class="mini-card-placeholder">
-        <div class="ph-icon">🌊</div>
-        <div class="ph-label">Mantas Beach</div>
-      </div>
-      <div class="mini-card-body">
-        <div class="mini-card-name">Mantas Beach</div>
-        <div class="mini-card-price">$390.000 COP</div>
-        <ul class="mini-card-includes">
-          <li>Lancha rápida ida y vuelta</li>
-          <li>Bebida de bienvenida (champaña o limonada)</li>
-          <li>Almuerzo a la carta — 8 opciones</li>
-          <li><strong>2x1 en cócteles</strong> seleccionados todo el día</li>
-          <li><strong>6x5 en cervezas</strong> — ¡la 6ta es gratis!</li>
-          <li>Paddleboard y kayaks</li>
-          <li>DJ en vivo todos los días</li>
-          <li>Ducha · Toallas · Muelle privado · Beach Bar</li>
-        </ul>
-        <div class="mini-card-muelle">📍 Marina Todomar · 7:30 a.m. — Regreso: 4:00 p.m.</div>
-      </div>
-    </div>
-
-    <!-- ISLABELA -->
-    <div class="mini-card">
-      <div class="mini-card-placeholder">
-        <div class="ph-icon">🏝️</div>
-        <div class="ph-label">Islabela</div>
-      </div>
-      <div class="mini-card-body">
-        <div class="mini-card-name">Islabela</div>
-        <div class="mini-card-price">$390.000 COP</div>
-        <ul class="mini-card-includes">
-          <li>Lancha deportiva ida y vuelta (50 min)</li>
-          <li>Bebida de bienvenida</li>
-          <li>Almuerzo (pescado, pollo o vegetariano)</li>
-          <li>Acceso libre a todas las instalaciones</li>
-          <li>Traslado al Oceanario (opcional)</li>
-          <li>Kayak sujeto a disponibilidad</li>
-          <li>Clases de Yoga (sáb, dom y festivos)</li>
-        </ul>
-        <div class="mini-card-muelle">📍 Muelle La Bodeguita — Puerta #4</div>
-      </div>
-    </div>
-
-    <!-- LUXURY BEACH -->
-    <div class="mini-card">
-      <div class="mini-card-placeholder" style="background:linear-gradient(135deg,#1a3a60,#0A1A32);">
-        <div class="ph-icon" style="font-size:2rem;">✨</div>
-        <div class="ph-label">Luxury Open Bar</div>
-      </div>
-      <div class="mini-card-body">
-        <div class="mini-card-name">Luxury Open Bar</div>
-        <div class="mini-card-price">$420.000 COP</div>
-        <ul class="mini-card-includes">
-          <li>Lancha tipo Tritón ida y vuelta</li>
-          <li><strong>Barra abierta nacional ilimitada</strong>: mojito, piña colada, gin tonic, daiquiri, margarita y más</li>
-          <li>4 opciones de almuerzo</li>
-          <li>Parasol + asoleadora playera</li>
-          <li>Recorrido panorámico con parada en Oceanario (opcional)</li>
-          <li>Ducha en la playa</li>
-        </ul>
-        <div class="mini-card-muelle">📍 Muelle La Bodeguita — Puerta #4 · 7:30 a.m.</div>
-      </div>
-    </div>
-
-    <!-- TOUR BAHÍA EN BOTE -->
-    <div class="mini-card">
-      <div style="height:100px; overflow:hidden;">
-        <img src="images/catalogo/tour-bahia-1.jpg" alt="Tour Bahía" style="width:100%; height:100%; object-fit:cover; object-position:center 60%;">
-      </div>
-      <div class="mini-card-body">
-        <div class="mini-card-name">Tour Bahía en Bote</div>
-        <div class="mini-card-price">$130.000 COP</div>
-        <ul class="mini-card-includes">
-          <li>Bote deportivo de lujo — recorrido nocturno</li>
-          <li><strong>Open bar ilimitado</strong>: Cuba Libre + aguardiente</li>
-          <li>2 cervezas de bienvenida + snack</li>
-          <li>DJ en vivo a bordo</li>
-          <li>Entrada gratis a discoteca</li>
-          <li>5:00 p.m. – 8:00 p.m.</li>
-        </ul>
-        <div class="mini-card-muelle">📍 Muelle Puerta #6 · diagonal Torre del Reloj · 4:40 p.m.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Tabla comparativa de precios -->
-  <div style="padding: 0 28px 20px;">
-    <div style="font-size:.62rem; font-weight:600; letter-spacing:3px; color:var(--golden); text-transform:uppercase; margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid #e0d9c8;">Comparativo de precios</div>
-    <table style="width:100%; border-collapse:collapse; font-size:.75rem;">
-      <thead>
-        <tr style="background:var(--midnight);">
-          <th style="text-align:left; padding:8px 12px; color:var(--golden); font-size:.62rem; letter-spacing:1.5px; font-weight:600;">Club de Playa</th>
-          <th style="text-align:center; padding:8px 12px; color:var(--golden); font-size:.62rem; letter-spacing:1.5px; font-weight:600;">Precio Público</th>
-          <th style="text-align:center; padding:8px 12px; color:var(--golden); font-size:.62rem; letter-spacing:1.5px; font-weight:600;">Tasa de Muelle</th>
-          <th style="text-align:left; padding:8px 12px; color:var(--golden); font-size:.62rem; letter-spacing:1.5px; font-weight:600;">Muelle / Salida</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="background:#fff;">
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Pao Pao</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$390.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$40.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Bodeguita Puerta #3 · 7:30am</td>
-        </tr>
-        <tr style="background:#faf9f7;">
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Mangata</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$399.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$13.500*</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Marina Todomar · 7:30am</td>
-        </tr>
-        <tr style="background:#fff;">
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Sabai Marítimo</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$470.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--golden); font-weight:600;">Incluido ✓</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Marina Todomar · 7:20am</td>
-        </tr>
-        <tr style="background:#faf9f7;">
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Capri Beach</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$460.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$40.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Bodeguita Puerta #3 · 7:30am</td>
-        </tr>
-        <tr style="background:#fff;">
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Mantas Beach</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$390.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$29.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Marina Todomar · 7:30am</td>
-        </tr>
-        <tr style="background:#faf9f7;">
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Luxury Open Bar</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$420.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$40.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Bodeguita Puerta #4 · 7:30am</td>
-        </tr>
-        <tr style="background:#fff;">
-          <td style="padding:7px 12px; font-weight:500;">Islabela</td>
-          <td style="padding:7px 12px; text-align:center; color:var(--midnight); font-weight:600;">$390.000</td>
-          <td style="padding:7px 12px; text-align:center; color:#888;">$40.000</td>
-          <td style="padding:7px 12px; color:#555;">Bodeguita Puerta #4</td>
-        </tr>
-        <tr style="background:#faf9f7;">
-          <td style="padding:7px 12px; font-weight:500;">IBBIZA Beach</td>
-          <td style="padding:7px 12px; text-align:center; color:var(--midnight); font-weight:600;">$380.000</td>
-          <td style="padding:7px 12px; text-align:center; color:#888;">$26.000</td>
-          <td style="padding:7px 12px; color:#555;">Marina Todomar</td>
-        </tr>
-        <tr style="background:#fff;">
-          <td style="padding:7px 12px; font-weight:500;">Palmarito Beach</td>
-          <td style="padding:7px 12px; text-align:center; color:var(--midnight); font-weight:600;">$230.000</td>
-          <td style="padding:7px 12px; text-align:center; color:var(--golden); font-weight:600;">Gratis ✓</td>
-          <td style="padding:7px 12px; color:#555;">Hospital Bocagrande</td>
-        </tr>
-        <tr style="background:#faf9f7;">
-          <td style="padding:7px 12px; font-weight:500;">Bora Bora Club</td>
-          <td style="padding:7px 12px; text-align:center; color:var(--midnight); font-weight:600;">$390.000</td>
-          <td style="padding:7px 12px; text-align:center; color:#888;">$40.000</td>
-          <td style="padding:7px 12px; color:#555;">Bodeguita Puerta #3 · 7:30am</td>
-        </tr>
-        <tr style="background:#fff;">
-          <td style="padding:7px 12px; font-weight:500;">Bora Bora VIP</td>
-          <td style="padding:7px 12px; text-align:center; color:var(--midnight); font-weight:600;">$490.000</td>
-          <td style="padding:7px 12px; text-align:center; color:#888;">$40.000</td>
-          <td style="padding:7px 12px; color:#555;">Bodeguita Puerta #3 · 7:30am</td>
-        </tr>
-        <tr style="background:#faf9f7;">
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; font-weight:500;">Paue</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:var(--midnight); font-weight:600;">$460.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; text-align:center; color:#888;">$40.000</td>
-          <td style="padding:7px 12px; border-bottom:1px solid #eee; color:#555;">Bodeguita Puerta #4 · 7:15am</td>
-        </tr>
-        <tr style="background:#fff;">
-          <td style="padding:7px 12px; font-weight:500;">Tour Bahía en Bote</td>
-          <td style="padding:7px 12px; text-align:center; color:var(--midnight); font-weight:600;">$130.000</td>
-          <td style="padding:7px 12px; text-align:center; color:var(--golden); font-weight:600;">Incluido ✓</td>
-          <td style="padding:7px 12px; color:#555;">Muelle Puerta #6 · diag. Torre del Reloj · 4:40pm</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:.6rem; color:#aaa; margin-top:6px;">* Parques Nacionales Naturales · Precios sujetos a cambios sin previo aviso · Vigencia 2026</p>
-  </div>
-
-  <div class="club-footer"></div>
-</div>
-
-
-<!-- ════════════════════════════════════════
-     CONTRAPORTADA
-════════════════════════════════════════ -->
 <div class="page back-cover">
   <div class="back-cover-bg"></div>
   <div class="back-cover-content">

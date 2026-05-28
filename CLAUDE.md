@@ -163,6 +163,49 @@ portrait = img.crop(...).resize((500, 700), Image.LANCZOS)   # tall crop
 banner.save(dst, "JPEG", quality=82, optimize=True)          # target ≤120KB
 ```
 
+## Catalog Content Agent — Google Drive
+
+When working on catalog content (images, prices, descriptions), use the Google Drive MCP tools available in this session.
+
+### Drive IDs
+
+| Recurso | ID |
+|---|---|
+| Spreadsheet "Base de datos" | `13wtCobeqoq90wZojhoh0_nsSmrldv8wSOxMjHgSTCwg` |
+| Folder "Assets" (imágenes) | `1aFFn75aJAt_Ei3zwumvIwdosGmLHFjHS` |
+
+### Folders de imágenes por club (dentro de Assets)
+
+| Club | ID |
+|---|---|
+| Pao Pao | `1xs6lHRB2s_ldkUudWfk-mcFx5HTVCKZa` |
+| Mangata | `1VCHz-mHSZgXc0jYrfcvtbB2EztDY2AAb` |
+| Sabai | `1UcHiYSGPwm34FiE6CUHt59R0IFa9MTew` |
+| Capri Beach | `11zgEW9XNQf56UMR2xhzrPv8XlrmMQxaK` |
+| Palmarito Beach | `1t7g4vS3tux1Ai3Bs5Q2ti-0lO_9_P1n2` |
+| Paue | `1SHnWHVb6Q9vyWqWoTg5e1ZTbvOKO4OB2` |
+| Bora Bora VIP | `1XsJfJ83Wpml6pKnU9TwssuggJW0YGTwQ` |
+| Bora Bora Area Club | `1Nvp7-jFtIhq-5YmD-8e81lAuNvRzl5Yd` |
+| Ibbiza | `1r8RHnaLVnuRpXiqxHqNnoqgNeso-WNLI` |
+| Isla Bela | `1GYTT3x8iQz-wsaXpqNewWgymx1rcPdqN` |
+| Tour Bahía | `1Qe9w6O_e-rhxH_7lUo25O5bWlcHgpxyG` |
+| Mantas | `1SY09LqCUZoWJVCr2muS-X4IpAlyctPy0` |
+
+### Hoja "Servicios" — columnas
+
+`Club de playa` | `Neto` | `Costo del muelle` | `Precio al público` | `Precio Dollar` | `Descripción` | `Lugar de embarque` | `Lugar`
+
+Leer con `mcp__claude_ai_Google_Drive__read_file_content` usando el ID del spreadsheet.
+
+### Flujo para agregar imágenes
+
+1. Listar con `mcp__claude_ai_Google_Drive__search_files`: `parentId = '<ID>' and mimeType contains 'image/'`
+2. Descargar con `mcp__claude_ai_Google_Drive__download_file_content` — el resultado es JSON `{content (base64), id, mimeType, title}` guardado en disco.
+3. Procesar con Python Pillow — **siempre** corregir EXIF y recortar a 1200×800px, quality=82. Si Pillow no está: `pip3 install Pillow --break-system-packages`.
+4. Guardar en `website/images/catalogo/{clubname}-{n}.jpg` (minúsculas, sin espacios).
+5. Actualizar `<img src="...">` en `website/catalogo.html` con `Edit` (nunca `Write` sobre todo el archivo).
+6. Saltar archivos PNG mayores de 20MB.
+
 ## Key URLs
 
 | Resource | URL |
