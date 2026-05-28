@@ -27,7 +27,7 @@ docker compose -f docker-compose.dev.yml down
 
 ## Production Deployment (Google Cloud)
 
-Server IP: `34.31.201.58` — domain `luxuryhorizon.lat`
+Server IP: `34.44.81.102` — domain `luxuryhorizon.lat`
 
 **Deploy changes** (run on the server):
 ```bash
