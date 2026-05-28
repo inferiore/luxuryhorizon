@@ -503,6 +503,7 @@ body {
 
 /* ─── PHOTO STRIP ─── */
 .photo-strip      { display: grid; gap: 2px; overflow: hidden; }
+.photo-strip-2    { grid-template-columns: repeat(2, 1fr); }
 .photo-strip-3    { grid-template-columns: repeat(3, 1fr); }
 .photo-strip-4    { grid-template-columns: repeat(4, 1fr); }
 .photo-strip img  { height: 110px; width: 100%; object-fit: cover; display: block; }
@@ -2050,10 +2051,9 @@ body {
     </div>
   </div>
 
-  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+  <div class="photo-strip photo-strip-2" style="display:grid; gap:2px;">
     <img loading="lazy" src="images/catalogo/catamaran-1.webp" alt="Catamarán 1" style="width:100%; object-fit:cover; object-position:center center; display:block;">
     <img loading="lazy" src="images/catalogo/catamaran-2.webp" alt="Catamarán 2" style="width:100%; object-fit:cover; object-position:center top; display:block;">
-    <img loading="lazy" src="images/catalogo/catamaran-2.webp" alt="Catamarán 3" style="width:100%; object-fit:cover; object-position:center center; display:block;">
   </div>
 
   <div class="content-grid">
