@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guión #2 — Lo que nadie más te da · Luxury Horizon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --midnight:  #0A1A32;
+  --golden:    #B79A49;
+  --gold-lt:   #d4b86a;
+  --bg-cream:  #f5f5f0;
+  --bg-gold:   #fdf8ee;
+  --bg-blue:   #f0f4fa;
+  --bg-red:    #fdecea;
+  --red:       #c0392b;
+  --text:      #1a1a1a;
+  --text-sec:  #555;
+  --border:    #e8e4d8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-size: 13.5px;
+  color: var(--text);
+  background: #d8d8d8;
+  padding: 24px 16px;
+}
+
+/* ── Página A4 ── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 24px;
+  background: #fff;
+  padding: 0 0 40px;
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+}
+
+/* ── Header oscuro (estilo alianza-creadores) ── */
+.doc-header {
+  background: var(--midnight);
+  padding: 24px 36px 20px;
+  border-bottom: 3px solid var(--golden);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.header-left .agency {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--golden);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.header-left .agency span { color: #fff; }
+.header-left .doc-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: .7rem;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  color: #8ca0bc;
+  margin-top: 5px;
+  text-transform: uppercase;
+}
+.header-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+.header-badge {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--golden);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1.5px solid var(--golden);
+  padding: 5px 14px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 7px;
+}
+.header-meta {
+  font-family: 'Jost', sans-serif;
+  font-size: .68rem;
+  font-weight: 300;
+  color: #8ca0bc;
+  letter-spacing: 1px;
+  line-height: 1.7;
+}
+
+/* ── Contenido interior ── */
+.page-body {
+  padding: 28px 36px 0;
+}
+
+/* ── Título del guion ── */
+.doc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--midnight);
+  line-height: 1.2;
+  margin-bottom: 6px;
+  letter-spacing: .3px;
+}
+.doc-title em { color: var(--golden); font-style: italic; }
+.doc-tagline {
+  font-family: 'Jost', sans-serif;
+  font-size: .7rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── Section heading con número estilo alianza ── */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 22px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--golden);
+}
+.section-heading .num {
+  background: var(--midnight);
+  color: var(--golden);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.section-heading .title-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--midnight);
+  letter-spacing: .3px;
+}
+.section-heading .subtitle-text {
+  font-family: 'Jost', sans-serif;
+  font-size: .65rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--golden);
+  margin-top: 2px;
+}
+
+.sub-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--midnight);
+  margin: 14px 0 8px;
+  letter-spacing: .2px;
+}
+
+/* ── Tablas ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+th {
+  background: var(--midnight);
+  color: var(--golden);
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  text-align: left;
+}
+td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+  line-height: 1.55;
+}
+tr:nth-child(even) td { background: var(--bg-blue); }
+td:first-child { color: var(--midnight); font-weight: 500; width: 36%; }
+strong { color: var(--midnight); font-weight: 600; }
+
+/* ── Caja azul (positivo) ── */
+.box-blue {
+  background: var(--bg-blue);
+  border-left: 3px solid var(--midnight);
+  border-radius: 0 5px 5px 0;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+.box-blue .box-title {
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--midnight);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.box-blue ul { padding-left: 16px; color: var(--text-sec); line-height: 1.8; font-size: 12.5px; }
+
+/* ── Caja roja (evitar) ── */
+.box-red {
+  background: var(--bg-red);
+  border-left: 3px solid var(--red);
+  border-radius: 0 5px 5px 0;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+.box-red .box-title {
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.box-red ul { padding-left: 16px; color: var(--text-sec); line-height: 1.8; font-size: 12.5px; }
+
+/* ── Caja dorada (hook / próximamente) ── */
+.box-gold {
+  background: var(--bg-gold);
+  border: 1.5px solid var(--golden);
+  border-left: 3px solid var(--golden);
+  border-radius: 0 5px 5px 0;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  break-inside: avoid;
+}
+.box-gold .box-label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--golden);
+  margin-bottom: 4px;
+}
+.box-gold .block-time {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--text-sec);
+  letter-spacing: .5px;
+  margin-bottom: 8px;
+}
+.box-gold p { font-size: 13px; line-height: 1.75; color: var(--text); }
+.box-gold p strong { color: var(--midnight); font-weight: 600; }
+
+/* ── Caja beneficio ── */
+.box-benefit {
+  background: var(--bg-blue);
+  border-left: 3px solid var(--midnight);
+  border-radius: 0 5px 5px 0;
+  padding: 13px 16px;
+  margin-bottom: 12px;
+  break-inside: avoid;
+}
+.benefit-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.benefit-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--golden);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.benefit-emoji { font-size: 1.2rem; flex-shrink: 0; }
+.benefit-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--midnight);
+  line-height: 1.2;
+}
+.benefit-screen {
+  display: inline-block;
+  background: var(--midnight);
+  color: var(--golden);
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .5px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+.box-benefit p { font-size: 12.5px; line-height: 1.75; color: var(--text-sec); }
+.dir-note {
+  background: #f0f0ec;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 11px;
+  color: #777;
+  font-style: italic;
+  margin-top: 7px;
+}
+
+/* ── Línea de tiempo (horizontal) ── */
+.timeline {
+  display: flex;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin: 10px 0 16px;
+}
+.timeline-block {
+  flex: 1;
+  padding: 10px 8px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,.15);
+}
+.timeline-block:last-child { border-right: none; }
+.timeline-block:nth-child(1) { background: var(--midnight); }
+.timeline-block:nth-child(2) { background: #1c3a6e; }
+.timeline-block:nth-child(3) { background: var(--bg-gold); border-right: 1px solid var(--border); }
+.timeline-block:nth-child(4) { background: var(--golden); }
+.tl-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+}
+.timeline-block:nth-child(1) .tl-num,
+.timeline-block:nth-child(2) .tl-num { color: var(--golden); }
+.timeline-block:nth-child(3) .tl-num { color: var(--midnight); }
+.timeline-block:nth-child(4) .tl-num { color: var(--midnight); }
+.tl-name {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 9.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin: 3px 0 2px;
+}
+.timeline-block:nth-child(1) .tl-name,
+.timeline-block:nth-child(2) .tl-name { color: #fff; }
+.timeline-block:nth-child(3) .tl-name,
+.timeline-block:nth-child(4) .tl-name { color: var(--midnight); }
+.tl-time {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  opacity: .7;
+}
+.timeline-block:nth-child(1) .tl-time,
+.timeline-block:nth-child(2) .tl-time { color: #c8d5e8; }
+.timeline-block:nth-child(3) .tl-time,
+.timeline-block:nth-child(4) .tl-time { color: var(--midnight); }
+
+/* ── Tabla de pantalla ── */
+.screen-table td:last-child { font-weight: 500; color: var(--midnight); }
+
+/* ── Nota de dirección ── */
+.dir-note-block {
+  background: #f0f0ec;
+  border-radius: 3px;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #777;
+  font-style: italic;
+  margin: 7px 0;
+  line-height: 1.6;
+}
+
+/* ── Caption ── */
+.box-caption {
+  background: var(--bg-blue);
+  border-left: 3px solid var(--midnight);
+  border-radius: 0 5px 5px 0;
+  padding: 14px 16px;
+  font-size: 12.5px;
+  line-height: 1.85;
+  color: var(--text-sec);
+}
+.box-caption p { margin-bottom: 8px; }
+.box-caption p:last-child { margin-bottom: 0; }
+
+/* ── Hashtags ── */
+.hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.hashtag {
+  background: var(--midnight);
+  color: var(--golden);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: .3px;
+}
+
+/* ── Tabla métricas ── */
+.metric-table td:nth-child(2) { color: var(--golden); font-weight: 600; }
+
+/* ── Pie de página ── */
+.doc-footer {
+  margin-top: 28px;
+  padding: 10px 36px;
+  border-top: 2px solid var(--midnight);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  color: #999;
+  letter-spacing: .5px;
+}
+.doc-footer strong { color: var(--midnight); }
+
+/* ── Botón imprimir ── */
+.no-print {
+  max-width: 210mm;
+  margin: 0 auto 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+.no-print button {
+  background: var(--midnight);
+  color: var(--golden);
+  border: none;
+  padding: 10px 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: .8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* ── PRINT ── */
+@media print {
+  body { background: #fff; padding: 0; }
+  .no-print { display: none !important; }
+  .page { box-shadow: none; margin: 0; page-break-after: always; }
+  .page:last-child { page-break-after: avoid; }
+  .doc-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .box-blue, .box-red, .box-gold, .box-benefit, .box-caption { break-inside: avoid; }
+  .section-num, .hashtag, .timeline-block { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  table { break-inside: avoid; }
+  @page { size: A4; margin: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button onclick="window.print()">🖨 IMPRIMIR / GUARDAR PDF</button>
+</div>
+
+<!-- ══════════════════════════════
+     PÁGINA 1
+══════════════════════════════ -->
+<div class="page">
+
+  <!-- Header oscuro -->
+  <div class="doc-header">
+    <div class="header-left">
+      <div class="agency">Luxury <span>Horizon</span></div>
+      <div class="doc-sub">Estrategia de Contenido · Material Interno</div>
+    </div>
+    <div class="header-right">
+      <div class="header-badge">Guión #2</div>
+      <div class="header-meta">
+        Video · Redes Sociales<br>
+        Temporada 2026<br>
+        45 – 60 segundos
+      </div>
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- Título -->
+    <div style="height:20px;"></div>
+    <div class="doc-title">"Lo que nadie más te da<br><em>cuando vas a Cartagena"</em></div>
+    <div class="doc-tagline">Talking Head · Reels &amp; Stories · Objetivo: DM + Comentarios</div>
+
+    <!-- FICHA RÁPIDA -->
+    <div class="section-heading">
+      <div class="num">→</div>
+      <div>
+        <div class="title-text">Ficha Rápida</div>
+      </div>
+    </div>
+    <table>
+      <tr><th>Campo</th><th>Valor</th></tr>
+      <tr><td>Nicho</td><td>Turismo en Cartagena de Indias</td></tr>
+      <tr><td>Audiencia</td><td>Latinoamérica — viajeros independientes 22–40 años</td></tr>
+      <tr><td>Objetivo</td><td>Likes + Comentarios + Mensajes directos (conversión)</td></tr>
+      <tr><td>Formato</td><td>Video hablado a cámara (talking head) + texto en pantalla</td></tr>
+      <tr><td>Duración objetivo</td><td>45 a 60 segundos</td></tr>
+      <tr><td>Métrica clave</td><td>Mensajes directos preguntando por tours y comentarios del tipo "¿cómo reservo?"</td></tr>
+    </table>
+
+    <!-- PARTE 1 -->
+    <div class="section-heading">
+      <div class="num">1</div>
+      <div>
+        <div class="title-text">Briefing de Producción</div>
+        <div class="subtitle-text">Instrucciones para la creadora</div>
+      </div>
+    </div>
+
+    <div class="sub-heading">1.1 Objetivo del Contenido</div>
+    <p style="font-size:12.5px; line-height:1.75; color:var(--text-sec); margin-bottom:14px;">
+      Este video tiene dos objetivos: generar <strong>comentarios de curiosidad</strong> ("¿cómo accedo a eso?") y <strong>mensajes directos</strong> preguntando por los tours. Es el primer video de contenido promocional de Luxury Horizon — pero debe sentirse como un beneficio para el espectador, no como publicidad.
+    </p>
+
+    <div class="sub-heading">1.2 Tono y Estilo</div>
+    <div class="box-blue">
+      <div class="box-title">✅ Lo que se busca</div>
+      <ul>
+        <li>Tono de <strong>"dato exclusivo"</strong> — como si estuvieras contándole un secreto a alguien</li>
+        <li>Entusiasmo contenido — emocionada pero no exagerada</li>
+        <li>Autoridad de experta — habla como quien conoce el destino por dentro</li>
+        <li>Ritmo dinámico — cada beneficio se presenta como una revelación</li>
+      </ul>
+    </div>
+    <div class="box-red">
+      <div class="box-title">❌ Lo que se evita</div>
+      <ul>
+        <li>No sonar a comercial de televisión o publicidad forzada</li>
+        <li>No listar beneficios de forma mecánica — cada uno necesita su momento</li>
+        <li>No usar superlativos vacíos ("el mejor", "increíble", "espectacular") sin respaldo</li>
+        <li>No presionar a comprar — el CTA debe invitar, no exigir</li>
+      </ul>
+    </div>
+
+    <div class="sub-heading">1.3 Configuración de Cámara y Escena</div>
+    <table>
+      <tr><th>Campo</th><th>Indicación</th></tr>
+      <tr><td>Formato de video</td><td>Vertical 9:16 (para Reels e historias)</td></tr>
+      <tr><td>Encuadre</td><td>Busto arriba — cara visible, contacto visual con la cámara</td></tr>
+      <tr><td>Fondo</td><td>Simple y limpio: pared lisa o ambiente de oficina. Sin paisajes tropicales.</td></tr>
+      <tr><td>Iluminación</td><td>Luz frontal natural o ring light. Sin sombras fuertes en la cara.</td></tr>
+      <tr><td>Audio</td><td>Grabar con micrófono de solapa o en espacio silencioso. Sin eco.</td></tr>
+      <tr><td>Texto en pantalla</td><td>Reforzar cada beneficio con texto grande y llamativo al momento de mencionarlo</td></tr>
+    </table>
+
+  </div>
+
+  <!-- Pie pág 1 -->
+  <div class="doc-footer">
+    <div><strong>Luxury Horizon</strong> · Material Interno · No distribuir</div>
+    <div>Guión #2 · Página 1 de 2</div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════
+     PÁGINA 2
+══════════════════════════════ -->
+<div class="page">
+
+  <!-- Header pág 2 -->
+  <div class="doc-header">
+    <div class="header-left">
+      <div class="agency">Luxury <span>Horizon</span></div>
+      <div class="doc-sub">Guión #2 — "Lo que nadie más te da cuando vas a Cartagena"</div>
+    </div>
+    <div class="header-right">
+      <div class="header-meta">Partes 1–4<br>Guión + Caption</div>
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- 1.4 Estructura -->
+    <div class="sub-heading" style="margin-top:16px;">1.4 Estructura del Video</div>
+    <div class="timeline">
+      <div class="timeline-block">
+        <span class="tl-num">1</span>
+        <span class="tl-name">HOOK</span>
+        <span class="tl-time">0 – 5 seg</span>
+      </div>
+      <div class="timeline-block">
+        <span class="tl-num">2</span>
+        <span class="tl-name">BENEFICIOS</span>
+        <span class="tl-time">5 – 40 seg</span>
+      </div>
+      <div class="timeline-block">
+        <span class="tl-num">3</span>
+        <span class="tl-name">PRÓXIMAMENTE</span>
+        <span class="tl-time">40 – 52 seg</span>
+      </div>
+      <div class="timeline-block">
+        <span class="tl-num">4</span>
+        <span class="tl-name">CTA</span>
+        <span class="tl-time">52 – 60 seg</span>
+      </div>
+    </div>
+
+    <!-- 1.5 Textos en pantalla -->
+    <div class="sub-heading">1.5 Texto en Pantalla — Sugerencias de Edición</div>
+    <table class="screen-table">
+      <tr><th>Momento del video</th><th>Texto en pantalla sugerido</th></tr>
+      <tr><td>Hook</td><td>"Esto no lo consigues reservando solo"</td></tr>
+      <tr><td>Beneficio 1</td><td>🍷 VINO + 2 ENTRADAS GRATIS</td></tr>
+      <tr><td>Beneficio 2</td><td>🎉 ENTRADA A DISCOTECA INCLUIDA</td></tr>
+      <tr><td>Próximamente</td><td>"MÁS ALIANZAS EN CAMINO..."</td></tr>
+      <tr><td>CTA</td><td>"Escríbenos y pregunta por tu tour"</td></tr>
+    </table>
+
+    <!-- PARTE 2 — Guión -->
+    <div class="section-heading">
+      <div class="num">2</div>
+      <div>
+        <div class="title-text">Guión Completo</div>
+        <div class="subtitle-text">Texto palabra por palabra</div>
+      </div>
+    </div>
+
+    <!-- BLOQUE 1 HOOK -->
+    <div class="box-gold">
+      <div class="box-label">Bloque 1 — Hook</div>
+      <div class="block-time">⏱ 0 – 5 segundos</div>
+      <div class="dir-note-block">CÁMARA ON. Mira directo al lente. Tono de "te voy a contar algo que no todo el mundo sabe".</div>
+      <p><strong>"¿Sabías que cuando reservas tu tour con nosotros, hay beneficios que no consigues yendo solo? Te cuento cuáles."</strong></p>
+      <div class="dir-note-block" style="margin-bottom:0;">TEXTO EN PANTALLA: <strong>"Esto no lo consigues reservando solo"</strong></div>
+    </div>
+
+    <!-- BLOQUE 2 BENEFICIOS -->
+    <div class="box-benefit">
+      <div class="benefit-header">
+        <span class="benefit-num">#1</span>
+        <span class="benefit-emoji">🍷</span>
+        <span class="benefit-title">Restaurante Aliado — Centro Histórico</span>
+      </div>
+      <div class="benefit-screen">TEXTO EN PANTALLA: 🍷 VINO + 2 ENTRADAS GRATIS &nbsp;·&nbsp; 5–22 seg</div>
+      <p>"Tenemos una alianza con un restaurante aquí en Cartagena. Cuando vas de parte de nuestra agencia, te reciben con una botella de vino blanco y dos entradas incluidas. Sin costo extra para ti. Eso es lo que significa reservar con alguien que ya tiene las puertas abiertas en la ciudad."</p>
+      <div class="dir-note">Sonrisa genuina. Deja que el dato aterrice antes de continuar.</div>
+    </div>
+
+    <div class="box-benefit">
+      <div class="benefit-header">
+        <span class="benefit-num">#2</span>
+        <span class="benefit-emoji">🎉</span>
+        <span class="benefit-title">Tour con Entrada a Discoteca Incluida</span>
+      </div>
+      <div class="benefit-screen">TEXTO EN PANTALLA: 🎉 ENTRADA A DISCOTECA INCLUIDA &nbsp;·&nbsp; 22–40 seg</div>
+      <p>"Y en uno de nuestros tours, la entrada a la discoteca ya está incluida. No tienes que buscarla, no tienes que pagarla aparte. Llegas, disfrutas, y ya. Así de sencillo."</p>
+      <div class="dir-note">Tono relajado — como quien da por sentado que eso es lo mínimo que merece un viajero.</div>
+    </div>
+
+    <!-- BLOQUE 3 PRÓXIMAMENTE -->
+    <div class="box-gold">
+      <div class="box-label">Bloque 3 — Próximamente</div>
+      <div class="block-time">⏱ 40 – 52 segundos</div>
+      <div class="dir-note-block">TEXTO EN PANTALLA: <strong>"MÁS ALIANZAS EN CAMINO..."</strong> — Tono de anticipación.</div>
+      <p>"Y esto es solo el comienzo. Estamos sumando nuevas alianzas para ofrecerle a nuestros clientes la mejor experiencia en la ciudad: hospedaje en Barú y en Cartagena, y más restaurantes para que cada salida sea memorable. Porque sabemos que eso es lo que más nos preguntan — dónde quedarse, dónde comer bien."</p>
+      <p style="margin-top:8px;">"Queremos que cuando viajes con Luxury Horizon, vivas una experiencia que no se olvida."</p>
+      <div class="dir-note-block" style="margin-bottom:0;">TEXTO EN PANTALLA: <strong>"Hospedaje en Barú • Hospedaje en Cartagena • Más restaurantes"</strong></div>
+    </div>
+
+    <!-- BLOQUE 4 CTA -->
+    <div class="box-benefit" style="border-left-color:var(--golden); background:var(--bg-gold);">
+      <div class="benefit-header">
+        <span class="benefit-num" style="color:var(--midnight);">CTA</span>
+        <span class="benefit-title">Llamada a la Acción &nbsp;·&nbsp; 52–60 segundos</span>
+      </div>
+      <div class="benefit-screen" style="background:var(--golden); color:var(--midnight);">TEXTO EN PANTALLA: "Escríbenos y pregunta por tu tour"</div>
+      <p><strong>"Si estás planeando tu viaje a Cartagena, escríbenos. Nuestros asesores te arman el itinerario, te explican todos los beneficios, y una vez que abonas, el sistema te envía la constancia de pago directo a tu correo. Sin complicaciones."</strong></p>
+      <div class="dir-note">Cierra con una sonrisa. Sin pedir likes ni seguidores.</div>
+    </div>
+
+    <!-- PARTE 3 CAPTION -->
+    <div class="section-heading">
+      <div class="num">3</div>
+      <div>
+        <div class="title-text">Caption + Hashtags</div>
+        <div class="subtitle-text">Texto para la publicación</div>
+      </div>
+    </div>
+    <div class="box-caption">
+      <p>Reservar con una agencia no es lo mismo que reservar solo. Y aquí te demuestro por qué.</p>
+      <p>Cuando vas a Cartagena con Luxury Horizon:</p>
+      <p>🍷 Un restaurante aliado te recibe con vino blanco + 2 entradas incluidas.<br>
+      🎉 En uno de nuestros tours, la entrada a la discoteca ya está incluida.<br>
+      📍 Y muy pronto: nuevas alianzas de hospedaje en Barú y Cartagena, y más restaurantes para que cada día sea memorable.</p>
+      <p>Estamos construyendo la mejor red de experiencias para nuestros clientes, porque sabemos que lo que más nos preguntan es dónde quedarse y dónde comer bien.</p>
+      <p>Si vas a Cartagena, escríbenos. Te armamos el itinerario, abonas con nuestros asesores, y recibes tu constancia de pago automáticamente en tu correo.</p>
+    </div>
+    <div class="hashtags">
+      <span class="hashtag">#LuxuryHorizon</span>
+      <span class="hashtag">#Cartagena</span>
+      <span class="hashtag">#TurismoCartagena</span>
+      <span class="hashtag">#ViajarPorLatam</span>
+      <span class="hashtag">#ExperienciaDeViaje</span>
+      <span class="hashtag">#CartagenaColombia</span>
+      <span class="hashtag">#TipsDeViaje</span>
+    </div>
+    <p style="font-size:10.5px; color:#999; margin-top:7px;">⚠️ Usar máximo 5 hashtags en el caption visible. Los demás en el primer comentario.</p>
+
+    <!-- PARTE 4 MÉTRICAS -->
+    <div class="section-heading">
+      <div class="num">4</div>
+      <div>
+        <div class="title-text">Métricas de Éxito</div>
+        <div class="subtitle-text">Benchmarks esperados</div>
+      </div>
+    </div>
+    <table class="metric-table">
+      <tr><th>Métrica</th><th>Benchmark básico</th><th>Por qué importa</th></tr>
+      <tr><td>Mensajes directos</td><td>Mínimo 5 en 48h</td><td>Este video busca conversión directa</td></tr>
+      <tr><td>Comentarios</td><td>Mínimo 10 en 48h</td><td>Curiosidad e interés en los beneficios</td></tr>
+      <tr><td>Guardados</td><td>Mínimo 15 en 72h</td><td>Personas que planean viajar próximamente</td></tr>
+      <tr><td>Compartidos</td><td>Mínimo 8 en 72h</td><td>Recomendación orgánica entre viajeros</td></tr>
+    </table>
+
+  </div>
+
+  <!-- Pie pág 2 -->
+  <div class="doc-footer">
+    <div><strong>Luxury Horizon</strong> · Material Interno · No distribuir</div>
+    <div>Guión #2 · Página 2 de 2</div>
+  </div>
+
+</div>
+
+</body>
+</html>

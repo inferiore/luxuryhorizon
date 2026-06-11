@@ -502,6 +502,42 @@ body {
   margin-bottom: 32px;
 }
 
+/* ─── BACK TO INDEX ─── */
+.back-to-index {
+  position: absolute;
+  bottom: 12px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Jost', sans-serif;
+  font-size: .62rem;
+  letter-spacing: 2px;
+  color: var(--midnight);
+  background: var(--golden);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 13px 5px 10px;
+  border-radius: 20px;
+  z-index: 10;
+  opacity: .85;
+  transition: opacity .2s, transform .15s;
+  box-shadow: 0 1px 6px rgba(0,0,0,.18);
+}
+.back-to-index:hover { opacity: 1; transform: translateY(-1px); }
+
+/* TOC entry links */
+a.toc-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: background .15s;
+}
+a.toc-entry:hover { background: #f5f2ea; }
+
 /* ─── PRINT ─── */
 @media print {
   * {
@@ -512,6 +548,7 @@ body {
   body { background: #fff; }
   .page { margin: 0; box-shadow: none; page-break-after: always; }
   .wa-fab { display: none !important; }
+  .back-to-index { display: inline-flex !important; }
 }
 
 /* ─── WHATSAPP FAB ─── */
@@ -636,6 +673,14 @@ body {
   .back-cover-title { font-size: 1.6rem; }
   .back-cover-tagline { font-size: .85rem; }
   .contact-list li { font-size: .9rem; }
+
+  /* TOC responsive */
+  #indice { padding-bottom: 24px !important; }
+  #indice > div { padding: 18px 16px 16px !important; }
+  #indice h2 { font-size: 1.6rem !important; }
+  .toc-clubs-grid { grid-template-columns: 1fr !important; }
+  .toc-clubs-grid .toc-entry[style*="border-right"] { border-right: none !important; }
+  .toc-bottom-grid { grid-template-columns: 1fr !important; }
 }
 </style>
 </head>
@@ -657,6 +702,184 @@ body {
   </div>
   <div class="cover-year">Temporada 2026</div>
   <div class="cover-bottom"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     TABLA DE CONTENIDO
+════════════════════════════════════════ -->
+<div id="indice" class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">CATÁLOGO DE EXPERIENCIAS · 2026</div>
+      </div>
+    </div>
+    <div class="page-label" style="font-style:normal; letter-spacing:3px; font-size:.75rem;">ÍNDICE</div>
+  </div>
+
+  <div style="padding:28px 36px 24px;">
+
+    <!-- Título -->
+    <div style="text-align:center; margin-bottom:28px;">
+      <div style="font-size:.6rem; letter-spacing:5px; color:var(--golden); text-transform:uppercase; margin-bottom:8px;">Cartagena de Indias · Colombia</div>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:700; color:var(--midnight); line-height:1.1; letter-spacing:1px;">Nuestras Experiencias</h2>
+      <div style="width:60px; height:2px; background:linear-gradient(90deg,transparent,var(--golden),transparent); margin:12px auto 0;"></div>
+    </div>
+
+    <!-- ── CATEGORÍA 1: CLUBES DE PLAYA ── -->
+    <div style="margin-bottom:20px;">
+      <div style="display:flex; align-items:center; gap:12px; background:var(--midnight); border-radius:6px 6px 0 0; padding:12px 18px;">
+        <span style="font-size:1.4rem;">🏝️</span>
+        <div>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; color:#fff; letter-spacing:1px;">Clubes de Playa</div>
+          <div style="font-size:.6rem; color:var(--golden-light); letter-spacing:2px; text-transform:uppercase; margin-top:2px;">Islas del Rosario · Barú · San Bernardo</div>
+        </div>
+      </div>
+      <div style="border:1px solid #e8e2d4; border-top:none; border-radius:0 0 6px 6px; overflow:hidden;">
+        <div class="toc-clubs-grid" style="display:grid; grid-template-columns:1fr 1fr;">
+          <a href="#pao-pao" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Pao Pao</span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$390.000</span>
+          </a>
+          <a href="#mangata" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Mangata <span style="font-size:.65rem; color:#888; font-weight:400;">Open Bar</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$399.000</span>
+          </a>
+          <a href="#capri-beach-club" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Capri Beach <span style="font-size:.65rem; color:#888; font-weight:400;">Open Bar</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$460.000</span>
+          </a>
+          <a href="#ibbiza-beach" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">IBBIZA Beach</span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$380.000</span>
+          </a>
+          <a href="#bora-bora-club" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Bora Bora <span style="font-size:.65rem; color:#888; font-weight:400;">+18</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$390.000</span>
+          </a>
+          <a href="#bora-bora-vip" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Bora Bora VIP <span style="font-size:.65rem; color:#888; font-weight:400;">+18</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$490.000</span>
+          </a>
+          <a href="#isla-bela" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Isla Bela <span style="font-size:.65rem; color:#888; font-weight:400;">Yoga · Kayak</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$390.000</span>
+          </a>
+          <a href="#paue" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Paue <span style="font-size:.65rem; color:#888; font-weight:400;">Lujo</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$460.000</span>
+          </a>
+          <a href="#sabai-maritimo" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Sabai Marítimo <span style="font-size:.65rem; color:#888; font-weight:400;">Barú</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$470.000</span>
+          </a>
+          <a href="#mantas-beach" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Mantas Beach <span style="font-size:.65rem; color:#888; font-weight:400;">Isla Grande</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$390.000</span>
+          </a>
+          <a href="#isla-palma" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Isla Palma <span style="font-size:.65rem; color:#888; font-weight:400;">San Bernardo</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$490.000</span>
+          </a>
+          <a href="#eteka" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Eteka</span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$390.000</span>
+          </a>
+          <a href="#eteka-vip" class="toc-entry" style="padding:9px 16px; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Eteka VIP ✨</span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$490.000</span>
+          </a>
+          <a href="#plan-family" class="toc-entry" style="padding:9px 16px;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Plan Family <span style="font-size:.65rem; color:#888; font-weight:400;">Familiar</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$280.000</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FILA INFERIOR: 3 categorías ── -->
+    <div class="toc-bottom-grid" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
+
+      <!-- CATEGORÍA 2: PASADÍAS -->
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight-light); border-radius:6px 6px 0 0; padding:10px 14px;">
+          <span style="font-size:1.2rem;">🌴</span>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:.95rem; font-weight:700; color:#fff;">Pasadías</div>
+            <div style="font-size:.55rem; color:var(--golden-light); letter-spacing:1.5px; text-transform:uppercase; margin-top:1px;">Tierra Bomba</div>
+          </div>
+        </div>
+        <div style="border:1px solid #e8e2d4; border-top:none; border-radius:0 0 6px 6px; overflow:hidden;">
+          <a href="#palmarito-beach" class="toc-entry" style="padding:8px 12px;">
+            <span style="font-size:.76rem; color:#222; font-weight:500;">Palmarito Beach</span>
+            <span style="font-size:.68rem; background:#f5f0e6; color:var(--midnight); padding:2px 7px; border-radius:20px; font-weight:600; border:1px solid #ddd8c8;">$230.000</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA 3: TOURS NÁUTICOS -->
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight-light); border-radius:6px 6px 0 0; padding:10px 14px;">
+          <span style="font-size:1.2rem;">⛵</span>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:.95rem; font-weight:700; color:#fff;">Tours Náuticos</div>
+            <div style="font-size:.55rem; color:var(--golden-light); letter-spacing:1.5px; text-transform:uppercase; margin-top:1px;">Bahía de Cartagena</div>
+          </div>
+        </div>
+        <div style="border:1px solid #e8e2d4; border-top:none; border-radius:0 0 6px 6px; overflow:hidden;">
+          <a href="#tour-bahia" class="toc-entry" style="padding:8px 12px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.76rem; color:#222; font-weight:500;">Tour Bahía 🌅</span>
+            <span style="font-size:.68rem; background:#f5f0e6; color:var(--midnight); padding:2px 7px; border-radius:20px; font-weight:600; border:1px solid #ddd8c8;">$130.000</span>
+          </a>
+          <a href="#atardecer-en-catamaran" class="toc-entry" style="padding:8px 12px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.76rem; color:#222; font-weight:500;">Catamarán</span>
+            <span style="font-size:.68rem; background:#f5f0e6; color:var(--midnight); padding:2px 7px; border-radius:20px; font-weight:600; border:1px solid #ddd8c8;">$170.000</span>
+          </a>
+          <a href="#catamaran-bonavida" class="toc-entry" style="padding:8px 12px;">
+            <span style="font-size:.76rem; color:#222; font-weight:500;">Cat. Bonavida</span>
+            <span style="font-size:.68rem; background:#f5f0e6; color:var(--midnight); padding:2px 7px; border-radius:20px; font-weight:600; border:1px solid #ddd8c8;">$390.000</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA 4: EXCURSIONES -->
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight-light); border-radius:6px 6px 0 0; padding:10px 14px;">
+          <span style="font-size:1.2rem;">🗺️</span>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:.95rem; font-weight:700; color:#fff;">Excursiones</div>
+            <div style="font-size:.55rem; color:var(--golden-light); letter-spacing:1.5px; text-transform:uppercase; margin-top:1px;">Cartagena y Caribe</div>
+          </div>
+        </div>
+        <div style="border:1px solid #e8e2d4; border-top:none; border-radius:0 0 6px 6px; overflow:hidden;">
+          <a href="#city-tour" class="toc-entry" style="padding:8px 12px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.76rem; color:#222; font-weight:500;">City Tour</span>
+            <span style="font-size:.68rem; background:#f5f0e6; color:var(--midnight); padding:2px 7px; border-radius:20px; font-weight:600; border:1px solid #ddd8c8;">$85.000</span>
+          </a>
+          <a href="#barranquilla-santa-marta" class="toc-entry" style="padding:8px 12px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.76rem; color:#222; font-weight:500;">Baq &amp; Sta. Marta</span>
+            <span style="font-size:.68rem; background:#f5f0e6; color:var(--midnight); padding:2px 7px; border-radius:20px; font-weight:600; border:1px solid #ddd8c8;">$240.000</span>
+          </a>
+          <a href="#chiva-rumbera" class="toc-entry" style="padding:8px 12px;">
+            <span style="font-size:.76rem; color:#222; font-weight:500;">Chiva Rumbera 🎶</span>
+            <span style="font-size:.68rem; background:#f5f0e6; color:var(--midnight); padding:2px 7px; border-radius:20px; font-weight:600; border:1px solid #ddd8c8;">$40.000</span>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /fila inferior -->
+
+    <!-- Nota al pie -->
+    <div style="margin-top:22px; padding:12px 18px; background:#fdf8f0; border-left:3px solid var(--golden); border-radius:0 4px 4px 0; display:flex; align-items:center; gap:12px;">
+      <span style="font-size:1.1rem;">💬</span>
+      <p style="font-size:.72rem; color:#555; line-height:1.6; margin:0;">Los precios son <strong>por persona</strong> e incluyen los servicios descritos en cada experiencia. Para grupos, familias o fechas especiales contáctanos por WhatsApp para cotización personalizada.</p>
+    </div>
+
+  </div>
+  <div class="club-footer"></div>
 </div>
 
 
@@ -895,7 +1118,7 @@ body {
       <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
       <div>
         <div class="brand-name">LUXURY HORIZON</div>
-        <div class="brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
+        <div class="brand-sub">CLUBES DE PLAYA · BARÚ</div>
       </div>
     </div>
     <div class="page-label">Premium</div>
@@ -906,7 +1129,7 @@ body {
     <img loading="lazy" src="images/catalogo/sabai-2.webp" alt="Sabai hero" style="width:100%; height:100%; object-fit:cover; display:block;">
     <div class="hero-overlay">
       <div>
-        <div class="club-badge">Club de Playa · Marina Todomar</div>
+        <div class="club-badge">Club de Playa · Barú</div>
         <div class="club-name">Sabai Marítimo</div>
         <div class="club-location">📍 Marina Todomar — Bocagrande</div>
       </div>
@@ -2564,6 +2787,497 @@ body {
 </div>
 
 
+<!-- ════════════════════════════════════════
+     ISLA PALMA
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">CLUBES DE PLAYA · ARCHIPIÉLAGO SAN BERNARDO</div>
+      </div>
+    </div>
+    <div class="page-label">Playa Privada</div>
+  </div>
+
+  <!-- Hero full-width -->
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo/isla-palma-1.webp" alt="Isla Palma hero" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge">Club de Playa · Archipiélago de San Bernardo</div>
+        <div class="club-name">Isla Palma</div>
+        <div class="club-location">📍 Muelle La Bodeguita — Puerta #3</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde">desde</span>
+      <span class="precio">$490.000</span>
+      <span class="cop">COP / persona</span>
+    </div>
+  </div>
+
+  <!-- Strip de 3 fotos -->
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/isla-palma-2.webp" alt="Isla Palma 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/isla-palma-3.webp" alt="Isla Palma 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo/isla-palma-4.webp" alt="Isla Palma 4" style="width:100%; object-fit:cover; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li>Transporte en lancha rápida — ida y vuelta</li>
+        <li>Cóctel de bienvenida</li>
+        <li>Almuerzo a la carta</li>
+        <li>Cama de playa o asoleadora</li>
+        <li>Acceso a playa privada</li>
+        <li>Snorkel incluido</li>
+        <li>Kayaks y Paddleboards</li>
+        <li>Duchas de agua dulce</li>
+      </ul>
+
+      <div class="detail-row" style="margin-top:14px;">
+        <div class="detail-tag"><span class="tag-icon">🕐</span> <span>Llegada <strong>7:30 am</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">🔄</span> <span>Regreso <strong>3:00 pm</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">⚓</span> <span>Puerta <strong>#3</strong></span></div>
+      </div>
+
+      <div class="not-included" style="margin-top:14px;">
+        <p><strong>No incluye:</strong> tasa portuaria $40.000 COP (efectivo)</p>
+      </div>
+
+      <div class="meeting-box" style="margin-top:14px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label">Punto de encuentro</div>
+          <div class="meeting-box-val">Muelle La Bodeguita — Puerta #3 · 7:30 a.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Por qué elegir Isla Palma</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🏖️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Playa Privada</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Arena blanca y aguas cristalinas del Caribe colombiano</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🤿</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Snorkel Incluido</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Explora los arrecifes de coral de las Islas del Rosario</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍹</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Cóctel de Bienvenida</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Bienvenida tropical desde el primer momento</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🏄</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Kayaks y Paddle Board</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Actividades acuáticas incluidas sin costo adicional</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🛥️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Lancha Rápida</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Traslado ágil y cómodo desde La Bodeguita</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌊</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Islas del Rosario</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;">Paraíso natural a 45 minutos de Cartagena</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     PLAN FAMILY
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">PASADÍA · ISLAS DEL ROSARIO</div>
+      </div>
+    </div>
+    <div class="page-label">Todo Incluido · Familiar</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo/plan-family-1.webp" alt="Plan Family hero" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge">Pasadía · Islas del Rosario</div>
+        <div class="club-name">Plan Family</div>
+        <div class="club-location">📍 Muelle La Bodeguita — Puerta #3</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde">desde</span>
+      <span class="precio">$280.000</span>
+      <span class="cop">COP / persona</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-2" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/plan-family-2.webp" alt="Plan Family 2" style="width:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/plan-family-3.webp" alt="Plan Family 3" style="width:100%; object-fit:cover; object-position:center center; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li>Transporte en lancha — ida y vuelta</li>
+        <li>Cóctel de bienvenida para adultos</li>
+        <li>Jugo natural para niños</li>
+        <li>Almuerzo a la carta para toda la familia</li>
+        <li>Camas y sillas asoleadoras</li>
+        <li>Snorkel familiar incluido</li>
+        <li>Kayaks y Paddleboards</li>
+        <li>Duchas de agua dulce</li>
+        <li>Acceso a playa privada</li>
+      </ul>
+
+      <div class="detail-row" style="margin-top:14px;">
+        <div class="detail-tag"><span class="tag-icon">👨‍👩‍👧</span> <span><strong>Apto niños</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">🕐</span> <span>Llegada <strong>7:30 am</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">⚓</span> <span>Puerta <strong>#3</strong></span></div>
+      </div>
+
+      <div class="not-included" style="margin-top:14px;">
+        <p><strong>No incluye:</strong> tasa portuaria $40.000 COP (efectivo)</p>
+      </div>
+
+      <div class="meeting-box" style="margin-top:14px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label">Punto de encuentro</div>
+          <div class="meeting-box-val">Muelle La Bodeguita — Puerta #3 · 7:30 a.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Por qué elegir Plan Family</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">👨‍👩‍👧</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Diseñado para Familias</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Actividades y comodidades pensadas para todas las edades</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🤿</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Snorkel Familiar</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Descubre los arrecifes del Rosario en familia</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍽️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Almuerzo Incluido</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Menú variado para adultos y opciones para niños</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🏄</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Kayaks y Paddleboards</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Diversión acuática incluida para toda la familia</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">💰</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Mejor Precio Familiar</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">La experiencia completa al precio más accesible</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌊</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Islas del Rosario</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;">El paraíso caribeño más cercano a Cartagena</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     ETEKA
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
+      </div>
+    </div>
+    <div class="page-label">Club de Playa</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo/eteka-2.webp" alt="Eteka hero" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge">Club de Playa · Islas del Rosario</div>
+        <div class="club-name">Eteka</div>
+        <div class="club-location">📍 Muelle La Bodeguita — Puerta #3</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde">desde</span>
+      <span class="precio">$390.000</span>
+      <span class="cop">COP / persona</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/eteka-1.webp" alt="Eteka 1" style="width:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/eteka-3.webp" alt="Eteka 3" style="width:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/eteka-4.webp" alt="Eteka 4" style="width:100%; object-fit:cover; object-position:center top; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li>Transporte en lancha rápida — ida y vuelta</li>
+        <li>Cóctel de bienvenida</li>
+        <li>Almuerzo a la carta</li>
+        <li>Cama de playa o asoleadora</li>
+        <li>Acceso a playa privada</li>
+        <li>Snorkel incluido</li>
+        <li>Kayaks y Paddleboards</li>
+        <li>Duchas de agua dulce</li>
+      </ul>
+
+      <div class="detail-row" style="margin-top:14px;">
+        <div class="detail-tag"><span class="tag-icon">🕐</span> <span>Llegada <strong>7:30 am</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">🔄</span> <span>Regreso <strong>3:00 pm</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">⚓</span> <span>Puerta <strong>#3</strong></span></div>
+      </div>
+
+      <div class="not-included" style="margin-top:14px;">
+        <p><strong>No incluye:</strong> tasa portuaria $40.000 COP (efectivo)</p>
+      </div>
+
+      <div class="meeting-box" style="margin-top:14px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label">Punto de encuentro</div>
+          <div class="meeting-box-val">Muelle La Bodeguita — Puerta #3 · 7:30 a.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">Por qué elegir Eteka</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🏖️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Playa Privada</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Arena blanca y aguas cristalinas exclusivas</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🤿</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Snorkel Incluido</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Arrecifes de coral en las Islas del Rosario</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍹</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Cóctel de Bienvenida</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Recepción tropical desde el primer momento</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🏄</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Kayaks y Paddle Board</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Actividades acuáticas incluidas</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🛥️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Lancha Rápida</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Traslado cómodo desde Muelle La Bodeguita</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌊</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Islas del Rosario</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;">Paraíso natural a 45 minutos de Cartagena</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     ETEKA VIP
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub">CLUBES DE PLAYA · ISLAS DEL ROSARIO</div>
+      </div>
+    </div>
+    <div class="page-label">VIP ✨</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo/eteka-3.webp" alt="Eteka VIP hero" style="width:100%; height:100%; object-fit:cover; object-position:center center; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge">Club de Playa · Islas del Rosario</div>
+        <div class="club-name">Eteka VIP</div>
+        <div class="club-location">📍 Muelle La Bodeguita — Puerta #3</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde">desde</span>
+      <span class="precio">$490.000</span>
+      <span class="cop">COP / persona</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo/eteka-1.webp" alt="Eteka VIP 1" style="width:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/eteka-2.webp" alt="Eteka VIP 2" style="width:100%; object-fit:cover; object-position:center center; display:block;">
+    <img loading="lazy" src="images/catalogo/eteka-4.webp" alt="Eteka VIP 4" style="width:100%; object-fit:cover; object-position:center top; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label">Qué incluye tu experiencia VIP</div>
+      <ul class="includes-list">
+        <li>Transporte en lancha rápida — ida y vuelta</li>
+        <li>Copa de champaña de bienvenida</li>
+        <li>Almuerzo a la carta — <strong>carta ampliada</strong></li>
+        <li>Cama de playa VIP en zona exclusiva</li>
+        <li>Acceso a playa privada + zona VIP</li>
+        <li>Snorkel incluido</li>
+        <li>Kayaks y Paddleboards</li>
+        <li>Servicio diferenciado en zona VIP</li>
+        <li>Duchas de agua dulce · Toalla incluida</li>
+      </ul>
+
+      <div class="detail-row" style="margin-top:14px;">
+        <div class="detail-tag"><span class="tag-icon">✨</span> <span><strong>Zona VIP</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">🥂</span> <span><strong>Champaña</strong></span></div>
+        <div class="detail-tag"><span class="tag-icon">⚓</span> <span>Puerta <strong>#3</strong></span></div>
+      </div>
+
+      <div class="not-included" style="margin-top:14px;">
+        <p><strong>No incluye:</strong> tasa portuaria $40.000 COP (efectivo)</p>
+      </div>
+
+      <div class="meeting-box" style="margin-top:14px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label">Punto de encuentro</div>
+          <div class="meeting-box-val">Muelle La Bodeguita — Puerta #3 · 7:30 a.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label">La diferencia VIP</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:var(--golden); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">✨</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:700; color:var(--midnight); letter-spacing:1.5px; text-transform:uppercase;">Zona VIP Exclusiva</div>
+            <div style="font-size:.74rem; color:var(--midnight); margin-top:2px; line-height:1.45;">Área privada con servicio personalizado todo el día</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🥂</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Copa de Champaña</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Bienvenida premium desde el primer momento</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍽️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Carta Ampliada</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Más opciones de almuerzo que el plan estándar</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🛏️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Cama VIP + Toalla</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Confort premium en zona exclusiva frente al mar</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🤿</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Snorkel + Actividades</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;">Kayaks y paddle board incluidos sin costo adicional</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌊</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;">Islas del Rosario</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;">Experiencia de lujo en el paraíso caribeño</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="club-footer"></div>
+</div>
+
+
 <div class="page back-cover">
   <div class="back-cover-bg"></div>
   <div class="back-cover-content">
@@ -2599,6 +3313,32 @@ body {
   <div class="back-cover-bottom"></div>
 </div>
 
+
+<script>
+(function () {
+  function slugify(t) {
+    return t.trim().toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+  var pages = Array.from(document.querySelectorAll('.page')).filter(function (p) {
+    return !p.classList.contains('cover') && !p.classList.contains('back-cover');
+  });
+  pages.forEach(function (page, i) {
+    if (i === 0) return; // skip TOC page
+    var cn = page.querySelector('.club-name');
+    if (cn) page.id = slugify(cn.textContent);
+    var cf = page.querySelector('.club-footer');
+    if (cf) {
+      var a = document.createElement('a');
+      a.href = '#indice';
+      a.className = 'back-to-index';
+      a.innerHTML = '&#8679; &nbsp;Índice';
+      cf.parentNode.insertBefore(a, cf);
+    }
+  });
+})();
+</script>
 
 <a class="wa-fab" href="https://wa.me/573126322306?text=Hola%2C%20vi%20el%20cat%C3%A1logo%20de%20Luxury%20Horizon%20y%20estoy%20interesado%20en%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.855L.057 23.633a.75.75 0 0 0 .92.92l5.808-1.463A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.696 9.696 0 0 1-4.951-1.355l-.355-.21-3.448.869.884-3.42-.23-.368A9.696 9.696 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Video BG — Alianzas · Luxury Horizon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 16px;
+    padding: 32px;
+    font-family: sans-serif;
+  }
+
+  p { color: #888; font-size: 13px; }
+
+  /* ── Card 9:19 → 1080×2280 → display a escala ── */
+  .card {
+    width: 405px;      /* 1080 / 2.667 para que quepa en pantalla */
+    height: 855px;     /* 2280 / 2.667 */
+    position: relative;
+    overflow: hidden;
+    background: #0A1A32;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+  }
+
+  /* Gradiente radial de fondo */
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 30%, #112244 0%, transparent 65%),
+      radial-gradient(ellipse 60% 40% at 50% 80%, #0d1f3a 0%, transparent 60%);
+    z-index: 0;
+  }
+
+  /* Brillo dorado esquina inferior */
+  .card::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 300px;
+    border-radius: 50%;
+    background: #B79A49;
+    filter: blur(120px);
+    opacity: .10;
+    bottom: -100px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+
+  /* ── Secciones ── */
+  .top, .middle, .bottom {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* ── Línea dorada decorativa ── */
+  .gold-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #B79A49 25%, #B79A49 75%, transparent);
+    margin: 6px 0;
+  }
+  .gold-line-thin {
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(183,154,73,.4) 30%, rgba(183,154,73,.4) 70%, transparent);
+    margin: 4px 0;
+  }
+
+  /* ── Logo circular ── */
+  .logo-wrap {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #B79A49;
+    box-shadow:
+      0 0 0 6px rgba(183,154,73,.12),
+      0 0 40px rgba(183,154,73,.2);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+  .logo-wrap img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+  }
+
+  /* ── Texto Alianzas ── */
+  .label-top {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #B79A49;
+    margin-bottom: 14px;
+  }
+
+  .title-main {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1.0;
+    color: #B79A49;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .title-sub {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 34px;
+    line-height: 1.2;
+    color: #d4b86a;
+    text-align: center;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .divider-dots {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0;
+  }
+  .dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #B79A49;
+  }
+  .divider-dots span {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(183,154,73,.6);
+  }
+
+  /* ── Descripción central ── */
+  .description {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(240,240,240,.75);
+    text-align: center;
+    max-width: 300px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── Beneficios ── */
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(183,154,73,.15);
+    border-radius: 6px;
+    padding: 14px 18px;
+  }
+  .benefit-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .benefit-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: rgba(240,240,240,.85);
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+  }
+  .benefit-text strong {
+    color: #d4b86a;
+    font-weight: 500;
+  }
+
+  /* ── Footer ── */
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: #F0F0F0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+  .brand-name span { color: #B79A49; }
+
+  .website {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(183,154,73,.6);
+    margin-top: 6px;
+    text-transform: lowercase;
+  }
+</style>
+</head>
+<body>
+
+<p>DevTools → Inspect .card → clic derecho → "Capture node screenshot"</p>
+
+<div class="card">
+
+  <!-- TOP: logo + título -->
+  <div class="top">
+    <div class="logo-wrap">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="Luxury Horizon">
+    </div>
+
+    <div class="gold-line"></div>
+    <div class="gold-line-thin"></div>
+
+    <div style="height:20px;"></div>
+
+    <div class="label-top">Luxury Horizon · 2026</div>
+    <div class="title-main">Alianzas</div>
+    <div class="title-sub">para nuestros clientes</div>
+
+    <div class="divider-dots">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <span>Experiencias exclusivas</span>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <div class="description">
+      Trabajamos con los mejores aliados del Caribe colombiano para ofrecerte experiencias únicas.
+    </div>
+  </div>
+
+  <!-- MIDDLE: vacío -->
+  <div class="middle"></div>
+
+  <!-- BOTTOM: branding -->
+  <div class="bottom">
+    <div class="gold-line-thin"></div>
+    <div class="gold-line"></div>
+    <div class="brand-name">Luxury <span>Horizon</span></div>
+    <div class="website">luxuryhorizon.lat</div>
+  </div>
+
+</div>
+
+</body>
+</html>

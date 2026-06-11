@@ -29,5 +29,14 @@ services:
       SMTP_PASS: ${SMTP_PASS:-}
     restart: unless-stopped
 
+  json2video:
+    build: ./json2video
+    ports:
+      - "3200:3200"
+    volumes:
+      - ./json2video:/app
+      - /app/node_modules
+    restart: unless-stopped
+
 volumes:
   leads-data:

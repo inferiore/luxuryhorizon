@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Portada Vino — Luxury Horizon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Jost:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #111;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    padding: 32px;
+    flex-wrap: wrap;
+    font-family: sans-serif;
+  }
+
+  .label {
+    color: #888;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* ── Tamaño de la card: 9:19 ── */
+  .card {
+    width: 405px;
+    height: 855px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 55px 36px 50px;
+  }
+
+  /* ════════════════════════════
+     VERSIÓN 1 — MIDNIGHT BLUE
+  ════════════════════════════ */
+  .v1 {
+    background: #0A1A32;
+  }
+  .v1::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 90% 55% at 50% 25%, #112244 0%, transparent 65%),
+      radial-gradient(ellipse 70% 40% at 50% 85%, #0d1f3a 0%, transparent 60%);
+    z-index: 0;
+  }
+  .v1::after {
+    content: '';
+    position: absolute;
+    width: 600px; height: 350px;
+    border-radius: 50%;
+    background: #B79A49;
+    filter: blur(130px);
+    opacity: .09;
+    bottom: -120px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+
+  /* ════════════════════════════
+     VERSIÓN 2 — CÁLIDO / DORADO
+  ════════════════════════════ */
+  .v2 {
+    background: #1a0e05;
+  }
+  .v2::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 90% 55% at 50% 25%, #2d1a08 0%, transparent 65%),
+      radial-gradient(ellipse 70% 50% at 50% 80%, #3a1f0a 0%, transparent 60%),
+      radial-gradient(ellipse 50% 30% at 80% 50%, rgba(183,120,30,.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 30% at 20% 50%, rgba(183,120,30,.08) 0%, transparent 60%);
+    z-index: 0;
+  }
+  .v2::after {
+    content: '';
+    position: absolute;
+    width: 600px; height: 400px;
+    border-radius: 50%;
+    background: #c8832a;
+    filter: blur(140px);
+    opacity: .18;
+    bottom: -130px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+
+  /* ── Elementos compartidos ── */
+  .top, .middle, .bottom {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* ── Logo circular ── */
+  .logo-wrap {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #B79A49;
+    box-shadow: 0 0 0 5px rgba(183,154,73,.12), 0 0 30px rgba(183,154,73,.2);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+  .logo-wrap img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+  }
+
+  /* ── Líneas doradas ── */
+  .gold-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #B79A49 20%, #B79A49 80%, transparent);
+    margin: 5px 0;
+  }
+  .gold-line-thin {
+    width: 55%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(183,154,73,.35) 30%, rgba(183,154,73,.35) 70%, transparent);
+    margin: 4px 0;
+  }
+
+  /* ── Texto principal ── */
+  .invite-tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(183,154,73,.7);
+    margin-bottom: 18px;
+  }
+
+  .main-text {
+    font-family: 'Jost', sans-serif;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1.1;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .v1 .main-text { color: #F0F0F0; }
+  .v2 .main-text { color: #f5dfa0; }
+
+  .main-text span {
+    color: #B79A49;
+  }
+
+  /* ── Icono decorativo ── */
+  .wine-icon {
+    font-size: 52px;
+    margin: 24px 0 18px;
+    filter: drop-shadow(0 2px 12px rgba(183,154,73,.4));
+  }
+
+  /* ── Texto secundario ── */
+  .secondary-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .v1 .secondary-text { color: rgba(240,240,240,.85); }
+  .v2 .secondary-text { color: rgba(245,223,160,.85); }
+
+  /* ── Dots ── */
+  .divider-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0;
+  }
+  .dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: #B79A49;
+  }
+  .divider-dots span {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(183,154,73,.55);
+  }
+
+  /* ── Branding footer ── */
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+  .v1 .brand-name { color: #F0F0F0; }
+  .v2 .brand-name { color: #f5dfa0; }
+  .brand-name span { color: #B79A49; }
+
+  .website {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(183,154,73,.55);
+    margin-top: 5px;
+  }
+  .whatsapp {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: rgba(240,240,240,.75);
+    margin-top: 8px;
+  }
+  .whatsapp span { color: #25D366; }
+
+  /* Borde sutil cálido en v2 */
+  .v2 .gold-line {
+    background: linear-gradient(90deg, transparent, #c8832a 20%, #c8832a 80%, transparent);
+  }
+  .v2 .gold-line-thin {
+    background: linear-gradient(90deg, transparent, rgba(200,131,42,.35) 30%, rgba(200,131,42,.35) 70%, transparent);
+  }
+  .v2 .dot { background: #c8832a; }
+  .v2 .logo-wrap { border-color: #c8832a; }
+</style>
+</head>
+<body>
+
+<div>
+  <div class="label">Versión 1 — Midnight Blue</div>
+  <div class="card v1">
+    <div class="top">
+      <div class="logo-wrap">
+        <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="Luxury Horizon">
+      </div>
+      <div class="gold-line"></div>
+      <div class="gold-line-thin"></div>
+      <div style="height:18px;"></div>
+      <div class="invite-tag">Una experiencia exclusiva</div>
+      <div class="main-text"><span>¡Te invitamos</span><br>el vino<br>y 2 entradas!</div>
+    </div>
+
+    <div class="middle">
+      <div class="wine-icon">🍷</div>
+      <div class="divider-dots">
+        <div class="dot"></div><div class="dot"></div>
+        <span>Centro Histórico · Cartagena</span>
+        <div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="secondary-text">En el Centro Histórico<br>con Luxury Horizon</div>
+    </div>
+
+    <div class="bottom">
+      <div class="gold-line-thin"></div>
+      <div class="gold-line"></div>
+      <div class="brand-name">Luxury <span>Horizon</span></div>
+      <div class="website">luxuryhorizon.lat</div>
+      <div class="whatsapp"><span>📲</span> +57 312 632 2306</div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="label">Versión 2 — Cálido / Restaurante</div>
+  <div class="card v2">
+    <div class="top">
+      <div class="logo-wrap">
+        <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="Luxury Horizon">
+      </div>
+      <div class="gold-line"></div>
+      <div class="gold-line-thin"></div>
+      <div style="height:18px;"></div>
+      <div class="invite-tag">Una experiencia exclusiva</div>
+      <div class="main-text"><span>¡Te invitamos</span><br>el vino<br>y 2 entradas!</div>
+    </div>
+
+    <div class="middle">
+      <div class="wine-icon">🍷</div>
+      <div class="divider-dots">
+        <div class="dot"></div><div class="dot"></div>
+        <span>Centro Histórico · Cartagena</span>
+        <div class="dot"></div><div class="dot"></div>
+      </div>
+      <div class="secondary-text">En el Centro Histórico<br>con Luxury Horizon</div>
+    </div>
+
+    <div class="bottom">
+      <div class="gold-line-thin"></div>
+      <div class="gold-line"></div>
+      <div class="brand-name">Luxury <span>Horizon</span></div>
+      <div class="website">luxuryhorizon.lat</div>
+      <div class="whatsapp"><span>📲</span> +57 312 632 2306</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
