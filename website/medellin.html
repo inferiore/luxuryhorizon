@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/website/favicon.ico">
+<link rel="icon" type="image/png" sizes="256x256" href="/website/favicon-256.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de Tours en Medellín — Luxury Horizon</title>
+<meta property="og:title"       content="Catálogo de Tours en Medellín — Luxury Horizon">
+<meta property="og:description" content="Descubre Guatapé, la Comuna 13, miradores y la mejor experiencia cafetera de Colombia. Tours en Medellín, temporada 2026.">
+<meta property="og:image"       content="https://catalogo.luxuryhorizon.lat/images/og-catalogo.jpg">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type"   content="image/jpeg">
+<meta property="og:url"         content="https://catalogo.luxuryhorizon.lat/medellin.html">
+<meta property="og:type"        content="website">
+<meta name="twitter:card"       content="summary_large_image">
+<meta name="twitter:image"      content="https://catalogo.luxuryhorizon.lat/images/og-catalogo.jpg">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  --midnight:       #0A1A32;
+  --midnight-light: #112244;
+  --golden:         #B79A49;
+  --golden-light:   #d4b86a;
+  --bronze:         #A56C30;
+  --teal:           #44F0F7;
+  --smoke:          #F0F0F0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: #e8e4dc;
+  color: #1a1a1a;
+}
+
+/* ─── PAGE WRAPPER ─── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 16px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  page-break-after: always;
+}
+
+/* ─── COVER ─── */
+.cover {
+  background: var(--midnight);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 297mm;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 30%, #112244 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(183,154,73,.18) 0%, transparent 60%),
+    var(--midnight);
+}
+
+.cover-stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 15% 12%, rgba(183,154,73,.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 8%, rgba(255,255,255,.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 40% 25%, rgba(183,154,73,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 67% 18%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 45%, rgba(255,255,255,.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 42%, rgba(183,154,73,.4) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 55% 60%, rgba(255,255,255,.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 10% 70%, rgba(183,154,73,.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 75%, rgba(255,255,255,.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 85%, rgba(183,154,73,.4) 0%, transparent 100%);
+}
+
+.cover-content {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 60px 48px;
+  text-align: center;
+}
+
+.cover-logo {
+  width: 100px; height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--golden);
+  margin-bottom: 28px;
+}
+
+.cover-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: .65rem;
+  letter-spacing: 5px;
+  color: var(--golden-light);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.cover-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--golden);
+  margin-bottom: 36px;
+}
+
+.cover-divider {
+  width: 80px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--golden), transparent);
+  margin: 0 auto 36px;
+}
+
+.cover-tagline {
+  font-size: .85rem;
+  font-weight: 300;
+  color: rgba(240,240,240,.7);
+  letter-spacing: 2px;
+  line-height: 1.9;
+  max-width: 320px;
+}
+
+.cover-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--midnight), var(--golden), var(--midnight));
+}
+
+.cover-year {
+  position: absolute;
+  bottom: 24px;
+  font-size: .7rem;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,.35);
+  text-transform: uppercase;
+}
+
+/* ─── SECTION HEADER ─── */
+.section-header {
+  background: var(--midnight);
+  padding: 18px 36px;
+  border-bottom: 3px solid var(--golden);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-header .brand {
+  display: flex; align-items: center; gap: 14px;
+}
+.section-header .brand img {
+  width: 52px; height: 52px; object-fit: cover; border-radius: 4px;
+}
+.section-header .brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 700;
+  color: var(--golden); letter-spacing: 3px;
+}
+.section-header .brand-sub {
+  font-size: .65rem; color: rgba(170,170,187,.8);
+  letter-spacing: 1.5px; margin-top: 3px;
+}
+.section-header .page-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; color: rgba(255,255,255,.5);
+  letter-spacing: 2px; font-style: italic;
+}
+
+/* ─── HERO IMAGE ─── */
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(10,26,50,.82) 0%, rgba(10,26,50,.45) 55%, transparent 100%);
+  display: flex; align-items: flex-end;
+  padding: 24px 32px;
+}
+
+.club-badge {
+  font-size: .6rem; letter-spacing: 4px;
+  color: var(--golden-light); text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.club-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem; font-weight: 700;
+  color: #fff; line-height: 1;
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
+}
+.club-location {
+  font-size: .75rem; color: rgba(240,240,240,.8);
+  margin-top: 6px; letter-spacing: 1px;
+}
+
+.price-badge {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: var(--golden);
+  color: var(--midnight);
+  padding: 10px 18px;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
+}
+.price-badge .desde { font-size: .55rem; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; display: block; }
+.price-badge .precio { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; line-height: 1; }
+.price-badge .cop { font-size: .6rem; font-weight: 600; letter-spacing: 1px; }
+
+.section-label {
+  font-size: .6rem; font-weight: 600;
+  letter-spacing: 3px; color: var(--golden);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e8e2d4;
+}
+
+/* ─── INCLUDES LIST ─── */
+.includes-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.includes-list li {
+  font-size: .78rem; color: #2a2a2a;
+  display: flex; align-items: flex-start; gap: 8px;
+  line-height: 1.4;
+}
+.includes-list li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--golden);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* ─── DETAIL TAGS ─── */
+.detail-row {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 14px;
+}
+.detail-tag {
+  background: #f5f2ea;
+  border: 1px solid #ddd8c8;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: .68rem;
+  color: #555; letter-spacing: .5px;
+  display: flex; align-items: center; gap: 5px;
+}
+.detail-tag .tag-icon { font-size: .75rem; }
+.detail-tag strong { color: var(--midnight); font-weight: 600; }
+
+/* ─── NOT INCLUDED ─── */
+.not-included {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background: #fdf8f0;
+  border-left: 3px solid var(--bronze);
+  border-radius: 0 3px 3px 0;
+}
+.not-included p {
+  font-size: .68rem; color: #8a6020;
+  line-height: 1.5;
+}
+.not-included strong { font-weight: 600; }
+
+/* ─── MEETING POINT ─── */
+.meeting-box {
+  margin-top: 14px;
+  background: var(--midnight);
+  border-radius: 4px;
+  padding: 12px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.meeting-box .icon { font-size: 1.2rem; }
+.meeting-box-text {}
+.meeting-box-label { font-size: .58rem; letter-spacing: 2px; color: var(--golden); text-transform: uppercase; }
+.meeting-box-val { font-size: .8rem; color: #fff; font-weight: 500; margin-top: 2px; }
+
+/* ─── FOOTER ─── */
+.club-footer {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--midnight), var(--golden), var(--midnight));
+}
+
+/* ─── BACK COVER ─── */
+.back-cover {
+  background: var(--midnight);
+  min-height: 297mm;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 60px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.back-cover-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, #112244 0%, var(--midnight) 70%);
+}
+.back-cover-content { position: relative; z-index: 2; }
+.back-cover-logo { width: 90px; height: 90px; object-fit: cover; border-radius: 8px; border: 2px solid var(--golden); margin-bottom: 24px; }
+.back-cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 700; color: var(--golden);
+  letter-spacing: 3px; margin-bottom: 6px;
+}
+.back-cover-tagline {
+  font-size: .8rem; color: rgba(240,240,240,.6);
+  letter-spacing: 2px; margin-bottom: 36px;
+}
+.back-cover-divider {
+  width: 60px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--golden), transparent);
+  margin: 0 auto 36px;
+}
+.contact-list {
+  list-style: none; display: flex; flex-direction: column; gap: 12px;
+  margin-bottom: 40px;
+}
+.contact-list li {
+  font-size: .8rem; color: rgba(240,240,240,.75);
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.contact-list li .c-icon { font-size: 1rem; }
+.contact-list li strong { color: var(--golden-light); }
+.back-cover-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--midnight), var(--golden), var(--midnight));
+}
+.wa-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #0A6630, #1A9E50, #25D366, #1A9E50, #0A6630);
+  background-size: 260% auto;
+  color: #fff;
+  font-size: .78rem; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-bottom: 32px;
+}
+
+/* ─── BACK TO INDEX ─── */
+.back-to-index {
+  position: absolute;
+  bottom: 12px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Jost', sans-serif;
+  font-size: .62rem;
+  letter-spacing: 2px;
+  color: var(--midnight);
+  background: var(--golden);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 13px 5px 10px;
+  border-radius: 20px;
+  z-index: 10;
+  opacity: .85;
+  transition: opacity .2s, transform .15s;
+  box-shadow: 0 1px 6px rgba(0,0,0,.18);
+}
+.back-to-index:hover { opacity: 1; transform: translateY(-1px); }
+
+/* TOC entry links */
+a.toc-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: background .15s;
+}
+a.toc-entry:hover { background: #f5f2ea; }
+
+.lang-toggle {
+  position: fixed;
+  top: 20px; right: 20px;
+  z-index: 9999;
+  background: var(--midnight-light);
+  color: var(--golden-light);
+  border: 1px solid rgba(183,154,73,.4);
+  border-radius: 20px;
+  padding: 7px 15px;
+  font-family: 'Jost', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+.lang-toggle:hover { border-color: var(--golden); }
+
+/* ─── PRINT ─── */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  body { background: #fff; }
+  .page { margin: 0; box-shadow: none; page-break-after: always; }
+  .wa-fab { display: none !important; }
+  .back-to-index { display: inline-flex !important; }
+  .lang-toggle { display: none !important; }
+}
+
+/* ─── WHATSAPP FAB ─── */
+.wa-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0A6630, #1A9E50, #25D366, #1A9E50, #0A6630);
+  background-size: 260% auto;
+  box-shadow: 0 4px 18px rgba(37,211,102,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  animation: wa-shimmer 5s linear infinite, wa-breathe 2.8s ease-in-out infinite;
+  transition: transform .2s;
+}
+.wa-fab:hover { transform: scale(1.1); }
+.wa-fab svg { width: 32px; height: 32px; fill: #fff; }
+@keyframes wa-shimmer {
+  to { background-position: 260% center; }
+}
+@keyframes wa-breathe {
+  0%,100% { box-shadow: 0 4px 18px rgba(37,211,102,.45); }
+  50%      { box-shadow: 0 4px 28px rgba(37,211,102,.75); }
+}
+
+/* ─── PHOTO STRIP ─── */
+.photo-strip      { display: grid; gap: 2px; overflow: hidden; }
+.photo-strip-2    { grid-template-columns: repeat(2, 1fr); }
+.photo-strip-3    { grid-template-columns: repeat(3, 1fr); }
+.photo-strip-4    { grid-template-columns: repeat(4, 1fr); }
+.photo-strip img  { height: 110px; width: 100%; object-fit: cover; display: block; }
+
+/* ─── CONTENT GRID (2-col inside pages) ─── */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 20px 32px 24px;
+}
+
+/* ─── MOBILE ─── */
+@media (max-width: 768px) {
+  .page {
+    width: 100%;
+    min-height: unset;
+    margin: 0;
+    border-bottom: 1px solid rgba(183,154,73,.4);
+  }
+
+  .cover, .back-cover { min-height: unset; padding: 48px 20px 40px; }
+  .cover-content { padding: 0; }
+  .cover-title { font-size: 2.6rem; }
+  .cover-subtitle { font-size: 1.15rem; }
+  .cover-tagline { font-size: .9rem; }
+
+  .section-header { padding: 14px 16px; }
+  .section-header .brand img { width: 40px; height: 40px; }
+  .section-header .brand-name { font-size: 1rem; letter-spacing: 2px; }
+  .section-header .page-label { font-size: .85rem; }
+
+  .club-name { font-size: 2rem; }
+  .hero-overlay { padding: 18px 16px; }
+  .price-badge { top: 14px; right: 14px; padding: 8px 14px; }
+  .price-badge .precio { font-size: 1.3rem; }
+
+  .page { height: auto !important; }
+
+  .section-label { font-size: .7rem; }
+  .includes-list li { font-size: .9rem; }
+  .detail-tag { font-size: .78rem; padding: 5px 14px; }
+  .meeting-box-val { font-size: .9rem; }
+  .not-included p { font-size: .8rem; }
+
+  .content-grid { grid-template-columns: 1fr; padding: 16px 16px 20px; gap: 14px; }
+  .content-grid > div { min-width: 0; overflow: hidden; }
+
+  .photo-strip { grid-template-columns: repeat(2, 1fr); }
+  .photo-strip img { height: 180px !important; }
+  .photo-strip > *:nth-child(3),
+  .photo-strip > *:nth-child(4) { display: none; }
+
+  .back-cover-title { font-size: 1.6rem; }
+  .back-cover-tagline { font-size: .85rem; }
+  .contact-list li { font-size: .9rem; }
+
+  #indice { padding-bottom: 24px !important; }
+  #indice > div { padding: 18px 16px 16px !important; }
+  #indice h2 { font-size: 1.6rem !important; }
+  .toc-clubs-grid { grid-template-columns: 1fr !important; }
+  .toc-clubs-grid .toc-entry[style*="border-right"] { border-right: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     PORTADA
+════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-bg"></div>
+  <div class="cover-stars"></div>
+  <button id="lang-toggle" class="lang-toggle">ES | EN</button>
+  <a href="catalogo.html" class="back-to-index" data-i18n="cover.back" style="top:18px; bottom:auto; left:18px;">&#8624; &nbsp;Todos los catálogos</a>
+  <div class="cover-content">
+    <img class="cover-logo" src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="Luxury Horizon">
+    <div class="cover-eyebrow" data-i18n="cover.eyebrow">Medellín · Colombia</div>
+    <h1 class="cover-title" data-i18n="cover.title">Catálogo de<br>Tours</h1>
+    <div class="cover-subtitle" data-i18n="cover.subtitle">Ciudad de la Eterna Primavera</div>
+    <div class="cover-divider"></div>
+    <p class="cover-tagline" data-i18n="cover.tagline">Guatapé, la Comuna 13, miradores inolvidables y la mejor experiencia cafetera de Colombia. Cultura, color y aventura en cada tour.</p>
+  </div>
+  <div class="cover-year" data-i18n="cover.year">Temporada 2026</div>
+  <div class="cover-bottom"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     TABLA DE CONTENIDO
+════════════════════════════════════════ -->
+<div id="indice" class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub" data-i18n="indice.brandsub">TOURS EN MEDELLÍN · 2026</div>
+      </div>
+    </div>
+    <div class="page-label" data-i18n="indice.label" style="font-style:normal; letter-spacing:3px; font-size:.75rem;">ÍNDICE</div>
+  </div>
+
+  <div style="padding:28px 36px 24px;">
+
+    <div style="text-align:center; margin-bottom:28px;">
+      <div data-i18n="cover.eyebrow" style="font-size:.6rem; letter-spacing:5px; color:var(--golden); text-transform:uppercase; margin-bottom:8px;">Medellín · Colombia</div>
+      <h2 data-i18n="indice.title" style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:700; color:var(--midnight); line-height:1.1; letter-spacing:1px;">Nuestros Tours</h2>
+      <div style="width:60px; height:2px; background:linear-gradient(90deg,transparent,var(--golden),transparent); margin:12px auto 0;"></div>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <div style="display:flex; align-items:center; gap:12px; background:var(--midnight); border-radius:6px 6px 0 0; padding:12px 18px;">
+        <span style="font-size:1.4rem;">🗺️</span>
+        <div>
+          <div data-i18n="indice.section.title" style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; color:#fff; letter-spacing:1px;">Tours en Medellín</div>
+          <div data-i18n="indice.section.sub" style="font-size:.6rem; color:var(--golden-light); letter-spacing:2px; text-transform:uppercase; margin-top:2px;">Excursiones · Cultura · Panorámicos</div>
+        </div>
+      </div>
+      <div style="border:1px solid #e8e2d4; border-top:none; border-radius:0 0 6px 6px; overflow:hidden;">
+        <div class="toc-clubs-grid" style="display:grid; grid-template-columns:1fr 1fr;">
+          <a href="#comuna-13-city-tour" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Comuna 13 + City Tour <span data-i18n="indice.tag.comuna13" style="font-size:.65rem; color:#888; font-weight:400;">⭐ Más vendido</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$146.000</span>
+          </a>
+          <a href="#guatape-el-penol" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Guatapé <span style="font-size:.65rem; color:#888; font-weight:400;">El Peñol</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$144.000</span>
+          </a>
+          <a href="#tour-del-cafe" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Tour del Café <span data-i18n="indice.tag.cafe" style="font-size:.65rem; color:#888; font-weight:400;">Finca Cafetera</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$240.000</span>
+          </a>
+          <a href="#miradores-san-felix-el-cielo" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Tour Miradores <span style="font-size:.65rem; color:#888; font-weight:400;">San Félix &amp; El Cielo</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$130.000</span>
+          </a>
+          <a href="#city-tour-diurno" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2; border-right:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">City Tour Diurno <span style="font-size:.65rem; color:#888; font-weight:400;">Comuna 13</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$85.000</span>
+          </a>
+          <a href="#city-tour-nocturno" class="toc-entry" style="padding:9px 16px; border-bottom:1px solid #f0ece2;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">City Tour Nocturno <span data-i18n="indice.tag.nocturno" style="font-size:.65rem; color:#888; font-weight:400;">Chiva Rumbera</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$80.000</span>
+          </a>
+          <a href="#hacienda-napoles" class="toc-entry" style="padding:9px 16px;">
+            <span style="font-size:.8rem; color:#222; font-weight:500;">Hacienda Nápoles <span data-i18n="indice.tag.napoles" style="font-size:.65rem; color:#888; font-weight:400;">Día completo</span></span>
+            <span style="font-size:.72rem; background:var(--golden); color:var(--midnight); padding:2px 9px; border-radius:20px; font-weight:600;">$335.000</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:22px; padding:12px 18px; background:#fdf8f0; border-left:3px solid var(--golden); border-radius:0 4px 4px 0; display:flex; align-items:center; gap:12px;">
+      <span style="font-size:1.1rem;">💬</span>
+      <p data-i18n="indice.footnote" style="font-size:.72rem; color:#555; line-height:1.6; margin:0;">Los precios son <strong>por persona</strong> e incluyen los servicios descritos en cada tour. Salidas diarias desde Medellín. Para grupos o fechas especiales contáctanos por WhatsApp para cotización personalizada.</p>
+    </div>
+
+  </div>
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     COMUNA 13 + CITY TOUR (flagship)
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub" data-i18n="tours.brandsub">TOURS · MEDELLÍN</div>
+      </div>
+    </div>
+    <div class="page-label" data-i18n="comuna13.pagelabel">⭐ Best Seller</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo-medellin/comuna13-1.jpg" alt="Comuna 13 + City Tour hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge" data-i18n="comuna13.badge">Tour Insignia · Medellín</div>
+        <div class="club-name">Comuna 13 + City Tour</div>
+        <div class="club-location" data-i18n="comuna13.location">📍 Punto de encuentro: Carrera 70</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde" data-i18n="price.desde">desde</span>
+      <span class="precio">$146.000</span>
+      <span class="cop">COP · USD $39</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo-medellin/comuna13-2.jpg" alt="Comuna 13 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/comuna13-3.jpg" alt="Comuna 13 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/comuna13-4.jpg" alt="Comuna 13 4" style="width:100%; object-fit:cover; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label" data-i18n="label.includes">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li data-i18n="comuna13.includes.1">Transporte en chiva (sin recogida)</li>
+        <li data-i18n="comuna13.includes.2">Almuerzo típico</li>
+        <li data-i18n="comuna13.includes.3">Guía local en la Comuna 13</li>
+        <li data-i18n="comuna13.includes.4">Guía acompañante durante todo el recorrido</li>
+        <li data-i18n="comuna13.includes.5">Tarjeta de asistencia médica</li>
+        <li data-i18n="comuna13.includes.6">Tour bilingüe — <strong>solicitar con anticipación</strong></li>
+        <li data-i18n="comuna13.includes.7">Escaleras Eléctricas de la Comuna 13</li>
+        <li data-i18n="comuna13.includes.8">Graffitis, shows de trova y Parques del Río</li>
+        <li data-i18n="comuna13.includes.9">Pueblito Paisa · Plaza Botero</li>
+        <li data-i18n="comuna13.includes.10">Paseo en Metro y Metrocable</li>
+        <li data-i18n="comuna13.includes.11">Parque de los Pies Descalzos</li>
+      </ul>
+
+      <div class="meeting-box" style="margin-top:18px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label" data-i18n="label.meetingpoint">Punto de encuentro</div>
+          <div class="meeting-box-val" data-i18n="comuna13.meetingval">Carrera 70 · 8:00 a.m. — Regreso: 5:30 p.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" data-i18n="label.why">Por qué elegir este tour</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:var(--golden); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">⭐</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:700; color:var(--midnight); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="comuna13.why.1.title">El Tour Más Vendido</div>
+            <div style="font-size:.74rem; color:var(--midnight); margin-top:2px; line-height:1.45;" data-i18n="comuna13.why.1.desc">Lo más completo de Medellín en un solo recorrido</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🎨</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="comuna13.why.2.title">Arte Urbano en la Comuna 13</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="comuna13.why.2.desc">Graffitis, escaleras eléctricas y shows de baile</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍽️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="comuna13.why.3.title">Almuerzo Típico Incluido</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="comuna13.why.3.desc">Sabores paisas durante el recorrido</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🚡</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="comuna13.why.4.title">Metro y Metrocable</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="comuna13.why.4.desc">Vistas únicas de la ciudad desde las alturas</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🗣️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="comuna13.why.5.title">Guía Local Todo el Día</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="comuna13.why.5.desc">Historia y contexto real de la transformación de la comuna</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">⏱️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="comuna13.why.6.title">9 Horas de Recorrido</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;" data-i18n="comuna13.why.6.desc">El tour más completo para conocer Medellín</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     GUATAPÉ
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub" data-i18n="tours.brandsub">TOURS · MEDELLÍN</div>
+      </div>
+    </div>
+    <div class="page-label" data-i18n="guatape.pagelabel">Excursión</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo-medellin/guatape-1.jpg" alt="Guatapé hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge" data-i18n="guatape.badge">Excursión de un Día · Guatapé</div>
+        <div class="club-name">Guatapé &amp; El Peñol</div>
+        <div class="club-location" data-i18n="guatape.location">📍 Parque del Poblado y Carrera 70</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde" data-i18n="price.desde">desde</span>
+      <span class="precio">$144.000</span>
+      <span class="cop">COP · USD $33</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo-medellin/guatape-2.jpg" alt="Guatapé 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/guatape-3.jpg" alt="Guatapé 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/guatape-4.jpg" alt="Guatapé 4" style="width:100%; object-fit:cover; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label" data-i18n="label.includes">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li data-i18n="guatape.includes.1">Transporte ida y vuelta</li>
+        <li data-i18n="guatape.includes.2">Punto de encuentro cercano</li>
+        <li data-i18n="guatape.includes.3">Desayuno y almuerzo</li>
+        <li data-i18n="guatape.includes.4">Tour en barco por la represa</li>
+        <li data-i18n="guatape.includes.5">Guía y asistencia médica</li>
+        <li data-i18n="guatape.includes.6">Alto del Chocho — alimenta llamas, peces y show de caballos</li>
+        <li data-i18n="guatape.includes.7">Pueblo y réplica del Peñol</li>
+        <li data-i18n="guatape.includes.8">Calle de los Recuerdos, Plaza de los Zócalos y Calle de las Sombrillas</li>
+        <li data-i18n="guatape.includes.9">Malecón, Parque e Iglesia de Guatapé</li>
+      </ul>
+
+      <div class="not-included" style="margin-top:12px;">
+        <p data-i18n="guatape.notincluded"><strong>No incluye:</strong> entrada a la Piedra del Peñol (1h30 de recorrido en la zona)</p>
+      </div>
+
+      <div class="meeting-box" style="margin-top:14px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label" data-i18n="label.meetingpoint">Punto de encuentro</div>
+          <div class="meeting-box-val" data-i18n="guatape.meetingval">Parque del Poblado y Carrera 70 · 8:00 a.m. — Regreso: 6:00 p.m.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" data-i18n="guatape.whylabel">Por qué elegir Guatapé</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🐑</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="guatape.why.1.title">Alto del Chocho</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="guatape.why.1.desc">Alimenta llamas y peces, disfruta el show de caballos</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🎨</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="guatape.why.2.title">Pueblo de los Zócalos</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="guatape.why.2.desc">Uno de los pueblos más coloridos de Colombia</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">⛴️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="guatape.why.3.title">Crucero por la Represa</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="guatape.why.3.desc">Navega las aguas turquesa del embalse</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍳</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="guatape.why.4.title">Desayuno y Almuerzo</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="guatape.why.4.desc">Incluidos durante todo el recorrido</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🪨</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="guatape.why.5.title">Piedra del Peñol</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;" data-i18n="guatape.why.5.desc">La vista panorámica más icónica de Antioquia</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     TOUR DEL CAFÉ
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub" data-i18n="tours.brandsub">TOURS · MEDELLÍN</div>
+      </div>
+    </div>
+    <div class="page-label" data-i18n="cafe.pagelabel">Cafetero</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo-medellin/cafe-1.jpg" alt="Tour del Café hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge" data-i18n="cafe.badge">Experiencia Cafetera · Región Cafetera</div>
+        <div class="club-name">Tour del Café</div>
+        <div class="club-location" data-i18n="cafe.location">📍 Finca Cafetera · Antioquia</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde" data-i18n="price.desde">desde</span>
+      <span class="precio">$240.000</span>
+      <span class="cop">COP · USD $65</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo-medellin/cafe-2.jpg" alt="Tour del Café 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/cafe-3.jpg" alt="Tour del Café 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/cafe-4.jpg" alt="Tour del Café 4" style="width:100%; object-fit:cover; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label" data-i18n="label.includes">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li data-i18n="cafe.includes.1">Transporte ida y vuelta</li>
+        <li data-i18n="cafe.includes.2">Guía especializado</li>
+        <li data-i18n="cafe.includes.3">Almuerzo típico (fiambre)</li>
+        <li data-i18n="cafe.includes.4">Postre, refrigerio e hidratación</li>
+        <li data-i18n="cafe.includes.5">Cata profesional de café</li>
+        <li data-i18n="cafe.includes.6">Ropa típica prestada para las fotos</li>
+        <li data-i18n="cafe.includes.7">Souvenir de recuerdo</li>
+        <li data-i18n="cafe.includes.8">Asistencia médica</li>
+        <li data-i18n="cafe.includes.9">Recorrido completo: siembra, cosecha y proceso hasta la taza</li>
+      </ul>
+
+      <div class="meeting-box" style="margin-top:18px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label" data-i18n="label.schedule">Horario</div>
+          <div class="meeting-box-val" data-i18n="cafe.meetingval">8:00 a.m. — 3:00 p.m. · Salidas diarias</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" data-i18n="label.why">Por qué elegir este tour</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌱</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="cafe.why.1.title">Del Grano a la Taza</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="cafe.why.1.desc">Todo el proceso del café, desde la siembra hasta la cata</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">👒</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="cafe.why.2.title">Vive como un Cafetero</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="cafe.why.2.desc">Ropa típica incluida para tus fotos</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">☕</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="cafe.why.3.title">Cata Profesional</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="cafe.why.3.desc">Aprende a distinguir aromas y notas como un experto</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍱</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="cafe.why.4.title">Fiambre Típico</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="cafe.why.4.desc">Almuerzo tradicional incluido en medio de las montañas</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🏔️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="cafe.why.5.title">Paisaje Cafetero</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;" data-i18n="cafe.why.5.desc">Entre montañas, aromas y tradición colombiana</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     TOUR MIRADORES
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub" data-i18n="tours.brandsub">TOURS · MEDELLÍN</div>
+      </div>
+    </div>
+    <div class="page-label" data-i18n="miradores.pagelabel">Panorámico</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo-medellin/miradores-1.jpg" alt="Tour Miradores hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge" data-i18n="miradores.badge">Tour Panorámico · Atardecer</div>
+        <div class="club-name">Miradores San Félix &amp; El Cielo</div>
+        <div class="club-location" data-i18n="miradores.location">📍 Salida desde Medellín</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde" data-i18n="price.desde">desde</span>
+      <span class="precio">$130.000</span>
+      <span class="cop">COP · USD $35</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo-medellin/miradores-2.jpg" alt="Miradores 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/miradores-3.jpg" alt="Miradores 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/miradores-4.jpg" alt="Miradores 4" style="width:100%; object-fit:cover; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label" data-i18n="label.includes">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li data-i18n="miradores.includes.1">Transporte ida y vuelta</li>
+        <li data-i18n="miradores.includes.2">Guía durante todo el recorrido</li>
+        <li data-i18n="miradores.includes.3">Una bebida refrescante incluida</li>
+        <li data-i18n="miradores.includes.4">Ingreso de bebidas y alimentos permitidos</li>
+        <li data-i18n="miradores.includes.5">Paradas fotográficas en cada mirador</li>
+        <li data-i18n="miradores.includes.6">Vistas panorámicas de Medellín y sus montañas</li>
+      </ul>
+
+      <div class="meeting-box" style="margin-top:18px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label" data-i18n="label.schedule">Horario</div>
+          <div class="meeting-box-val" data-i18n="miradores.meetingval">Salida: 6:00 p.m. · Duración: 4 horas · Salidas diarias</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" data-i18n="label.why">Por qué elegir este tour</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌅</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="miradores.why.1.title">Mirador San Félix</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="miradores.why.1.desc">Vista privilegiada del Valle de Aburrá al atardecer</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">✨</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="miradores.why.2.title">Mirador El Cielo</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="miradores.why.2.desc">Medellín iluminada, ideal para fotos nocturnas</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🥤</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="miradores.why.3.title">Bebida Incluida</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="miradores.why.3.desc">Refrescante bebida para acompañar la experiencia</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">📸</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="miradores.why.4.title">Paradas Fotográficas</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="miradores.why.4.desc">Los mejores puntos panorámicos de la ciudad</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌆</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="miradores.why.5.title">4 Horas de Tour</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;" data-i18n="miradores.why.5.desc">Salida al atardecer, ideal para parejas y grupos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     CITY TOUR DIURNO
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub" data-i18n="tours.brandsub">TOURS · MEDELLÍN</div>
+      </div>
+    </div>
+    <div class="page-label" data-i18n="diurno.pagelabel">Cultural</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo-medellin/diurno-1.jpg" alt="City Tour Diurno hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge" data-i18n="diurno.badge">City Tour · Comuna 13</div>
+        <div class="club-name">City Tour Diurno</div>
+        <div class="club-location" data-i18n="diurno.location">📍 Punto de encuentro: Carrera 70</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde" data-i18n="price.desde">desde</span>
+      <span class="precio">$85.000</span>
+      <span class="cop">COP · USD $22</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo-medellin/diurno-2.jpg" alt="City Tour Diurno 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/diurno-3.jpg" alt="City Tour Diurno 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/diurno-4.jpg" alt="City Tour Diurno 4" style="width:100%; object-fit:cover; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label" data-i18n="label.includes">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li data-i18n="diurno.includes.1">Transporte ida y vuelta</li>
+        <li data-i18n="diurno.includes.2">Guía permanente durante todo el recorrido</li>
+        <li data-i18n="diurno.includes.3">Recorrido por la Comuna 13: graffitis, escaleras eléctricas y miradores</li>
+        <li data-i18n="diurno.includes.4">Show de baile</li>
+        <li data-i18n="diurno.includes.5">Museo del Café</li>
+        <li data-i18n="diurno.includes.6">Paseo en metro y metrocable</li>
+      </ul>
+
+      <div class="detail-row">
+        <div class="detail-tag"><span class="tag-icon">👶</span> <span data-i18n="diurno.detailtag">Niños mayores de 4 años <strong>pagan igual</strong></span></div>
+      </div>
+
+      <div class="meeting-box" style="margin-top:14px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label" data-i18n="label.schedule">Horario</div>
+          <div class="meeting-box-val" data-i18n="diurno.meetingval">1:30 p.m. — 6:00 p.m. · Salidas diarias</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" data-i18n="label.why">Por qué elegir este tour</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🎨</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="diurno.why.1.title">Arte Urbano</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="diurno.why.1.desc">Graffitis coloridos que cuentan la historia de la comuna</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">💃</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="diurno.why.2.title">Show de Baile</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="diurno.why.2.desc">Energía y ritmo paisa en vivo</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">☕</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="diurno.why.3.title">Museo del Café</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="diurno.why.3.desc">Una probadita de la cultura cafetera colombiana</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🚡</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="diurno.why.4.title">Metro y Metrocable</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="diurno.why.4.desc">Transporte icónico con vistas de la ciudad</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">💰</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="diurno.why.5.title">Ideal Relación Precio-Experiencia</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;" data-i18n="diurno.why.5.desc">Lo esencial de la Comuna 13 en media tarde</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     CITY TOUR NOCTURNO
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub" data-i18n="tours.brandsub">TOURS · MEDELLÍN</div>
+      </div>
+    </div>
+    <div class="page-label" data-i18n="nocturno.pagelabel">Nocturno</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo-medellin/nocturno-1.jpg" alt="City Tour Nocturno hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge" data-i18n="nocturno.badge">Chiva Rumbera · Vida Nocturna</div>
+        <div class="club-name">City Tour Nocturno</div>
+        <div class="club-location" data-i18n="nocturno.location">📍 El Poblado — Parque Lleras</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde" data-i18n="price.desde">desde</span>
+      <span class="precio">$80.000</span>
+      <span class="cop">COP · USD $19</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo-medellin/nocturno-2.jpg" alt="City Tour Nocturno 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/nocturno-3.jpg" alt="City Tour Nocturno 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/nocturno-4.jpg" alt="City Tour Nocturno 4" style="width:100%; object-fit:cover; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label" data-i18n="label.includes">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li data-i18n="nocturno.includes.1">Transporte a bordo de chiva rumbera</li>
+        <li data-i18n="nocturno.includes.2">Guía durante todo el recorrido</li>
+        <li data-i18n="nocturno.includes.3">Ingreso de bebidas y alimentos permitidos</li>
+        <li data-i18n="nocturno.includes.4">Paradas en los mejores paisajes nocturnos</li>
+        <li data-i18n="nocturno.includes.5">Recorrido: El Poblado, San Juan, Parque del Río, Provenza</li>
+        <li data-i18n="nocturno.includes.6">Parque 33, Puente de la 4 Sur, Milla de Oro y mirador</li>
+      </ul>
+
+      <div class="detail-row">
+        <div class="detail-tag"><span class="tag-icon">🥤</span> <span data-i18n="nocturno.tag.1"><strong>$80.000</strong> · una bebida</span></div>
+        <div class="detail-tag"><span class="tag-icon">🍾</span> <span data-i18n="nocturno.tag.2"><strong>$100.000</strong> · barra libre</span></div>
+      </div>
+
+      <div class="meeting-box" style="margin-top:14px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label" data-i18n="label.schedule">Horario</div>
+          <div class="meeting-box-val" data-i18n="nocturno.meetingval">Salida: 7:00 p.m. · Duración: 3:30 horas · Salidas diarias</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" data-i18n="label.why">Por qué elegir este tour</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🎶</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="nocturno.why.1.title">Rumba a Bordo</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="nocturno.why.1.desc">Música y alegría en la tradicional chiva</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌃</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="nocturno.why.2.title">Los Mejores Paisajes Nocturnos</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="nocturno.why.2.desc">Medellín iluminada desde el mirador</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🍾</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="nocturno.why.3.title">Opción Barra Libre</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="nocturno.why.3.desc">Sube tu experiencia con la opción todo incluido</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">📍</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="nocturno.why.4.title">Ruta por El Poblado</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="nocturno.why.4.desc">Parque Lleras, Provenza y la Milla de Oro</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🎉</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="nocturno.why.5.title">Plan Ideal para Grupos</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;" data-i18n="nocturno.why.5.desc">La mejor forma de vivir la noche paisa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="club-footer"></div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     HACIENDA NÁPOLES
+════════════════════════════════════════ -->
+<div class="page" style="min-height:297mm; position:relative; padding-bottom:4px;">
+  <div class="section-header">
+    <div class="brand">
+      <img src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="LH">
+      <div>
+        <div class="brand-name">LUXURY HORIZON</div>
+        <div class="brand-sub" data-i18n="tours.brandsub">TOURS · MEDELLÍN</div>
+      </div>
+    </div>
+    <div class="page-label" data-i18n="napoles.pagelabel">Día Completo</div>
+  </div>
+
+  <div style="position:relative; height:270px; overflow:hidden;">
+    <img loading="lazy" src="images/catalogo-medellin/napoles-1.jpg" alt="Hacienda Nápoles hero" style="width:100%; height:100%; object-fit:cover; display:block;">
+    <div class="hero-overlay">
+      <div>
+        <div class="club-badge" data-i18n="napoles.badge">Parque Temático · Safari</div>
+        <div class="club-name">Hacienda Nápoles</div>
+        <div class="club-location" data-i18n="napoles.location">📍 Doradal, Antioquia</div>
+      </div>
+    </div>
+    <div class="price-badge">
+      <span class="desde" data-i18n="price.desde">desde</span>
+      <span class="precio">$335.000</span>
+      <span class="cop">COP · USD $80</span>
+    </div>
+  </div>
+
+  <div class="photo-strip photo-strip-3" style="display:grid; gap:2px;">
+    <img loading="lazy" src="images/catalogo-medellin/napoles-2.jpg" alt="Hacienda Nápoles 2" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/napoles-3.jpg" alt="Hacienda Nápoles 3" style="width:100%; object-fit:cover; display:block;">
+    <img loading="lazy" src="images/catalogo-medellin/napoles-4.jpg" alt="Hacienda Nápoles 4" style="width:100%; object-fit:cover; display:block;">
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="section-label" data-i18n="label.includes">Qué incluye tu experiencia</div>
+      <ul class="includes-list">
+        <li data-i18n="napoles.includes.1">Transporte en bus ida y vuelta</li>
+        <li data-i18n="napoles.includes.2">Desayuno</li>
+        <li data-i18n="napoles.includes.3">Ingreso a Hacienda Nápoles — Pasaporte de Aventura y Safari</li>
+        <li data-i18n="napoles.includes.4">Atracciones terrestres</li>
+        <li data-i18n="napoles.includes.5">Zonas acuáticas y piscinas</li>
+        <li data-i18n="napoles.includes.6">Visita a Aldea Plaza Santorini</li>
+        <li data-i18n="napoles.includes.7">Safari con hábitats de animales</li>
+        <li data-i18n="napoles.includes.8">Cataratas y Río Salvaje</li>
+        <li data-i18n="napoles.includes.9">Guía acompañante</li>
+        <li data-i18n="napoles.includes.10">Tarjeta de asistencia médica</li>
+      </ul>
+
+      <div class="meeting-box" style="margin-top:18px;">
+        <div class="icon">📍</div>
+        <div class="meeting-box-text">
+          <div class="meeting-box-label" data-i18n="label.schedule">Horario</div>
+          <div class="meeting-box-val" data-i18n="napoles.meetingval">Salida: 5:00 a.m. — Regreso: 9:00 p.m. (13 horas)</div>
+        </div>
+      </div>
+
+      <div class="detail-row">
+        <div class="detail-tag"><span class="tag-icon">📅</span> <span data-i18n="napoles.detailtag">Miércoles a domingos <strong>y festivos</strong></span></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-label" data-i18n="napoles.whylabel">Por qué elegir Hacienda Nápoles</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px; background:var(--golden); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🦁</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:700; color:var(--midnight); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="napoles.why.1.title">Safari de Animales</div>
+            <div style="font-size:.74rem; color:var(--midnight); margin-top:2px; line-height:1.45;" data-i18n="napoles.why.1.desc">Un recorrido único entre hábitats y especies exóticas</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🌊</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="napoles.why.2.title">Zonas Acuáticas</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="napoles.why.2.desc">Piscinas y atracciones para refrescarte todo el día</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🇬🇷</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="napoles.why.3.title">Aldea Plaza Santorini</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="napoles.why.3.desc">Una zona temática única en medio del parque</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">💦</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="napoles.why.4.title">Cataratas y Río Salvaje</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="napoles.why.4.desc">Aventura y adrenalina en las atracciones acuáticas</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:#f9f7f2; border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">🎟️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="napoles.why.5.title">Pasaporte Aventura y Safari</div>
+            <div style="font-size:.74rem; color:#444; margin-top:2px; line-height:1.45;" data-i18n="napoles.why.5.desc">Acceso completo a las principales atracciones</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px; background:var(--midnight); border-radius:4px; padding:12px 14px;">
+          <span style="font-size:1.3rem; flex-shrink:0;">☀️</span>
+          <div>
+            <div style="font-size:.65rem; font-weight:600; color:var(--golden); letter-spacing:1.5px; text-transform:uppercase;" data-i18n="napoles.why.6.title">Plan de Día Completo</div>
+            <div style="font-size:.74rem; color:rgba(240,240,240,.8); margin-top:2px; line-height:1.45;" data-i18n="napoles.why.6.desc">13 horas de aventura ideal para familias y grupos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="club-footer"></div>
+</div>
+
+
+<div class="page back-cover">
+  <div class="back-cover-bg"></div>
+  <div class="back-cover-content">
+    <img class="back-cover-logo" src="https://luxuryhorizon.lat/biolink/assest/logo.jpeg" alt="Luxury Horizon">
+    <div class="back-cover-title">LUXURY HORIZON</div>
+    <div class="back-cover-tagline" data-i18n="back.tagline">Agencia de Viajes de Lujo · Medellín, Colombia</div>
+    <div class="back-cover-divider"></div>
+
+    <ul class="contact-list">
+      <li>
+        <span class="c-icon">💬</span>
+        <span data-i18n="back.whatsapp">WhatsApp: <strong>+57 312 632 2306</strong></span>
+      </li>
+      <li>
+        <span class="c-icon">📸</span>
+        <span data-i18n="back.instagram">Instagram: <strong>@agencialuxuryhorizon_</strong></span>
+      </li>
+      <li>
+        <span class="c-icon">🎵</span>
+        <span data-i18n="back.tiktok">TikTok: <strong>@luxury.horizon_</strong></span>
+      </li>
+    </ul>
+
+    <a class="wa-button" data-i18n="back.wabutton" href="https://wa.me/573126322306?text=Hola%2C%20estoy%20interesado%20en%20conocer%20los%20tours%20de%20Medell%C3%ADn">
+      Reservar por WhatsApp
+    </a>
+
+    <div data-i18n="back.footer" style="font-size:.68rem; color:rgba(240,240,240,.35); letter-spacing:2px; line-height:2;">
+      MEDELLÍN · COLOMBIA<br>
+      TEMPORADA 2026
+    </div>
+  </div>
+  <div class="back-cover-bottom"></div>
+</div>
+
+
+<script>
+(function () {
+  function slugify(t) {
+    return t.trim().toLowerCase()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+  var pages = Array.from(document.querySelectorAll('.page')).filter(function (p) {
+    return !p.classList.contains('cover') && !p.classList.contains('back-cover');
+  });
+  pages.forEach(function (page, i) {
+    if (i === 0) return; // skip TOC page
+    var cn = page.querySelector('.club-name');
+    if (cn) page.id = slugify(cn.textContent);
+    var cf = page.querySelector('.club-footer');
+    if (cf) {
+      var a = document.createElement('a');
+      a.href = '#indice';
+      a.className = 'back-to-index';
+      a.innerHTML = '&#8679; &nbsp;Índice';
+      cf.parentNode.insertBefore(a, cf);
+    }
+  });
+})();
+</script>
+
+<script>
+(function () {
+  var translations = {
+    es: {
+      'cover.back': '&#8624; &nbsp;Todos los catálogos',
+      'cover.eyebrow': 'Medellín · Colombia',
+      'cover.title': 'Catálogo de<br>Tours',
+      'cover.subtitle': 'Ciudad de la Eterna Primavera',
+      'cover.tagline': 'Guatapé, la Comuna 13, miradores inolvidables y la mejor experiencia cafetera de Colombia. Cultura, color y aventura en cada tour.',
+      'cover.year': 'Temporada 2026',
+
+      'indice.brandsub': 'TOURS EN MEDELLÍN · 2026',
+      'indice.label': 'ÍNDICE',
+      'indice.title': 'Nuestros Tours',
+      'indice.section.title': 'Tours en Medellín',
+      'indice.section.sub': 'Excursiones · Cultura · Panorámicos',
+      'indice.tag.comuna13': '⭐ Más vendido',
+      'indice.tag.cafe': 'Finca Cafetera',
+      'indice.tag.nocturno': 'Chiva Rumbera',
+      'indice.tag.napoles': 'Día completo',
+      'indice.footnote': 'Los precios son <strong>por persona</strong> e incluyen los servicios descritos en cada tour. Salidas diarias desde Medellín. Para grupos o fechas especiales contáctanos por WhatsApp para cotización personalizada.',
+
+      'tours.brandsub': 'TOURS · MEDELLÍN',
+      'price.desde': 'desde',
+      'label.includes': 'Qué incluye tu experiencia',
+      'label.why': 'Por qué elegir este tour',
+      'label.meetingpoint': 'Punto de encuentro',
+      'label.schedule': 'Horario',
+
+      'comuna13.pagelabel': '⭐ Best Seller',
+      'comuna13.badge': 'Tour Insignia · Medellín',
+      'comuna13.location': '📍 Punto de encuentro: Carrera 70',
+      'comuna13.includes.1': 'Transporte en chiva (sin recogida)',
+      'comuna13.includes.2': 'Almuerzo típico',
+      'comuna13.includes.3': 'Guía local en la Comuna 13',
+      'comuna13.includes.4': 'Guía acompañante durante todo el recorrido',
+      'comuna13.includes.5': 'Tarjeta de asistencia médica',
+      'comuna13.includes.6': 'Tour bilingüe — <strong>solicitar con anticipación</strong>',
+      'comuna13.includes.7': 'Escaleras Eléctricas de la Comuna 13',
+      'comuna13.includes.8': 'Graffitis, shows de trova y Parques del Río',
+      'comuna13.includes.9': 'Pueblito Paisa · Plaza Botero',
+      'comuna13.includes.10': 'Paseo en Metro y Metrocable',
+      'comuna13.includes.11': 'Parque de los Pies Descalzos',
+      'comuna13.meetingval': 'Carrera 70 · 8:00 a.m. — Regreso: 5:30 p.m.',
+      'comuna13.why.1.title': 'El Tour Más Vendido',
+      'comuna13.why.1.desc': 'Lo más completo de Medellín en un solo recorrido',
+      'comuna13.why.2.title': 'Arte Urbano en la Comuna 13',
+      'comuna13.why.2.desc': 'Graffitis, escaleras eléctricas y shows de baile',
+      'comuna13.why.3.title': 'Almuerzo Típico Incluido',
+      'comuna13.why.3.desc': 'Sabores paisas durante el recorrido',
+      'comuna13.why.4.title': 'Metro y Metrocable',
+      'comuna13.why.4.desc': 'Vistas únicas de la ciudad desde las alturas',
+      'comuna13.why.5.title': 'Guía Local Todo el Día',
+      'comuna13.why.5.desc': 'Historia y contexto real de la transformación de la comuna',
+      'comuna13.why.6.title': '9 Horas de Recorrido',
+      'comuna13.why.6.desc': 'El tour más completo para conocer Medellín',
+
+      'guatape.pagelabel': 'Excursión',
+      'guatape.badge': 'Excursión de un Día · Guatapé',
+      'guatape.location': '📍 Parque del Poblado y Carrera 70',
+      'guatape.includes.1': 'Transporte ida y vuelta',
+      'guatape.includes.2': 'Punto de encuentro cercano',
+      'guatape.includes.3': 'Desayuno y almuerzo',
+      'guatape.includes.4': 'Tour en barco por la represa',
+      'guatape.includes.5': 'Guía y asistencia médica',
+      'guatape.includes.6': 'Alto del Chocho — alimenta llamas, peces y show de caballos',
+      'guatape.includes.7': 'Pueblo y réplica del Peñol',
+      'guatape.includes.8': 'Calle de los Recuerdos, Plaza de los Zócalos y Calle de las Sombrillas',
+      'guatape.includes.9': 'Malecón, Parque e Iglesia de Guatapé',
+      'guatape.notincluded': '<strong>No incluye:</strong> entrada a la Piedra del Peñol (1h30 de recorrido en la zona)',
+      'guatape.meetingval': 'Parque del Poblado y Carrera 70 · 8:00 a.m. — Regreso: 6:00 p.m.',
+      'guatape.whylabel': 'Por qué elegir Guatapé',
+      'guatape.why.1.title': 'Alto del Chocho',
+      'guatape.why.1.desc': 'Alimenta llamas y peces, disfruta el show de caballos',
+      'guatape.why.2.title': 'Pueblo de los Zócalos',
+      'guatape.why.2.desc': 'Uno de los pueblos más coloridos de Colombia',
+      'guatape.why.3.title': 'Crucero por la Represa',
+      'guatape.why.3.desc': 'Navega las aguas turquesa del embalse',
+      'guatape.why.4.title': 'Desayuno y Almuerzo',
+      'guatape.why.4.desc': 'Incluidos durante todo el recorrido',
+      'guatape.why.5.title': 'Piedra del Peñol',
+      'guatape.why.5.desc': 'La vista panorámica más icónica de Antioquia',
+
+      'cafe.pagelabel': 'Cafetero',
+      'cafe.badge': 'Experiencia Cafetera · Región Cafetera',
+      'cafe.location': '📍 Finca Cafetera · Antioquia',
+      'cafe.includes.1': 'Transporte ida y vuelta',
+      'cafe.includes.2': 'Guía especializado',
+      'cafe.includes.3': 'Almuerzo típico (fiambre)',
+      'cafe.includes.4': 'Postre, refrigerio e hidratación',
+      'cafe.includes.5': 'Cata profesional de café',
+      'cafe.includes.6': 'Ropa típica prestada para las fotos',
+      'cafe.includes.7': 'Souvenir de recuerdo',
+      'cafe.includes.8': 'Asistencia médica',
+      'cafe.includes.9': 'Recorrido completo: siembra, cosecha y proceso hasta la taza',
+      'cafe.meetingval': '8:00 a.m. — 3:00 p.m. · Salidas diarias',
+      'cafe.why.1.title': 'Del Grano a la Taza',
+      'cafe.why.1.desc': 'Todo el proceso del café, desde la siembra hasta la cata',
+      'cafe.why.2.title': 'Vive como un Cafetero',
+      'cafe.why.2.desc': 'Ropa típica incluida para tus fotos',
+      'cafe.why.3.title': 'Cata Profesional',
+      'cafe.why.3.desc': 'Aprende a distinguir aromas y notas como un experto',
+      'cafe.why.4.title': 'Fiambre Típico',
+      'cafe.why.4.desc': 'Almuerzo tradicional incluido en medio de las montañas',
+      'cafe.why.5.title': 'Paisaje Cafetero',
+      'cafe.why.5.desc': 'Entre montañas, aromas y tradición colombiana',
+
+      'miradores.pagelabel': 'Panorámico',
+      'miradores.badge': 'Tour Panorámico · Atardecer',
+      'miradores.location': '📍 Salida desde Medellín',
+      'miradores.includes.1': 'Transporte ida y vuelta',
+      'miradores.includes.2': 'Guía durante todo el recorrido',
+      'miradores.includes.3': 'Una bebida refrescante incluida',
+      'miradores.includes.4': 'Ingreso de bebidas y alimentos permitidos',
+      'miradores.includes.5': 'Paradas fotográficas en cada mirador',
+      'miradores.includes.6': 'Vistas panorámicas de Medellín y sus montañas',
+      'miradores.meetingval': 'Salida: 6:00 p.m. · Duración: 4 horas · Salidas diarias',
+      'miradores.why.1.title': 'Mirador San Félix',
+      'miradores.why.1.desc': 'Vista privilegiada del Valle de Aburrá al atardecer',
+      'miradores.why.2.title': 'Mirador El Cielo',
+      'miradores.why.2.desc': 'Medellín iluminada, ideal para fotos nocturnas',
+      'miradores.why.3.title': 'Bebida Incluida',
+      'miradores.why.3.desc': 'Refrescante bebida para acompañar la experiencia',
+      'miradores.why.4.title': 'Paradas Fotográficas',
+      'miradores.why.4.desc': 'Los mejores puntos panorámicos de la ciudad',
+      'miradores.why.5.title': '4 Horas de Tour',
+      'miradores.why.5.desc': 'Salida al atardecer, ideal para parejas y grupos',
+
+      'diurno.pagelabel': 'Cultural',
+      'diurno.badge': 'City Tour · Comuna 13',
+      'diurno.location': '📍 Punto de encuentro: Carrera 70',
+      'diurno.includes.1': 'Transporte ida y vuelta',
+      'diurno.includes.2': 'Guía permanente durante todo el recorrido',
+      'diurno.includes.3': 'Recorrido por la Comuna 13: graffitis, escaleras eléctricas y miradores',
+      'diurno.includes.4': 'Show de baile',
+      'diurno.includes.5': 'Museo del Café',
+      'diurno.includes.6': 'Paseo en metro y metrocable',
+      'diurno.detailtag': 'Niños mayores de 4 años <strong>pagan igual</strong>',
+      'diurno.meetingval': '1:30 p.m. — 6:00 p.m. · Salidas diarias',
+      'diurno.why.1.title': 'Arte Urbano',
+      'diurno.why.1.desc': 'Graffitis coloridos que cuentan la historia de la comuna',
+      'diurno.why.2.title': 'Show de Baile',
+      'diurno.why.2.desc': 'Energía y ritmo paisa en vivo',
+      'diurno.why.3.title': 'Museo del Café',
+      'diurno.why.3.desc': 'Una probadita de la cultura cafetera colombiana',
+      'diurno.why.4.title': 'Metro y Metrocable',
+      'diurno.why.4.desc': 'Transporte icónico con vistas de la ciudad',
+      'diurno.why.5.title': 'Ideal Relación Precio-Experiencia',
+      'diurno.why.5.desc': 'Lo esencial de la Comuna 13 en media tarde',
+
+      'nocturno.pagelabel': 'Nocturno',
+      'nocturno.badge': 'Chiva Rumbera · Vida Nocturna',
+      'nocturno.location': '📍 El Poblado — Parque Lleras',
+      'nocturno.includes.1': 'Transporte a bordo de chiva rumbera',
+      'nocturno.includes.2': 'Guía durante todo el recorrido',
+      'nocturno.includes.3': 'Ingreso de bebidas y alimentos permitidos',
+      'nocturno.includes.4': 'Paradas en los mejores paisajes nocturnos',
+      'nocturno.includes.5': 'Recorrido: El Poblado, San Juan, Parque del Río, Provenza',
+      'nocturno.includes.6': 'Parque 33, Puente de la 4 Sur, Milla de Oro y mirador',
+      'nocturno.tag.1': '<strong>$80.000</strong> · una bebida',
+      'nocturno.tag.2': '<strong>$100.000</strong> · barra libre',
+      'nocturno.meetingval': 'Salida: 7:00 p.m. · Duración: 3:30 horas · Salidas diarias',
+      'nocturno.why.1.title': 'Rumba a Bordo',
+      'nocturno.why.1.desc': 'Música y alegría en la tradicional chiva',
+      'nocturno.why.2.title': 'Los Mejores Paisajes Nocturnos',
+      'nocturno.why.2.desc': 'Medellín iluminada desde el mirador',
+      'nocturno.why.3.title': 'Opción Barra Libre',
+      'nocturno.why.3.desc': 'Sube tu experiencia con la opción todo incluido',
+      'nocturno.why.4.title': 'Ruta por El Poblado',
+      'nocturno.why.4.desc': 'Parque Lleras, Provenza y la Milla de Oro',
+      'nocturno.why.5.title': 'Plan Ideal para Grupos',
+      'nocturno.why.5.desc': 'La mejor forma de vivir la noche paisa',
+
+      'napoles.pagelabel': 'Día Completo',
+      'napoles.badge': 'Parque Temático · Safari',
+      'napoles.location': '📍 Doradal, Antioquia',
+      'napoles.includes.1': 'Transporte en bus ida y vuelta',
+      'napoles.includes.2': 'Desayuno',
+      'napoles.includes.3': 'Ingreso a Hacienda Nápoles — Pasaporte de Aventura y Safari',
+      'napoles.includes.4': 'Atracciones terrestres',
+      'napoles.includes.5': 'Zonas acuáticas y piscinas',
+      'napoles.includes.6': 'Visita a Aldea Plaza Santorini',
+      'napoles.includes.7': 'Safari con hábitats de animales',
+      'napoles.includes.8': 'Cataratas y Río Salvaje',
+      'napoles.includes.9': 'Guía acompañante',
+      'napoles.includes.10': 'Tarjeta de asistencia médica',
+      'napoles.detailtag': 'Miércoles a domingos <strong>y festivos</strong>',
+      'napoles.meetingval': 'Salida: 5:00 a.m. — Regreso: 9:00 p.m. (13 horas)',
+      'napoles.whylabel': 'Por qué elegir Hacienda Nápoles',
+      'napoles.why.1.title': 'Safari de Animales',
+      'napoles.why.1.desc': 'Un recorrido único entre hábitats y especies exóticas',
+      'napoles.why.2.title': 'Zonas Acuáticas',
+      'napoles.why.2.desc': 'Piscinas y atracciones para refrescarte todo el día',
+      'napoles.why.3.title': 'Aldea Plaza Santorini',
+      'napoles.why.3.desc': 'Una zona temática única en medio del parque',
+      'napoles.why.4.title': 'Cataratas y Río Salvaje',
+      'napoles.why.4.desc': 'Aventura y adrenalina en las atracciones acuáticas',
+      'napoles.why.5.title': 'Pasaporte Aventura y Safari',
+      'napoles.why.5.desc': 'Acceso completo a las principales atracciones',
+      'napoles.why.6.title': 'Plan de Día Completo',
+      'napoles.why.6.desc': '13 horas de aventura ideal para familias y grupos',
+
+      'back.tagline': 'Agencia de Viajes de Lujo · Medellín, Colombia',
+      'back.whatsapp': 'WhatsApp: <strong>+57 312 632 2306</strong>',
+      'back.instagram': 'Instagram: <strong>@agencialuxuryhorizon_</strong>',
+      'back.tiktok': 'TikTok: <strong>@luxury.horizon_</strong>',
+      'back.wabutton': 'Reservar por WhatsApp',
+      'back.footer': 'MEDELLÍN · COLOMBIA<br>\n      TEMPORADA 2026'
+    },
+    en: {
+      'cover.back': '&#8624; &nbsp;All catalogs',
+      'cover.eyebrow': 'Medellín · Colombia',
+      'cover.title': 'Tour<br>Catalog',
+      'cover.subtitle': 'City of Eternal Spring',
+      'cover.tagline': "Guatapé, Comuna 13, unforgettable viewpoints and Colombia's best coffee experience. Culture, color and adventure in every tour.",
+      'cover.year': '2026 Season',
+
+      'indice.brandsub': 'MEDELLÍN TOURS · 2026',
+      'indice.label': 'INDEX',
+      'indice.title': 'Our Tours',
+      'indice.section.title': 'Tours in Medellín',
+      'indice.section.sub': 'Excursions · Culture · Scenic',
+      'indice.tag.comuna13': '⭐ Best seller',
+      'indice.tag.cafe': 'Coffee Farm',
+      'indice.tag.nocturno': 'Chiva Rumbera (Party Bus)',
+      'indice.tag.napoles': 'Full day',
+      'indice.footnote': 'Prices are <strong>per person</strong> and include the services described in each tour. Daily departures from Medellín. For groups or special dates, contact us on WhatsApp for a personalized quote.',
+
+      'tours.brandsub': 'TOURS · MEDELLÍN',
+      'price.desde': 'from',
+      'label.includes': "What's included in your experience",
+      'label.why': 'Why choose this tour',
+      'label.meetingpoint': 'Meeting point',
+      'label.schedule': 'Schedule',
+
+      'comuna13.pagelabel': '⭐ Best Seller',
+      'comuna13.badge': 'Flagship Tour · Medellín',
+      'comuna13.location': '📍 Meeting point: Carrera 70',
+      'comuna13.includes.1': 'Transportation by chiva (no pickup)',
+      'comuna13.includes.2': 'Traditional lunch',
+      'comuna13.includes.3': 'Local guide in Comuna 13',
+      'comuna13.includes.4': 'Escort guide throughout the tour',
+      'comuna13.includes.5': 'Medical assistance card',
+      'comuna13.includes.6': 'Bilingual tour — <strong>request in advance</strong>',
+      'comuna13.includes.7': 'Comuna 13 Electric Escalators',
+      'comuna13.includes.8': 'Graffiti, trova music shows and Parques del Río',
+      'comuna13.includes.9': 'Pueblito Paisa · Botero Plaza',
+      'comuna13.includes.10': 'Metro and Metrocable ride',
+      'comuna13.includes.11': 'Parque de los Pies Descalzos',
+      'comuna13.meetingval': 'Carrera 70 · 8:00 a.m. — Return: 5:30 p.m.',
+      'comuna13.why.1.title': 'The Best-Selling Tour',
+      'comuna13.why.1.desc': 'The most complete way to see Medellín in a single tour',
+      'comuna13.why.2.title': 'Urban Art in Comuna 13',
+      'comuna13.why.2.desc': 'Graffiti, electric escalators and dance shows',
+      'comuna13.why.3.title': 'Traditional Lunch Included',
+      'comuna13.why.3.desc': 'Paisa flavors throughout the tour',
+      'comuna13.why.4.title': 'Metro and Metrocable',
+      'comuna13.why.4.desc': 'Unique views of the city from above',
+      'comuna13.why.5.title': 'Local Guide All Day',
+      'comuna13.why.5.desc': "Real history and context of the neighborhood's transformation",
+      'comuna13.why.6.title': '9 Hours of Touring',
+      'comuna13.why.6.desc': 'The most complete tour to get to know Medellín',
+
+      'guatape.pagelabel': 'Excursion',
+      'guatape.badge': 'Day Trip · Guatapé',
+      'guatape.location': '📍 Parque del Poblado and Carrera 70',
+      'guatape.includes.1': 'Round-trip transportation',
+      'guatape.includes.2': 'Nearby meeting point',
+      'guatape.includes.3': 'Breakfast and lunch',
+      'guatape.includes.4': 'Boat tour on the reservoir',
+      'guatape.includes.5': 'Guide and medical assistance',
+      'guatape.includes.6': 'Alto del Chocho — feed llamas, fish and enjoy the horse show',
+      'guatape.includes.7': 'Town and replica of El Peñol',
+      'guatape.includes.8': 'Calle de los Recuerdos, Plaza de los Zócalos and Calle de las Sombrillas',
+      'guatape.includes.9': 'Waterfront, park and church of Guatapé',
+      'guatape.notincluded': '<strong>Not included:</strong> entrance to La Piedra del Peñol (1h30 visit to the site)',
+      'guatape.meetingval': 'Parque del Poblado and Carrera 70 · 8:00 a.m. — Return: 6:00 p.m.',
+      'guatape.whylabel': 'Why choose Guatapé',
+      'guatape.why.1.title': 'Alto del Chocho',
+      'guatape.why.1.desc': 'Feed llamas and fish, enjoy the horse show',
+      'guatape.why.2.title': 'The Town of the Zócalos',
+      'guatape.why.2.desc': 'One of the most colorful towns in Colombia',
+      'guatape.why.3.title': 'Reservoir Cruise',
+      'guatape.why.3.desc': 'Sail the turquoise waters of the reservoir',
+      'guatape.why.4.title': 'Breakfast and Lunch',
+      'guatape.why.4.desc': 'Included throughout the tour',
+      'guatape.why.5.title': 'La Piedra del Peñol',
+      'guatape.why.5.desc': "Antioquia's most iconic panoramic view",
+
+      'cafe.pagelabel': 'Coffee Tour',
+      'cafe.badge': 'Coffee Experience · Coffee Region',
+      'cafe.location': '📍 Coffee Farm · Antioquia',
+      'cafe.includes.1': 'Round-trip transportation',
+      'cafe.includes.2': 'Specialized guide',
+      'cafe.includes.3': 'Traditional lunch (fiambre)',
+      'cafe.includes.4': 'Dessert, snack and hydration',
+      'cafe.includes.5': 'Professional coffee tasting',
+      'cafe.includes.6': 'Traditional outfit provided for photos',
+      'cafe.includes.7': 'Souvenir keepsake',
+      'cafe.includes.8': 'Medical assistance',
+      'cafe.includes.9': 'Full tour: planting, harvesting and the process to the cup',
+      'cafe.meetingval': '8:00 a.m. — 3:00 p.m. · Daily departures',
+      'cafe.why.1.title': 'From Bean to Cup',
+      'cafe.why.1.desc': 'The whole coffee process, from planting to tasting',
+      'cafe.why.2.title': 'Live Like a Coffee Grower',
+      'cafe.why.2.desc': 'Traditional outfit included for your photos',
+      'cafe.why.3.title': 'Professional Tasting',
+      'cafe.why.3.desc': 'Learn to tell aromas and notes apart like an expert',
+      'cafe.why.4.title': 'Traditional Fiambre',
+      'cafe.why.4.desc': 'Traditional lunch included amid the mountains',
+      'cafe.why.5.title': 'Coffee Landscape',
+      'cafe.why.5.desc': 'Among mountains, aromas and Colombian tradition',
+
+      'miradores.pagelabel': 'Scenic',
+      'miradores.badge': 'Scenic Tour · Sunset',
+      'miradores.location': '📍 Departure from Medellín',
+      'miradores.includes.1': 'Round-trip transportation',
+      'miradores.includes.2': 'Guide throughout the tour',
+      'miradores.includes.3': 'One refreshing drink included',
+      'miradores.includes.4': 'Outside drinks and food allowed',
+      'miradores.includes.5': 'Photo stops at every viewpoint',
+      'miradores.includes.6': 'Panoramic views of Medellín and its mountains',
+      'miradores.meetingval': 'Departure: 6:00 p.m. · Duration: 4 hours · Daily departures',
+      'miradores.why.1.title': 'San Félix Viewpoint',
+      'miradores.why.1.desc': 'A privileged view of the Aburrá Valley at sunset',
+      'miradores.why.2.title': 'El Cielo Viewpoint',
+      'miradores.why.2.desc': 'Medellín lit up at night, perfect for photos',
+      'miradores.why.3.title': 'Drink Included',
+      'miradores.why.3.desc': 'A refreshing drink to enjoy the experience',
+      'miradores.why.4.title': 'Photo Stops',
+      'miradores.why.4.desc': "The city's best panoramic spots",
+      'miradores.why.5.title': '4 Hours of Touring',
+      'miradores.why.5.desc': 'Sunset departure, ideal for couples and groups',
+
+      'diurno.pagelabel': 'Cultural',
+      'diurno.badge': 'City Tour · Comuna 13',
+      'diurno.location': '📍 Meeting point: Carrera 70',
+      'diurno.includes.1': 'Round-trip transportation',
+      'diurno.includes.2': 'Guide throughout the entire tour',
+      'diurno.includes.3': 'Tour of Comuna 13: graffiti, electric escalators and viewpoints',
+      'diurno.includes.4': 'Dance show',
+      'diurno.includes.5': 'Coffee Museum',
+      'diurno.includes.6': 'Metro and Metrocable ride',
+      'diurno.detailtag': 'Children over 4 years old <strong>pay full price</strong>',
+      'diurno.meetingval': '1:30 p.m. — 6:00 p.m. · Daily departures',
+      'diurno.why.1.title': 'Urban Art',
+      'diurno.why.1.desc': "Colorful graffiti that tells the neighborhood's story",
+      'diurno.why.2.title': 'Dance Show',
+      'diurno.why.2.desc': 'Live paisa energy and rhythm',
+      'diurno.why.3.title': 'Coffee Museum',
+      'diurno.why.3.desc': 'A taste of Colombian coffee culture',
+      'diurno.why.4.title': 'Metro and Metrocable',
+      'diurno.why.4.desc': 'Iconic transportation with views of the city',
+      'diurno.why.5.title': 'Ideal Value for Experience',
+      'diurno.why.5.desc': 'The essentials of Comuna 13 in an afternoon',
+
+      'nocturno.pagelabel': 'Nightlife',
+      'nocturno.badge': 'Chiva Rumbera · Nightlife',
+      'nocturno.location': '📍 El Poblado — Parque Lleras',
+      'nocturno.includes.1': 'Transportation aboard the party chiva',
+      'nocturno.includes.2': 'Guide throughout the tour',
+      'nocturno.includes.3': 'Outside drinks and food allowed',
+      'nocturno.includes.4': 'Stops at the best nighttime views',
+      'nocturno.includes.5': 'Route: El Poblado, San Juan, Parque del Río, Provenza',
+      'nocturno.includes.6': 'Parque 33, Puente de la 4 Sur, Milla de Oro and viewpoint',
+      'nocturno.tag.1': '<strong>$80.000</strong> · one drink',
+      'nocturno.tag.2': '<strong>$100.000</strong> · open bar',
+      'nocturno.meetingval': 'Departure: 7:00 p.m. · Duration: 3:30 hours · Daily departures',
+      'nocturno.why.1.title': 'Party on Board',
+      'nocturno.why.1.desc': 'Music and joy aboard the traditional chiva',
+      'nocturno.why.2.title': 'The Best Night Views',
+      'nocturno.why.2.desc': 'Medellín lit up, seen from the viewpoint',
+      'nocturno.why.3.title': 'Open Bar Option',
+      'nocturno.why.3.desc': 'Upgrade your experience with the all-inclusive option',
+      'nocturno.why.4.title': 'Route Through El Poblado',
+      'nocturno.why.4.desc': 'Parque Lleras, Provenza and the Milla de Oro',
+      'nocturno.why.5.title': 'Ideal Plan for Groups',
+      'nocturno.why.5.desc': 'The best way to experience paisa nightlife',
+
+      'napoles.pagelabel': 'Full Day',
+      'napoles.badge': 'Theme Park · Safari',
+      'napoles.location': '📍 Doradal, Antioquia',
+      'napoles.includes.1': 'Round-trip bus transportation',
+      'napoles.includes.2': 'Breakfast',
+      'napoles.includes.3': 'Entrance to Hacienda Nápoles — Adventure and Safari Pass',
+      'napoles.includes.4': 'Land attractions',
+      'napoles.includes.5': 'Water areas and pools',
+      'napoles.includes.6': 'Visit to Aldea Plaza Santorini',
+      'napoles.includes.7': 'Safari with animal habitats',
+      'napoles.includes.8': 'Waterfalls and Río Salvaje',
+      'napoles.includes.9': 'Escort guide',
+      'napoles.includes.10': 'Medical assistance card',
+      'napoles.detailtag': 'Wednesday through Sunday <strong>and holidays</strong>',
+      'napoles.meetingval': 'Departure: 5:00 a.m. — Return: 9:00 p.m. (13 hours)',
+      'napoles.whylabel': 'Why choose Hacienda Nápoles',
+      'napoles.why.1.title': 'Animal Safari',
+      'napoles.why.1.desc': 'A unique journey through habitats and exotic species',
+      'napoles.why.2.title': 'Water Areas',
+      'napoles.why.2.desc': 'Pools and attractions to cool off all day',
+      'napoles.why.3.title': 'Aldea Plaza Santorini',
+      'napoles.why.3.desc': 'A unique themed area in the middle of the park',
+      'napoles.why.4.title': 'Waterfalls and Río Salvaje',
+      'napoles.why.4.desc': 'Adventure and adrenaline on the water attractions',
+      'napoles.why.5.title': 'Adventure and Safari Pass',
+      'napoles.why.5.desc': 'Full access to the main attractions',
+      'napoles.why.6.title': 'Full-Day Plan',
+      'napoles.why.6.desc': '13 hours of adventure, ideal for families and groups',
+
+      'back.tagline': 'Luxury Travel Agency · Medellín, Colombia',
+      'back.whatsapp': 'WhatsApp: <strong>+57 312 632 2306</strong>',
+      'back.instagram': 'Instagram: <strong>@agencialuxuryhorizon_</strong>',
+      'back.tiktok': 'TikTok: <strong>@luxury.horizon_</strong>',
+      'back.wabutton': 'Book via WhatsApp',
+      'back.footer': 'MEDELLÍN · COLOMBIA<br>2026 SEASON'
+    }
+  };
+
+  var saved = localStorage.getItem('lh-lang');
+  var browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  var lang = saved || (browserLang.startsWith('es') ? 'es' : 'en');
+
+  function applyLang(l) {
+    lang = l;
+    localStorage.setItem('lh-lang', l);
+    document.documentElement.lang = l;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      var val = translations[l][key];
+      if (val) el.innerHTML = val;
+    });
+    var btn = document.getElementById('lang-toggle');
+    if (btn) btn.textContent = l === 'es' ? 'ES | EN' : 'EN | ES';
+  }
+
+  document.getElementById('lang-toggle').addEventListener('click', function () {
+    applyLang(lang === 'es' ? 'en' : 'es');
+  });
+
+  applyLang(lang);
+})();
+</script>
+
+<a class="wa-fab" href="https://wa.me/573126322306?text=Hola%2C%20vi%20el%20cat%C3%A1logo%20de%20tours%20en%20Medell%C3%ADn%20de%20Luxury%20Horizon%20y%20estoy%20interesado%20en%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.855L.057 23.633a.75.75 0 0 0 .92.92l5.808-1.463A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.696 9.696 0 0 1-4.951-1.355l-.355-.21-3.448.869.884-3.42-.23-.368A9.696 9.696 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+</a>
+
+</body>
+</html>

@@ -115,14 +115,15 @@ Interactive quotation document — filled in the browser and exported to PDF. No
 
 **Design** matches corporate palette (Cormorant Garamond + Jost, `--midnight` / `--golden`). Signature boxes at the bottom use a 2-col grid (`.firmas`).
 
-### Catalog (`website/catalogo.html`)
+### Catalogs (`website/catalogo.html`, `cartagena.html`, `medellin.html`, `sai.html`)
 
-PDF-ready club catalog — 6 pages (cover, Pao Pao, Mangata, Sabai, comparison grid, back cover). Open in browser and use **Cmd+P → Save as PDF** in Chrome/Safari.
+`website/catalogo.html` is a **hub landing page** with three cards linking to each destination catalog — served as the index for the `catalogo.luxuryhorizon.lat` subdomain (nginx `root` points at `website/`, so `/cartagena.html`, `/medellin.html`, `/sai.html` resolve directly, no extra server config needed).
 
-- Images live in `website/images/catalogo/` (downloaded from Google Drive — see Drive IDs in Claude memory)
-- Responsive: desktop shows A4 pages; mobile shows full-width with 1px golden separator between pages
-- To add a new club page: copy the Sabai page block. Use plain block stacking with explicit `height` on `<img>` tags — **do not use `height:297mm + flex:1 + overflow:hidden`** on the page div (causes images to render over text)
-- New images from Drive: use `mcp__claude_ai_Google_Drive__download_file_content` → decode with Python (see `catalogo_drive.md` memory) → save to `website/images/catalogo/`
+- **`website/cartagena.html`** — PDF-ready club catalog (cover, beach clubs, tours, back cover). Images in `website/images/catalogo/`. To add a new club page, copy the Sabai page block. Use plain block stacking with explicit `height` on `<img>` tags — **do not use `height:297mm + flex:1 + overflow:hidden`** on the page div (causes images to render over text).
+- **`website/medellin.html`** — PDF-ready Medellín tour catalog (Guatapé, Comuna 13, Tour del Café, Miradores, etc.). Images in `website/images/catalogo-medellin/`. Same page-block pattern as Cartagena.
+- **`website/sai.html`** — "coming soon" placeholder for San Andrés y Providencia; not yet a real catalog.
+- Both PDF catalogs are open in browser + **Cmd+P → Save as PDF** in Chrome/Safari; responsive (desktop shows A4 pages, mobile shows full-width with 1px golden separator between pages).
+- New images from Drive: use `mcp__claude_ai_Google_Drive__download_file_content` → decode with Python (see `catalogo_drive.md` memory) → save to the matching `website/images/catalogo*/` folder.
 
 ### Design System
 
@@ -203,7 +204,7 @@ Leer con `mcp__claude_ai_Google_Drive__read_file_content` usando el ID del sprea
 2. Descargar con `mcp__claude_ai_Google_Drive__download_file_content` — el resultado es JSON `{content (base64), id, mimeType, title}` guardado en disco.
 3. Procesar con Python Pillow — **siempre** corregir EXIF y recortar a 1200×800px, quality=82. Si Pillow no está: `pip3 install Pillow --break-system-packages`.
 4. Guardar en `website/images/catalogo/{clubname}-{n}.jpg` (minúsculas, sin espacios).
-5. Actualizar `<img src="...">` en `website/catalogo.html` con `Edit` (nunca `Write` sobre todo el archivo).
+5. Actualizar `<img src="...">` en `website/cartagena.html` con `Edit` (nunca `Write` sobre todo el archivo).
 6. Saltar archivos PNG mayores de 20MB.
 
 ## Key URLs

@@ -529,14 +529,14 @@
         </div>
       </div>
 
-      <div class="dest-card">
+      <div class="dest-card dest-card--link" onclick="filterTours('Medellín')" title="Ver tours de Medellín">
         <div class="dest-bg medellin-bg"></div>
         <div class="dest-overlay"></div>
-        <span class="dest-soon" data-i18n="dest.soon">Muy Pronto</span>
         <div class="dest-info">
           <span class="tag">Andes</span>
           <h3>Medellín</h3>
           <p data-i18n="dest.medellin">La ciudad de la eterna primavera, innovación y cultura.</p>
+          <span class="dest-cta">Ver tours →</span>
         </div>
       </div>
 
@@ -567,6 +567,7 @@
     <div class="tour-filters">
       <button class="filter-pill active" onclick="filterTours('all')">Todos</button>
       <button class="filter-pill" onclick="filterTours('cartagena')">Cartagena</button>
+      <button class="filter-pill" onclick="filterTours('Medellín')">Medellín</button>
     </div>
     <div class="tours-grid">
 
@@ -661,6 +662,101 @@
               </span>
             </div>
             <a href="https://wa.me/573126322306?text=Hola!%20Me%20interesa%20el%20Luxury%20Atardecer%20Catamar%C3%A1n" target="_blank" class="tour-link" data-i18n="tours.book">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card" data-city="Medellín">
+        <div class="tour-img" data-slides='["images/medellin-comuna13-card.jpg"]'>
+          <div class="tour-img-bg"></div>
+          <span class="tour-badge" data-i18n="tours.popular">Más Popular</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tours.comuna13.title">Comuna 13 + City Tour</h3>
+          <p data-i18n="tours.comuna13.desc">El barrio más colorido de Medellín: graffitis, escaleras eléctricas, metrocable y la mejor energía paisa.</p>
+          <div class="tour-meta">
+            <div style="display:flex;gap:1.2rem;">
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                9h
+              </span>
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                2–20
+              </span>
+            </div>
+            <a href="https://wa.me/573126322306?text=Hola!%20Me%20interesa%20el%20tour%20Comuna%2013%20%2B%20City%20Tour" target="_blank" class="tour-link" data-i18n="tours.book">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card" data-city="Medellín">
+        <div class="tour-img" data-slides='["images/medellin-guatape-card.jpg"]'>
+          <div class="tour-img-bg"></div>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tours.guatape.title">Guatapé &amp; El Peñol</h3>
+          <p data-i18n="tours.guatape.desc">El pueblo de los zócalos, la represa turquesa y la icónica Piedra del Peñol, a un paso de Medellín.</p>
+          <div class="tour-meta">
+            <div style="display:flex;gap:1.2rem;">
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <span data-i18n="tours.fullday">Día completo</span>
+              </span>
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                2–20
+              </span>
+            </div>
+            <a href="https://wa.me/573126322306?text=Hola!%20Me%20interesa%20el%20tour%20Guatap%C3%A9" target="_blank" class="tour-link" data-i18n="tours.book">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card" data-city="Medellín">
+        <div class="tour-img" data-slides='["images/medellin-cafe-card.jpg"]'>
+          <div class="tour-img-bg"></div>
+          <span class="tour-badge" style="background:var(--bronze);" data-i18n="tours.exclusive">Exclusivo</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tours.cafe.title">Tour del Café</h3>
+          <p data-i18n="tours.cafe.desc">Vive el proceso del café desde la siembra hasta la taza, con cata profesional y almuerzo típico incluido.</p>
+          <div class="tour-meta">
+            <div style="display:flex;gap:1.2rem;">
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                7h
+              </span>
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                2–15
+              </span>
+            </div>
+            <a href="https://wa.me/573126322306?text=Hola!%20Me%20interesa%20el%20Tour%20del%20Caf%C3%A9" target="_blank" class="tour-link" data-i18n="tours.book">Reservar →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card" data-city="Medellín">
+        <div class="tour-img" data-slides='["images/medellin-nocturno-card.jpg"]'>
+          <div class="tour-img-bg"></div>
+          <span class="tour-badge" style="background:var(--teal);color:var(--midnight);" data-i18n="tours.night">Nocturno</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-i18n="tours.nocturno.title">City Tour Nocturno</h3>
+          <p data-i18n="tours.nocturno.desc">Recorre El Poblado, Provenza y los mejores miradores en una chiva rumbera llena de música y color.</p>
+          <div class="tour-meta">
+            <div style="display:flex;gap:1.2rem;">
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                3.5h
+              </span>
+              <span class="tour-detail">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                2–20
+              </span>
+            </div>
+            <a href="https://wa.me/573126322306?text=Hola!%20Me%20interesa%20el%20City%20Tour%20Nocturno%20en%20Medell%C3%ADn" target="_blank" class="tour-link" data-i18n="tours.book">Reservar →</a>
           </div>
         </div>
       </div>
@@ -821,7 +917,7 @@
         <h4 data-i18n="footer.dest">Destinos</h4>
         <ul>
           <li><a href="#destinations">Cartagena</a></li>
-          <li><a href="#destinations">Medellín <span style="color:var(--bronze);font-size:0.7rem;" data-i18n="dest.soon">Muy Pronto</span></a></li>
+          <li><a href="https://catalogo.luxuryhorizon.lat/medellin.html" target="_blank" rel="noopener">Medellín</a></li>
           <li><a href="#destinations">San Andrés <span style="color:var(--bronze);font-size:0.7rem;" data-i18n="dest.soon">Muy Pronto</span></a></li>
         </ul>
       </div>
@@ -931,6 +1027,10 @@
       'tours.baru.title': 'Playa Blanca, Barú', 'tours.baru.desc': 'La playa más famosa de Colombia. Alimenta mapaches, visita el aviario, haz snorkeling en aguas cristalinas y vive la mágica experiencia del plancton.',
       'tours.city.title': 'Tour Ciudad Amurallada', 'tours.city.desc': 'Descubre la historia, arquitectura colonial y los secretos de la Cartagena histórica.',
       'tours.sunset.title': 'Luxury Atardecer Catamarán', 'tours.sunset.desc': 'Navega al atardecer con open bar premium, música en vivo y vistas espectaculares de la bahía.',
+      'tours.comuna13.title': 'Comuna 13 + City Tour', 'tours.comuna13.desc': 'El barrio más colorido de Medellín: graffitis, escaleras eléctricas, metrocable y la mejor energía paisa.',
+      'tours.guatape.title': 'Guatapé &amp; El Peñol', 'tours.guatape.desc': 'El pueblo de los zócalos, la represa turquesa y la icónica Piedra del Peñol, a un paso de Medellín.',
+      'tours.cafe.title': 'Tour del Café', 'tours.cafe.desc': 'Vive el proceso del café desde la siembra hasta la taza, con cata profesional y almuerzo típico incluido.',
+      'tours.nocturno.title': 'City Tour Nocturno', 'tours.nocturno.desc': 'Recorre El Poblado, Provenza y los mejores miradores en una chiva rumbera llena de música y color.',
       'tours.fullday': 'Día completo', 'tours.book': 'Reservar →', 'tours.catalog': 'Ver Catálogo Completo',
       'why.tag': '¿Por qué Luxury Horizon?', 'why.title': "Tu Viaje, <em style='color:var(--golden);font-style:italic'>Nuestra Pasión</em>",
       'why.desc': 'Somos una agencia boutique especializada en crear experiencias únicas en los destinos más hermosos de Colombia. Cada detalle es cuidado con precisión para que tu viaje sea perfecto.',
@@ -969,6 +1069,10 @@
       'tours.baru.title': 'Playa Blanca, Barú', 'tours.baru.desc': "Colombia's most famous beach. Feed raccoons, visit the aviary, snorkel in crystal-clear waters and experience the magical plankton tour.",
       'tours.city.title': 'Walled City Tour', 'tours.city.desc': 'Discover the history, colonial architecture and secrets of historic Cartagena.',
       'tours.sunset.title': 'Luxury Sunset Catamaran', 'tours.sunset.desc': 'Sail at sunset with premium open bar, live music and spectacular views of the bay.',
+      'tours.comuna13.title': 'Comuna 13 + City Tour', 'tours.comuna13.desc': "Medellín's most colorful neighborhood: street art, escalators, cable cars, and the best paisa energy.",
+      'tours.guatape.title': 'Guatapé &amp; El Peñol', 'tours.guatape.desc': 'The town of colorful zócalos, the turquoise reservoir, and the iconic Peñol Rock, just outside Medellín.',
+      'tours.cafe.title': 'Coffee Tour', 'tours.cafe.desc': 'Experience coffee from seed to cup, with a professional tasting and a traditional lunch included.',
+      'tours.nocturno.title': 'Night City Tour', 'tours.nocturno.desc': 'Cruise through El Poblado, Provenza, and the best viewpoints aboard a rumbera chiva full of music and color.',
       'tours.fullday': 'Full day', 'tours.book': 'Book Now →', 'tours.catalog': 'View Full Catalog',
       'why.tag': 'Why Luxury Horizon?', 'why.title': "Your Journey, <em style='color:var(--golden);font-style:italic'>Our Passion</em>",
       'why.desc': 'We are a boutique agency specialized in creating unique experiences in Colombia\'s most beautiful destinations. Every detail is carefully curated so your trip is perfect.',
